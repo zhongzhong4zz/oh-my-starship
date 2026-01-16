@@ -16,6 +16,11 @@ pub fn run() {
             commands::save_config_content,
             commands::create_backup,
             commands::restore_backup,
+            commands::get_starship_toml,
+            commands::save_starship_toml,
+            commands::apply_preset,
+            commands::get_backup_list,
+            commands::restore_from_backup,
         ])
         .setup(|app| {
             let window = app.get_webview_window("main").unwrap();

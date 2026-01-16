@@ -17,6 +17,10 @@ const routes: RouteObject[] = [
         lazy: () => import('@/pages/config-editor'),
       },
       {
+        path: 'starship',
+        lazy: () => import('@/pages/starship'),
+      },
+      {
         path: 'settings',
         lazy: () => import('@/pages/settings'),
       },
