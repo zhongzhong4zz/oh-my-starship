@@ -73,7 +73,7 @@ export function TimeModule() {
 
       <div className="flex items-center justify-between rounded-lg border border-border p-4">
         <div className="space-y-0.5">
-          <Label htmlFor="disabled">Disable Module</Label>
+          <Label htmlFor="disabled">Hide Time</Label>
           <p className="text-xs text-muted-foreground">
             The time module is disabled by default. Enable it to show the current time.
           </p>

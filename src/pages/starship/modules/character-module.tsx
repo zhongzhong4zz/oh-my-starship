@@ -70,7 +70,7 @@ export function CharacterModule() {
 
       <div className="flex items-center justify-between rounded-lg border border-border p-4">
         <div className="space-y-0.5">
-          <Label htmlFor="disabled">Disable Module</Label>
+          <Label htmlFor="disabled">Hide Character</Label>
           <p className="text-xs text-muted-foreground">Hide the character module from your prompt</p>
         </div>
         <Switch

@@ -119,7 +119,7 @@ export function GitModule() {
           <form onSubmit={branchForm.handleSubmit(onBranchSubmit)} className="space-y-4">
             <div className="flex items-center justify-between rounded-lg border border-border p-4">
               <div className="space-y-0.5">
-                <Label htmlFor="branch-disabled">Disable Module</Label>
+                <Label htmlFor="branch-disabled">Hide Git Branch</Label>
                 <p className="text-xs text-muted-foreground">Hide git branch from your prompt</p>
               </div>
               <Switch
@@ -192,7 +192,7 @@ export function GitModule() {
           <form onSubmit={statusForm.handleSubmit(onStatusSubmit)} className="space-y-4">
             <div className="flex items-center justify-between rounded-lg border border-border p-4">
               <div className="space-y-0.5">
-                <Label htmlFor="status-disabled">Disable Module</Label>
+                <Label htmlFor="status-disabled">Hide Git Status</Label>
                 <p className="text-xs text-muted-foreground">Hide git status from your prompt</p>
               </div>
               <Switch
