@@ -1,5 +1,5 @@
 import { Outlet, NavLink } from 'react-router-dom';
-import { Settings, FileText, Terminal } from 'lucide-react';
+import { FileText, Terminal, Palette } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 export function Home() {
@@ -48,8 +48,8 @@ export function Home() {
               )
             }
           >
-            <Settings className="h-4 w-4" />
-            Settings
+            <Palette className="h-4 w-4" />
+            Themes
           </NavLink>
         </nav>
       </aside>
