@@ -1,12 +1,15 @@
 import { Outlet, NavLink } from 'react-router-dom';
 import { Settings, FileText, Terminal } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { cn } from '@/lib/utils';
 
 export function Home() {
+  const { t } = useTranslation();
+
   return (
     <div className="flex h-full">
       <aside className="w-48 border-r border-border bg-card p-4">
-        <h1 className="mb-6 text-lg font-semibold">Starship Config</h1>
+        <h1 className="mb-6 text-lg font-semibold">{t('nav.title')}</h1>
         <nav className="space-y-1">
           <NavLink
             to="/"
@@ -21,7 +24,7 @@ export function Home() {
             }
           >
             <FileText className="h-4 w-4" />
-            Configs
+            {t('nav.configs')}
           </NavLink>
           <NavLink
             to="/starship"
@@ -35,7 +38,7 @@ export function Home() {
             }
           >
             <Terminal className="h-4 w-4" />
-            Starship
+            {t('nav.starship')}
           </NavLink>
           <NavLink
             to="/settings"
@@ -49,7 +52,7 @@ export function Home() {
             }
           >
             <Settings className="h-4 w-4" />
-            Settings
+            {t('nav.settings')}
           </NavLink>
         </nav>
       </aside>

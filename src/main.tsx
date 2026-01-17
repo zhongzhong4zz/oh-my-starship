@@ -2,6 +2,7 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { App } from './app';
 
+import '@/i18n';
 import { getSettings } from '@/services/cmds';
 import { applyTheme } from '@/lib/utils';
 import { Themes } from './types';

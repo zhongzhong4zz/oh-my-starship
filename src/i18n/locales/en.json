@@ -1,0 +1,182 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "save": "Save",
+    "reset": "Reset",
+    "back": "Back",
+    "apply": "Apply",
+    "active": "Active",
+    "saving": "Saving...",
+    "saveChanges": "Save Changes"
+  },
+  "nav": {
+    "title": "Starship Config",
+    "configs": "Configs",
+    "starship": "Starship",
+    "settings": "Settings"
+  },
+  "settings": {
+    "title": "Settings",
+    "theme": "Theme",
+    "language": "Language",
+    "themes": {
+      "light": "Light",
+      "dark": "Dark",
+      "system": "System"
+    },
+    "languages": {
+      "en": "English",
+      "zh": "中文"
+    }
+  },
+  "configList": {
+    "title": "Configuration Files",
+    "noConfigs": "No configuration files found"
+  },
+  "configEditor": {
+    "saveSuccess": "Configuration saved successfully",
+    "saveFailed": "Failed to save configuration"
+  },
+  "starship": {
+    "title": "Starship Configuration",
+    "tabs": {
+      "presets": "Presets",
+      "modules": "Modules",
+      "toml": "TOML Editor"
+    },
+    "presets": {
+      "description": "Choose a preset to quickly configure your Starship prompt. Your current configuration will be backed up automatically.",
+      "applySuccess": "Applied \"{{name}}\" preset",
+      "applyFailed": "Failed to apply preset"
+    },
+    "toml": {
+      "backups": "Backups",
+      "availableBackups": "Available Backups",
+      "placeholder": "# Starship configuration",
+      "saveSuccess": "Configuration saved",
+      "saveFailed": "Failed to save configuration",
+      "restoreSuccess": "Backup restored",
+      "restoreFailed": "Failed to restore backup"
+    },
+    "modules": {
+      "character": {
+        "name": "Character",
+        "description": "Prompt symbol",
+        "title": "Character Module",
+        "subtitle": "Configure the prompt character that appears at the beginning of your prompt.",
+        "hideCharacter": "Hide Character",
+        "hideDescription": "Hide the character module from your prompt",
+        "successSymbol": "Success Symbol",
+        "successSymbolDesc": "Symbol shown when the previous command succeeded",
+        "errorSymbol": "Error Symbol",
+        "errorSymbolDesc": "Symbol shown when the previous command failed",
+        "vimcmdSymbol": "Vim Command Symbol",
+        "vimcmdSymbolDesc": "Symbol shown in vim normal mode",
+        "vimcmdReplaceSymbol": "Vim Replace Symbol",
+        "vimcmdReplaceSymbolDesc": "Symbol shown in vim replace mode",
+        "vimcmdVisualSymbol": "Vim Visual Symbol",
+        "vimcmdVisualSymbolDesc": "Symbol shown in vim visual mode",
+        "style": "Style",
+        "styleDesc": "Style for the character (e.g., bold green, #ff0000)",
+        "saveSuccess": "Character module saved"
+      },
+      "directory": {
+        "name": "Directory",
+        "description": "Path display",
+        "title": "Directory Module",
+        "subtitle": "Configure how the current directory path is displayed in your prompt.",
+        "hideDirectory": "Hide Directory",
+        "hideDescription": "Hide the directory module from your prompt",
+        "truncationLength": "Truncation Length",
+        "truncationLengthDesc": "Number of parent directories to show",
+        "truncationSymbol": "Truncation Symbol",
+        "truncationSymbolDesc": "Symbol used to indicate truncated paths",
+        "truncateToRepo": "Truncate to Repo Root",
+        "truncateToRepoDesc": "Truncate to the root of the git repository",
+        "style": "Style",
+        "styleDesc": "Style for the directory path",
+        "format": "Format",
+        "formatDesc": "Format string for the directory display",
+        "homeSymbol": "Home Symbol",
+        "homeSymbolDesc": "Symbol used to represent the home directory",
+        "readOnlySymbol": "Read-Only Symbol",
+        "readOnlySymbolDesc": "Symbol shown for read-only directories",
+        "readOnlyStyle": "Read-Only Style",
+        "readOnlyStyleDesc": "Style for the read-only indicator",
+        "saveSuccess": "Directory module saved"
+      },
+      "git": {
+        "name": "Git",
+        "description": "Branch and status",
+        "title": "Git Module",
+        "subtitle": "Configure how git information is displayed in your prompt.",
+        "branch": {
+          "tab": "Git Branch",
+          "hide": "Hide Git Branch",
+          "hideDesc": "Hide git branch from your prompt",
+          "symbol": "Symbol",
+          "style": "Style",
+          "format": "Format",
+          "truncationLength": "Truncation Length",
+          "truncationSymbol": "Truncation Symbol",
+          "saveSuccess": "Git branch module saved"
+        },
+        "status": {
+          "tab": "Git Status",
+          "hide": "Hide Git Status",
+          "hideDesc": "Hide git status from your prompt",
+          "style": "Style",
+          "format": "Format",
+          "ahead": "Ahead",
+          "behind": "Behind",
+          "diverged": "Diverged",
+          "conflicted": "Conflicted",
+          "untracked": "Untracked",
+          "stashed": "Stashed",
+          "modified": "Modified",
+          "staged": "Staged",
+          "renamed": "Renamed",
+          "deleted": "Deleted",
+          "saveSuccess": "Git status module saved"
+        }
+      },
+      "time": {
+        "name": "Time",
+        "description": "Time display",
+        "title": "Time Module",
+        "subtitle": "Configure the time display in your prompt.",
+        "hideTime": "Hide Time",
+        "hideDescription": "The time module is disabled by default. Enable it to show the current time.",
+        "timeFormat": "Time Format",
+        "timeFormatDesc": "Format string using strftime syntax. Common formats:",
+        "displayFormat": "Display Format",
+        "displayFormatDesc": "Format string for the time display. Use $time for the formatted time.",
+        "style": "Style",
+        "styleDesc": "Style for the time display (e.g., bold yellow, #ff0000)",
+        "use12hr": "Use 12-Hour Format",
+        "use12hrDesc": "Use 12-hour time format with AM/PM",
+        "saveSuccess": "Time module saved"
+      },
+      "languages": {
+        "name": "Languages",
+        "description": "Runtime versions",
+        "title": "Language Modules",
+        "subtitle": "Configure how programming language versions are displayed in your prompt.",
+        "disable": "Disable {{name}} Module",
+        "disableDesc": "Hide {{name}} version from your prompt",
+        "symbol": "Symbol",
+        "symbolDesc": "Symbol displayed before the version",
+        "style": "Style",
+        "styleDesc": "Style for the module (e.g., bold green, #ff0000)",
+        "format": "Format",
+        "formatDesc": "Format string for the module display",
+        "versionFormat": "Version Format",
+        "versionFormatDesc": "Format string for the version number",
+        "saveButton": "Save {{name}}",
+        "saveSuccess": "{{name}} module saved"
+      },
+      "saveFailed": "Failed to save: {{message}}"
+    }
+  }
+}
+

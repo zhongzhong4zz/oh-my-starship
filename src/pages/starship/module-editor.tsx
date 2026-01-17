@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { ChevronRight, Terminal, FolderOpen, GitBranch, Clock, Code } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { CharacterModule } from './modules/character-module';
 import { DirectoryModule } from './modules/directory-module';
 import { GitModule } from './modules/git-module';
@@ -9,16 +10,17 @@ import { cn } from '@/lib/utils';
 
 type ModuleSection = 'character' | 'directory' | 'git' | 'time' | 'languages';
 
-const sections = [
-  { id: 'character' as const, name: 'Character', icon: Terminal, description: 'Prompt symbol' },
-  { id: 'directory' as const, name: 'Directory', icon: FolderOpen, description: 'Path display' },
-  { id: 'git' as const, name: 'Git', icon: GitBranch, description: 'Branch and status' },
-  { id: 'time' as const, name: 'Time', icon: Clock, description: 'Time display' },
-  { id: 'languages' as const, name: 'Languages', icon: Code, description: 'Runtime versions' },
-];
-
 export function ModuleEditor() {
+  const { t } = useTranslation();
   const [activeSection, setActiveSection] = useState<ModuleSection>('character');
+
+  const sections = [
+    { id: 'character' as const, name: t('starship.modules.character.name'), icon: Terminal, description: t('starship.modules.character.description') },
+    { id: 'directory' as const, name: t('starship.modules.directory.name'), icon: FolderOpen, description: t('starship.modules.directory.description') },
+    { id: 'git' as const, name: t('starship.modules.git.name'), icon: GitBranch, description: t('starship.modules.git.description') },
+    { id: 'time' as const, name: t('starship.modules.time.name'), icon: Clock, description: t('starship.modules.time.description') },
+    { id: 'languages' as const, name: t('starship.modules.languages.name'), icon: Code, description: t('starship.modules.languages.description') },
+  ];
 
   return (
     <div className="flex h-[calc(100vh-220px)] gap-4">

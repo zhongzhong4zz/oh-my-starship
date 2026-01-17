@@ -1,16 +1,18 @@
 import { useNavigate } from 'react-router-dom';
 import { FileText, Lock } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { useConfigList } from '@/lib/query';
 import { cn } from '@/lib/utils';
 
 export function ConfigList() {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const { data: configs, isLoading } = useConfigList();
 
   if (isLoading) {
     return (
       <div className="flex h-full items-center justify-center">
-        <span className="text-muted-foreground">Loading...</span>
+        <span className="text-muted-foreground">{t('common.loading')}</span>
       </div>
     );
   }
@@ -19,14 +21,14 @@ export function ConfigList() {
     return (
       <div className="flex h-full flex-col items-center justify-center gap-2">
         <FileText className="h-12 w-12 text-muted-foreground" />
-        <p className="text-muted-foreground">No configuration files found</p>
+        <p className="text-muted-foreground">{t('configList.noConfigs')}</p>
       </div>
     );
   }
 
   return (
     <div className="space-y-4">
-      <h2 className="text-xl font-semibold">Configuration Files</h2>
+      <h2 className="text-xl font-semibold">{t('configList.title')}</h2>
       <div className="grid gap-3">
         {configs.map((config) => (
           <button

@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
+import { useTranslation } from 'react-i18next';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Switch } from '@/components/ui/switch';
@@ -33,6 +34,7 @@ const defaults: DirectoryFormData = {
 };
 
 export function DirectoryModule() {
+  const { t } = useTranslation();
   const { data: toml, isLoading } = useStarshipToml();
   const { mutate: saveToml, isPending } = useSaveStarshipToml();
 
@@ -54,28 +56,28 @@ export function DirectoryModule() {
 
     const updatedToml = updateTomlSection(toml, 'directory', data);
     saveToml(updatedToml, {
-      onSuccess: () => toast.success('Directory module saved'),
-      onError: (error) => toast.error(`Failed to save: ${error.message}`),
+      onSuccess: () => toast.success(t('starship.modules.directory.saveSuccess')),
+      onError: (error) => toast.error(t('starship.modules.saveFailed', { message: error.message })),
     });
   };
 
   if (isLoading) {
-    return <div className="text-sm text-muted-foreground">Loading...</div>;
+    return <div className="text-sm text-muted-foreground">{t('common.loading')}</div>;
   }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
       <div>
-        <h3 className="text-lg font-medium">Directory Module</h3>
+        <h3 className="text-lg font-medium">{t('starship.modules.directory.title')}</h3>
         <p className="text-sm text-muted-foreground">
-          Configure how the current directory path is displayed in your prompt.
+          {t('starship.modules.directory.subtitle')}
         </p>
       </div>
 
       <div className="flex items-center justify-between rounded-lg border border-border p-4">
         <div className="space-y-0.5">
-          <Label htmlFor="disabled">Hide Directory</Label>
-          <p className="text-xs text-muted-foreground">Hide the directory module from your prompt</p>
+          <Label htmlFor="disabled">{t('starship.modules.directory.hideDirectory')}</Label>
+          <p className="text-xs text-muted-foreground">{t('starship.modules.directory.hideDescription')}</p>
         </div>
         <Switch
           id="disabled"
@@ -86,7 +88,7 @@ export function DirectoryModule() {
 
       <div className="grid gap-4">
         <div className="space-y-2">
-          <Label htmlFor="truncation_length">Truncation Length</Label>
+          <Label htmlFor="truncation_length">{t('starship.modules.directory.truncationLength')}</Label>
           <Input
             id="truncation_length"
             type="number"
@@ -95,12 +97,12 @@ export function DirectoryModule() {
             disabled={disabled}
           />
           <p className="text-xs text-muted-foreground">
-            Number of parent directories to show
+            {t('starship.modules.directory.truncationLengthDesc')}
           </p>
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="truncation_symbol">Truncation Symbol</Label>
+          <Label htmlFor="truncation_symbol">{t('starship.modules.directory.truncationSymbol')}</Label>
           <Input
             id="truncation_symbol"
             {...register('truncation_symbol')}
@@ -108,15 +110,15 @@ export function DirectoryModule() {
             disabled={disabled}
           />
           <p className="text-xs text-muted-foreground">
-            Symbol used to indicate truncated paths
+            {t('starship.modules.directory.truncationSymbolDesc')}
           </p>
         </div>
 
         <div className="flex items-center justify-between rounded-lg border border-border p-4">
           <div className="space-y-0.5">
-            <Label htmlFor="truncate_to_repo">Truncate to Repo Root</Label>
+            <Label htmlFor="truncate_to_repo">{t('starship.modules.directory.truncateToRepo')}</Label>
             <p className="text-xs text-muted-foreground">
-              Truncate to the root of the git repository
+              {t('starship.modules.directory.truncateToRepoDesc')}
             </p>
           </div>
           <Switch
@@ -128,7 +130,7 @@ export function DirectoryModule() {
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="style">Style</Label>
+          <Label htmlFor="style">{t('starship.modules.directory.style')}</Label>
           <Input
             id="style"
             {...register('style')}
@@ -136,12 +138,12 @@ export function DirectoryModule() {
             disabled={disabled}
           />
           <p className="text-xs text-muted-foreground">
-            Style for the directory path
+            {t('starship.modules.directory.styleDesc')}
           </p>
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="format">Format</Label>
+          <Label htmlFor="format">{t('starship.modules.directory.format')}</Label>
           <Input
             id="format"
             {...register('format')}
@@ -149,12 +151,12 @@ export function DirectoryModule() {
             disabled={disabled}
           />
           <p className="text-xs text-muted-foreground">
-            Format string for the directory display
+            {t('starship.modules.directory.formatDesc')}
           </p>
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="home_symbol">Home Symbol</Label>
+          <Label htmlFor="home_symbol">{t('starship.modules.directory.homeSymbol')}</Label>
           <Input
             id="home_symbol"
             {...register('home_symbol')}
@@ -162,12 +164,12 @@ export function DirectoryModule() {
             disabled={disabled}
           />
           <p className="text-xs text-muted-foreground">
-            Symbol used to represent the home directory
+            {t('starship.modules.directory.homeSymbolDesc')}
           </p>
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="read_only">Read-Only Symbol</Label>
+          <Label htmlFor="read_only">{t('starship.modules.directory.readOnlySymbol')}</Label>
           <Input
             id="read_only"
             {...register('read_only')}
@@ -175,12 +177,12 @@ export function DirectoryModule() {
             disabled={disabled}
           />
           <p className="text-xs text-muted-foreground">
-            Symbol shown for read-only directories
+            {t('starship.modules.directory.readOnlySymbolDesc')}
           </p>
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="read_only_style">Read-Only Style</Label>
+          <Label htmlFor="read_only_style">{t('starship.modules.directory.readOnlyStyle')}</Label>
           <Input
             id="read_only_style"
             {...register('read_only_style')}
@@ -188,13 +190,13 @@ export function DirectoryModule() {
             disabled={disabled}
           />
           <p className="text-xs text-muted-foreground">
-            Style for the read-only indicator
+            {t('starship.modules.directory.readOnlyStyleDesc')}
           </p>
         </div>
       </div>
 
       <Button type="submit" disabled={isPending}>
-        {isPending ? 'Saving...' : 'Save Changes'}
+        {isPending ? t('common.saving') : t('common.saveChanges')}
       </Button>
     </form>
   );

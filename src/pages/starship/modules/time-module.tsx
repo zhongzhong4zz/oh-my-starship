@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
+import { useTranslation } from 'react-i18next';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Switch } from '@/components/ui/switch';
@@ -32,6 +33,7 @@ const timeFormatExamples = [
 ];
 
 export function TimeModule() {
+  const { t } = useTranslation();
   const { data: toml, isLoading } = useStarshipToml();
   const { mutate: saveToml, isPending } = useSaveStarshipToml();
 
@@ -53,29 +55,29 @@ export function TimeModule() {
 
     const updatedToml = updateTomlSection(toml, 'time', data);
     saveToml(updatedToml, {
-      onSuccess: () => toast.success('Time module saved'),
-      onError: (error) => toast.error(`Failed to save: ${error.message}`),
+      onSuccess: () => toast.success(t('starship.modules.time.saveSuccess')),
+      onError: (error) => toast.error(t('starship.modules.saveFailed', { message: error.message })),
     });
   };
 
   if (isLoading) {
-    return <div className="text-sm text-muted-foreground">Loading...</div>;
+    return <div className="text-sm text-muted-foreground">{t('common.loading')}</div>;
   }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
       <div>
-        <h3 className="text-lg font-medium">Time Module</h3>
+        <h3 className="text-lg font-medium">{t('starship.modules.time.title')}</h3>
         <p className="text-sm text-muted-foreground">
-          Configure the time display in your prompt.
+          {t('starship.modules.time.subtitle')}
         </p>
       </div>
 
       <div className="flex items-center justify-between rounded-lg border border-border p-4">
         <div className="space-y-0.5">
-          <Label htmlFor="disabled">Hide Time</Label>
+          <Label htmlFor="disabled">{t('starship.modules.time.hideTime')}</Label>
           <p className="text-xs text-muted-foreground">
-            The time module is disabled by default. Enable it to show the current time.
+            {t('starship.modules.time.hideDescription')}
           </p>
         </div>
         <Switch
@@ -87,7 +89,7 @@ export function TimeModule() {
 
       <div className="grid gap-4">
         <div className="space-y-2">
-          <Label htmlFor="time_format">Time Format</Label>
+          <Label htmlFor="time_format">{t('starship.modules.time.timeFormat')}</Label>
           <Input
             id="time_format"
             {...register('time_format')}
@@ -95,7 +97,7 @@ export function TimeModule() {
             disabled={disabled}
           />
           <div className="text-xs text-muted-foreground space-y-1">
-            <p>Format string using strftime syntax. Common formats:</p>
+            <p>{t('starship.modules.time.timeFormatDesc')}</p>
             <ul className="list-inside list-disc ml-2">
               {timeFormatExamples.map((example) => (
                 <li key={example.value}>
@@ -107,7 +109,7 @@ export function TimeModule() {
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="format">Display Format</Label>
+          <Label htmlFor="format">{t('starship.modules.time.displayFormat')}</Label>
           <Input
             id="format"
             {...register('format')}
@@ -115,12 +117,12 @@ export function TimeModule() {
             disabled={disabled}
           />
           <p className="text-xs text-muted-foreground">
-            Format string for the time display. Use $time for the formatted time.
+            {t('starship.modules.time.displayFormatDesc')}
           </p>
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="style">Style</Label>
+          <Label htmlFor="style">{t('starship.modules.time.style')}</Label>
           <Input
             id="style"
             {...register('style')}
@@ -128,15 +130,15 @@ export function TimeModule() {
             disabled={disabled}
           />
           <p className="text-xs text-muted-foreground">
-            Style for the time display (e.g., bold yellow, #ff0000)
+            {t('starship.modules.time.styleDesc')}
           </p>
         </div>
 
         <div className="flex items-center justify-between rounded-lg border border-border p-4">
           <div className="space-y-0.5">
-            <Label htmlFor="use_12hr">Use 12-Hour Format</Label>
+            <Label htmlFor="use_12hr">{t('starship.modules.time.use12hr')}</Label>
             <p className="text-xs text-muted-foreground">
-              Use 12-hour time format with AM/PM
+              {t('starship.modules.time.use12hrDesc')}
             </p>
           </div>
           <Switch
@@ -149,7 +151,7 @@ export function TimeModule() {
       </div>
 
       <Button type="submit" disabled={isPending}>
-        {isPending ? 'Saving...' : 'Save Changes'}
+        {isPending ? t('common.saving') : t('common.saveChanges')}
       </Button>
     </form>
   );

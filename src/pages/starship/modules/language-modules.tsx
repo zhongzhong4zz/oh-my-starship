@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
+import { useTranslation } from 'react-i18next';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Switch } from '@/components/ui/switch';
@@ -124,6 +125,7 @@ const languages: LanguageDefinition[] = [
 ];
 
 export function LanguageModules() {
+  const { t } = useTranslation();
   const [selectedLang, setSelectedLang] = useState<string>(languages[0].id);
   const { data: toml, isLoading } = useStarshipToml();
   const { mutate: saveToml, isPending } = useSaveStarshipToml();
@@ -148,21 +150,21 @@ export function LanguageModules() {
 
     const updatedToml = updateTomlSection(toml, currentLang.sectionName, data);
     saveToml(updatedToml, {
-      onSuccess: () => toast.success(`${currentLang.name} module saved`),
-      onError: (error) => toast.error(`Failed to save: ${error.message}`),
+      onSuccess: () => toast.success(t('starship.modules.languages.saveSuccess', { name: currentLang.name })),
+      onError: (error) => toast.error(t('starship.modules.saveFailed', { message: error.message })),
     });
   };
 
   if (isLoading) {
-    return <div className="text-sm text-muted-foreground">Loading...</div>;
+    return <div className="text-sm text-muted-foreground">{t('common.loading')}</div>;
   }
 
   return (
     <div className="space-y-6">
       <div>
-        <h3 className="text-lg font-medium">Language Modules</h3>
+        <h3 className="text-lg font-medium">{t('starship.modules.languages.title')}</h3>
         <p className="text-sm text-muted-foreground">
-          Configure how programming language versions are displayed in your prompt.
+          {t('starship.modules.languages.subtitle')}
         </p>
       </div>
 
@@ -187,9 +189,9 @@ export function LanguageModules() {
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <div className="flex items-center justify-between rounded-lg border border-border p-4">
           <div className="space-y-0.5">
-            <Label htmlFor="disabled">Disable {currentLang.name} Module</Label>
+            <Label htmlFor="disabled">{t('starship.modules.languages.disable', { name: currentLang.name })}</Label>
             <p className="text-xs text-muted-foreground">
-              Hide {currentLang.name} version from your prompt
+              {t('starship.modules.languages.disableDesc', { name: currentLang.name })}
             </p>
           </div>
           <Switch
@@ -201,7 +203,7 @@ export function LanguageModules() {
 
         <div className="grid gap-4">
           <div className="space-y-2">
-            <Label htmlFor="symbol">Symbol</Label>
+            <Label htmlFor="symbol">{t('starship.modules.languages.symbol')}</Label>
             <Input
               id="symbol"
               {...register('symbol')}
@@ -209,12 +211,12 @@ export function LanguageModules() {
               disabled={disabled}
             />
             <p className="text-xs text-muted-foreground">
-              Symbol displayed before the version
+              {t('starship.modules.languages.symbolDesc')}
             </p>
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="style">Style</Label>
+            <Label htmlFor="style">{t('starship.modules.languages.style')}</Label>
             <Input
               id="style"
               {...register('style')}
@@ -222,12 +224,12 @@ export function LanguageModules() {
               disabled={disabled}
             />
             <p className="text-xs text-muted-foreground">
-              Style for the module (e.g., bold green, #ff0000)
+              {t('starship.modules.languages.styleDesc')}
             </p>
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="format">Format</Label>
+            <Label htmlFor="format">{t('starship.modules.languages.format')}</Label>
             <Input
               id="format"
               {...register('format')}
@@ -235,12 +237,12 @@ export function LanguageModules() {
               disabled={disabled}
             />
             <p className="text-xs text-muted-foreground">
-              Format string for the module display
+              {t('starship.modules.languages.formatDesc')}
             </p>
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="version_format">Version Format</Label>
+            <Label htmlFor="version_format">{t('starship.modules.languages.versionFormat')}</Label>
             <Input
               id="version_format"
               {...register('version_format')}
@@ -248,13 +250,13 @@ export function LanguageModules() {
               disabled={disabled}
             />
             <p className="text-xs text-muted-foreground">
-              Format string for the version number
+              {t('starship.modules.languages.versionFormatDesc')}
             </p>
           </div>
         </div>
 
         <Button type="submit" disabled={isPending}>
-          {isPending ? 'Saving...' : `Save ${currentLang.name}`}
+          {isPending ? t('common.saving') : t('starship.modules.languages.saveButton', { name: currentLang.name })}
         </Button>
       </form>
     </div>

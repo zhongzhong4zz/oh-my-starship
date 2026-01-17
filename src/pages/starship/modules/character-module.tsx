@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
+import { useTranslation } from 'react-i18next';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Switch } from '@/components/ui/switch';
@@ -29,6 +30,7 @@ const defaults: CharacterFormData = {
 };
 
 export function CharacterModule() {
+  const { t } = useTranslation();
   const { data: toml, isLoading } = useStarshipToml();
   const { mutate: saveToml, isPending } = useSaveStarshipToml();
 
@@ -50,28 +52,28 @@ export function CharacterModule() {
 
     const updatedToml = updateTomlSection(toml, 'character', data);
     saveToml(updatedToml, {
-      onSuccess: () => toast.success('Character module saved'),
-      onError: (error) => toast.error(`Failed to save: ${error.message}`),
+      onSuccess: () => toast.success(t('starship.modules.character.saveSuccess')),
+      onError: (error) => toast.error(t('starship.modules.saveFailed', { message: error.message })),
     });
   };
 
   if (isLoading) {
-    return <div className="text-sm text-muted-foreground">Loading...</div>;
+    return <div className="text-sm text-muted-foreground">{t('common.loading')}</div>;
   }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
       <div>
-        <h3 className="text-lg font-medium">Character Module</h3>
+        <h3 className="text-lg font-medium">{t('starship.modules.character.title')}</h3>
         <p className="text-sm text-muted-foreground">
-          Configure the prompt character that appears at the beginning of your prompt.
+          {t('starship.modules.character.subtitle')}
         </p>
       </div>
 
       <div className="flex items-center justify-between rounded-lg border border-border p-4">
         <div className="space-y-0.5">
-          <Label htmlFor="disabled">Hide Character</Label>
-          <p className="text-xs text-muted-foreground">Hide the character module from your prompt</p>
+          <Label htmlFor="disabled">{t('starship.modules.character.hideCharacter')}</Label>
+          <p className="text-xs text-muted-foreground">{t('starship.modules.character.hideDescription')}</p>
         </div>
         <Switch
           id="disabled"
@@ -82,7 +84,7 @@ export function CharacterModule() {
 
       <div className="grid gap-4">
         <div className="space-y-2">
-          <Label htmlFor="success_symbol">Success Symbol</Label>
+          <Label htmlFor="success_symbol">{t('starship.modules.character.successSymbol')}</Label>
           <Input
             id="success_symbol"
             {...register('success_symbol')}
@@ -90,12 +92,12 @@ export function CharacterModule() {
             disabled={disabled}
           />
           <p className="text-xs text-muted-foreground">
-            Symbol shown when the previous command succeeded
+            {t('starship.modules.character.successSymbolDesc')}
           </p>
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="error_symbol">Error Symbol</Label>
+          <Label htmlFor="error_symbol">{t('starship.modules.character.errorSymbol')}</Label>
           <Input
             id="error_symbol"
             {...register('error_symbol')}
@@ -103,12 +105,12 @@ export function CharacterModule() {
             disabled={disabled}
           />
           <p className="text-xs text-muted-foreground">
-            Symbol shown when the previous command failed
+            {t('starship.modules.character.errorSymbolDesc')}
           </p>
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="vimcmd_symbol">Vim Command Symbol</Label>
+          <Label htmlFor="vimcmd_symbol">{t('starship.modules.character.vimcmdSymbol')}</Label>
           <Input
             id="vimcmd_symbol"
             {...register('vimcmd_symbol')}
@@ -116,12 +118,12 @@ export function CharacterModule() {
             disabled={disabled}
           />
           <p className="text-xs text-muted-foreground">
-            Symbol shown in vim normal mode
+            {t('starship.modules.character.vimcmdSymbolDesc')}
           </p>
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="vimcmd_replace_symbol">Vim Replace Symbol</Label>
+          <Label htmlFor="vimcmd_replace_symbol">{t('starship.modules.character.vimcmdReplaceSymbol')}</Label>
           <Input
             id="vimcmd_replace_symbol"
             {...register('vimcmd_replace_symbol')}
@@ -129,12 +131,12 @@ export function CharacterModule() {
             disabled={disabled}
           />
           <p className="text-xs text-muted-foreground">
-            Symbol shown in vim replace mode
+            {t('starship.modules.character.vimcmdReplaceSymbolDesc')}
           </p>
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="vimcmd_visual_symbol">Vim Visual Symbol</Label>
+          <Label htmlFor="vimcmd_visual_symbol">{t('starship.modules.character.vimcmdVisualSymbol')}</Label>
           <Input
             id="vimcmd_visual_symbol"
             {...register('vimcmd_visual_symbol')}
@@ -142,12 +144,12 @@ export function CharacterModule() {
             disabled={disabled}
           />
           <p className="text-xs text-muted-foreground">
-            Symbol shown in vim visual mode
+            {t('starship.modules.character.vimcmdVisualSymbolDesc')}
           </p>
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="style">Style</Label>
+          <Label htmlFor="style">{t('starship.modules.character.style')}</Label>
           <Input
             id="style"
             {...register('style')}
@@ -155,13 +157,13 @@ export function CharacterModule() {
             disabled={disabled}
           />
           <p className="text-xs text-muted-foreground">
-            Style for the character (e.g., bold green, #ff0000)
+            {t('starship.modules.character.styleDesc')}
           </p>
         </div>
       </div>
 
       <Button type="submit" disabled={isPending}>
-        {isPending ? 'Saving...' : 'Save Changes'}
+        {isPending ? t('common.saving') : t('common.saveChanges')}
       </Button>
     </form>
   );

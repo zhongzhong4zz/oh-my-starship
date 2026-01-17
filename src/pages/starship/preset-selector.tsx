@@ -1,11 +1,13 @@
 import { Check, Palette } from 'lucide-react';
 import { toast } from 'sonner';
+import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { presets } from '@/lib/presets';
 import { useApplyPreset, useStarshipToml } from '@/lib/query';
 import { cn } from '@/lib/utils';
 
 export function PresetSelector() {
+  const { t } = useTranslation();
   const { data: currentToml } = useStarshipToml();
   const applyPreset = useApplyPreset();
 
@@ -15,9 +17,9 @@ export function PresetSelector() {
 
     try {
       await applyPreset.mutateAsync(preset.toml);
-      toast.success(`Applied "${preset.name}" preset`);
+      toast.success(t('starship.presets.applySuccess', { name: preset.name }));
     } catch {
-      toast.error('Failed to apply preset');
+      toast.error(t('starship.presets.applyFailed'));
     }
   };
 
@@ -31,8 +33,7 @@ export function PresetSelector() {
   return (
     <div className="space-y-4">
       <p className="text-sm text-muted-foreground">
-        Choose a preset to quickly configure your Starship prompt. Your current configuration will
-        be backed up automatically.
+        {t('starship.presets.description')}
       </p>
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -62,7 +63,7 @@ export function PresetSelector() {
                 disabled={applyPreset.isPending || isActive}
                 className="w-full"
               >
-                {isActive ? 'Active' : 'Apply'}
+                {isActive ? t('common.active') : t('common.apply')}
               </Button>
             </div>
           );

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
+import { useTranslation } from 'react-i18next';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Switch } from '@/components/ui/switch';
@@ -60,6 +61,7 @@ const statusDefaults: GitStatusFormData = {
 };
 
 export function GitModule() {
+  const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState('branch');
   const { data: toml, isLoading } = useStarshipToml();
   const { mutate: saveToml, isPending } = useSaveStarshipToml();
@@ -81,8 +83,8 @@ export function GitModule() {
 
     const updatedToml = updateTomlSection(toml, 'git_branch', data);
     saveToml(updatedToml, {
-      onSuccess: () => toast.success('Git branch module saved'),
-      onError: (error) => toast.error(`Failed to save: ${error.message}`),
+      onSuccess: () => toast.success(t('starship.modules.git.branch.saveSuccess')),
+      onError: (error) => toast.error(t('starship.modules.saveFailed', { message: error.message })),
     });
   };
 
@@ -91,36 +93,36 @@ export function GitModule() {
 
     const updatedToml = updateTomlSection(toml, 'git_status', data);
     saveToml(updatedToml, {
-      onSuccess: () => toast.success('Git status module saved'),
-      onError: (error) => toast.error(`Failed to save: ${error.message}`),
+      onSuccess: () => toast.success(t('starship.modules.git.status.saveSuccess')),
+      onError: (error) => toast.error(t('starship.modules.saveFailed', { message: error.message })),
     });
   };
 
   if (isLoading) {
-    return <div className="text-sm text-muted-foreground">Loading...</div>;
+    return <div className="text-sm text-muted-foreground">{t('common.loading')}</div>;
   }
 
   return (
     <div className="space-y-6">
       <div>
-        <h3 className="text-lg font-medium">Git Module</h3>
+        <h3 className="text-lg font-medium">{t('starship.modules.git.title')}</h3>
         <p className="text-sm text-muted-foreground">
-          Configure how git information is displayed in your prompt.
+          {t('starship.modules.git.subtitle')}
         </p>
       </div>
 
       <Tabs value={activeTab} onValueChange={setActiveTab}>
         <TabsList>
-          <TabsTrigger value="branch">Git Branch</TabsTrigger>
-          <TabsTrigger value="status">Git Status</TabsTrigger>
+          <TabsTrigger value="branch">{t('starship.modules.git.branch.tab')}</TabsTrigger>
+          <TabsTrigger value="status">{t('starship.modules.git.status.tab')}</TabsTrigger>
         </TabsList>
 
         <TabsContent value="branch" className="mt-4">
           <form onSubmit={branchForm.handleSubmit(onBranchSubmit)} className="space-y-4">
             <div className="flex items-center justify-between rounded-lg border border-border p-4">
               <div className="space-y-0.5">
-                <Label htmlFor="branch-disabled">Hide Git Branch</Label>
-                <p className="text-xs text-muted-foreground">Hide git branch from your prompt</p>
+                <Label htmlFor="branch-disabled">{t('starship.modules.git.branch.hide')}</Label>
+                <p className="text-xs text-muted-foreground">{t('starship.modules.git.branch.hideDesc')}</p>
               </div>
               <Switch
                 id="branch-disabled"
@@ -131,7 +133,7 @@ export function GitModule() {
 
             <div className="grid gap-4">
               <div className="space-y-2">
-                <Label htmlFor="branch-symbol">Symbol</Label>
+                <Label htmlFor="branch-symbol">{t('starship.modules.git.branch.symbol')}</Label>
                 <Input
                   id="branch-symbol"
                   {...branchForm.register('symbol')}
@@ -141,7 +143,7 @@ export function GitModule() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="branch-style">Style</Label>
+                <Label htmlFor="branch-style">{t('starship.modules.git.branch.style')}</Label>
                 <Input
                   id="branch-style"
                   {...branchForm.register('style')}
@@ -151,7 +153,7 @@ export function GitModule() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="branch-format">Format</Label>
+                <Label htmlFor="branch-format">{t('starship.modules.git.branch.format')}</Label>
                 <Input
                   id="branch-format"
                   {...branchForm.register('format')}
@@ -161,7 +163,7 @@ export function GitModule() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="branch-truncation_length">Truncation Length</Label>
+                <Label htmlFor="branch-truncation_length">{t('starship.modules.git.branch.truncationLength')}</Label>
                 <Input
                   id="branch-truncation_length"
                   type="number"
@@ -172,7 +174,7 @@ export function GitModule() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="branch-truncation_symbol">Truncation Symbol</Label>
+                <Label htmlFor="branch-truncation_symbol">{t('starship.modules.git.branch.truncationSymbol')}</Label>
                 <Input
                   id="branch-truncation_symbol"
                   {...branchForm.register('truncation_symbol')}
@@ -183,7 +185,7 @@ export function GitModule() {
             </div>
 
             <Button type="submit" disabled={isPending}>
-              {isPending ? 'Saving...' : 'Save Git Branch'}
+              {isPending ? t('common.saving') : t('common.saveChanges')}
             </Button>
           </form>
         </TabsContent>
@@ -192,8 +194,8 @@ export function GitModule() {
           <form onSubmit={statusForm.handleSubmit(onStatusSubmit)} className="space-y-4">
             <div className="flex items-center justify-between rounded-lg border border-border p-4">
               <div className="space-y-0.5">
-                <Label htmlFor="status-disabled">Hide Git Status</Label>
-                <p className="text-xs text-muted-foreground">Hide git status from your prompt</p>
+                <Label htmlFor="status-disabled">{t('starship.modules.git.status.hide')}</Label>
+                <p className="text-xs text-muted-foreground">{t('starship.modules.git.status.hideDesc')}</p>
               </div>
               <Switch
                 id="status-disabled"
@@ -204,7 +206,7 @@ export function GitModule() {
 
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="space-y-2">
-                <Label htmlFor="status-style">Style</Label>
+                <Label htmlFor="status-style">{t('starship.modules.git.status.style')}</Label>
                 <Input
                   id="status-style"
                   {...statusForm.register('style')}
@@ -214,7 +216,7 @@ export function GitModule() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="status-format">Format</Label>
+                <Label htmlFor="status-format">{t('starship.modules.git.status.format')}</Label>
                 <Input
                   id="status-format"
                   {...statusForm.register('format')}
@@ -224,7 +226,7 @@ export function GitModule() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="status-ahead">Ahead</Label>
+                <Label htmlFor="status-ahead">{t('starship.modules.git.status.ahead')}</Label>
                 <Input
                   id="status-ahead"
                   {...statusForm.register('ahead')}
@@ -234,7 +236,7 @@ export function GitModule() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="status-behind">Behind</Label>
+                <Label htmlFor="status-behind">{t('starship.modules.git.status.behind')}</Label>
                 <Input
                   id="status-behind"
                   {...statusForm.register('behind')}
@@ -244,7 +246,7 @@ export function GitModule() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="status-diverged">Diverged</Label>
+                <Label htmlFor="status-diverged">{t('starship.modules.git.status.diverged')}</Label>
                 <Input
                   id="status-diverged"
                   {...statusForm.register('diverged')}
@@ -254,7 +256,7 @@ export function GitModule() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="status-conflicted">Conflicted</Label>
+                <Label htmlFor="status-conflicted">{t('starship.modules.git.status.conflicted')}</Label>
                 <Input
                   id="status-conflicted"
                   {...statusForm.register('conflicted')}
@@ -264,7 +266,7 @@ export function GitModule() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="status-untracked">Untracked</Label>
+                <Label htmlFor="status-untracked">{t('starship.modules.git.status.untracked')}</Label>
                 <Input
                   id="status-untracked"
                   {...statusForm.register('untracked')}
@@ -274,7 +276,7 @@ export function GitModule() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="status-stashed">Stashed</Label>
+                <Label htmlFor="status-stashed">{t('starship.modules.git.status.stashed')}</Label>
                 <Input
                   id="status-stashed"
                   {...statusForm.register('stashed')}
@@ -284,7 +286,7 @@ export function GitModule() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="status-modified">Modified</Label>
+                <Label htmlFor="status-modified">{t('starship.modules.git.status.modified')}</Label>
                 <Input
                   id="status-modified"
                   {...statusForm.register('modified')}
@@ -294,7 +296,7 @@ export function GitModule() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="status-staged">Staged</Label>
+                <Label htmlFor="status-staged">{t('starship.modules.git.status.staged')}</Label>
                 <Input
                   id="status-staged"
                   {...statusForm.register('staged')}
@@ -304,7 +306,7 @@ export function GitModule() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="status-renamed">Renamed</Label>
+                <Label htmlFor="status-renamed">{t('starship.modules.git.status.renamed')}</Label>
                 <Input
                   id="status-renamed"
                   {...statusForm.register('renamed')}
@@ -314,7 +316,7 @@ export function GitModule() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="status-deleted">Deleted</Label>
+                <Label htmlFor="status-deleted">{t('starship.modules.git.status.deleted')}</Label>
                 <Input
                   id="status-deleted"
                   {...statusForm.register('deleted')}
@@ -325,7 +327,7 @@ export function GitModule() {
             </div>
 
             <Button type="submit" disabled={isPending}>
-              {isPending ? 'Saving...' : 'Save Git Status'}
+              {isPending ? t('common.saving') : t('common.saveChanges')}
             </Button>
           </form>
         </TabsContent>

@@ -2,10 +2,12 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Save, RotateCcw } from 'lucide-react';
 import { toast } from 'sonner';
+import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui';
 import { useConfigContent, useSaveConfig, useCreateBackup } from '@/lib/query';
 
 export function Component() {
+  const { t } = useTranslation();
   const { configId } = useParams<{ configId: string }>();
   const navigate = useNavigate();
   const [content, setContent] = useState('');
@@ -34,9 +36,9 @@ export function Component() {
       await createBackup.mutateAsync(configId);
       await saveConfig.mutateAsync({ configId, content });
       setHasChanges(false);
-      toast.success('Configuration saved successfully');
+      toast.success(t('configEditor.saveSuccess'));
     } catch (error) {
-      toast.error('Failed to save configuration');
+      toast.error(t('configEditor.saveFailed'));
     }
   };
 
@@ -50,7 +52,7 @@ export function Component() {
   if (isLoading) {
     return (
       <div className="flex h-full items-center justify-center">
-        <span className="text-muted-foreground">Loading...</span>
+        <span className="text-muted-foreground">{t('common.loading')}</span>
       </div>
     );
   }
@@ -60,7 +62,7 @@ export function Component() {
       <div className="flex items-center justify-between">
         <Button variant="ghost" size="sm" onClick={() => navigate('/')}>
           <ArrowLeft className="mr-2 h-4 w-4" />
-          Back
+          {t('common.back')}
         </Button>
         <div className="flex gap-2">
           <Button
@@ -70,7 +72,7 @@ export function Component() {
             disabled={!hasChanges}
           >
             <RotateCcw className="mr-2 h-4 w-4" />
-            Reset
+            {t('common.reset')}
           </Button>
           <Button
             size="sm"
@@ -78,7 +80,7 @@ export function Component() {
             disabled={!hasChanges || saveConfig.isPending}
           >
             <Save className="mr-2 h-4 w-4" />
-            Save
+            {t('common.save')}
           </Button>
         </div>
       </div>
