@@ -19,8 +19,8 @@ export function Component() {
   ];
 
   const languageOptions = [
-    { value: 'zh', label: t('settings.languages.zh') },
     { value: 'en', label: t('settings.languages.en') },
+    { value: 'zh', label: t('settings.languages.zh') },
   ];
 
   const handleLanguageChange = (lng: string) => {
