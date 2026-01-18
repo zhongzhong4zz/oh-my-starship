@@ -175,6 +175,7 @@ export function DirectoryModule() {
             {...register('read_only')}
             placeholder="🔒"
             disabled={disabled}
+            className="font-nerd"
           />
           <p className="text-xs text-muted-foreground">
             {t('starship.modules.directory.readOnlySymbolDesc')}
