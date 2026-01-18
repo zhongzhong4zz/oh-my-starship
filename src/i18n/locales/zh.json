@@ -11,7 +11,7 @@
   },
   "nav": {
     "title": "Starship 配置",
-    "configs": "配置文件",
+    "backups": "备份",
     "starship": "Starship",
     "settings": "设置"
   },

@@ -12,21 +12,6 @@ export function Home() {
         <h1 className="mb-6 text-lg font-semibold">{t('nav.title')}</h1>
         <nav className="space-y-1">
           <NavLink
-            to="/"
-            end
-            className={({ isActive }) =>
-              cn(
-                'flex items-center gap-2 rounded-md px-3 py-2 text-sm transition-colors',
-                isActive
-                  ? 'bg-accent text-accent-foreground'
-                  : 'hover:bg-accent/50'
-              )
-            }
-          >
-            <FileText className="h-4 w-4" />
-            {t('nav.configs')}
-          </NavLink>
-          <NavLink
             to="/starship"
             className={({ isActive }) =>
               cn(
@@ -39,6 +24,21 @@ export function Home() {
           >
             <Terminal className="h-4 w-4" />
             {t('nav.starship')}
+          </NavLink>
+          <NavLink
+            to="/"
+            end
+            className={({ isActive }) =>
+              cn(
+                'flex items-center gap-2 rounded-md px-3 py-2 text-sm transition-colors',
+                isActive
+                  ? 'bg-accent text-accent-foreground'
+                  : 'hover:bg-accent/50'
+              )
+            }
+          >
+            <FileText className="h-4 w-4" />
+            {t('nav.backups')}
           </NavLink>
           <NavLink
             to="/settings"

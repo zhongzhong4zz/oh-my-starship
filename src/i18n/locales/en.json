@@ -11,7 +11,7 @@
   },
   "nav": {
     "title": "Starship Config",
-    "configs": "Configs",
+    "backups": "Backups",
     "starship": "Starship",
     "settings": "Settings"
   },
