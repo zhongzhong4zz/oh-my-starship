@@ -20,6 +20,7 @@ export function Component() {
 
   const languageOptions = [
     { value: 'en', label: t('settings.languages.en') },
+    { value: 'zh-TW', label: t('settings.languages.zh-TW') },
     { value: 'zh', label: t('settings.languages.zh') },
   ];
 
