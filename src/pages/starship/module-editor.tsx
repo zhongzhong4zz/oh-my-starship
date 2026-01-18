@@ -23,7 +23,7 @@ export function ModuleEditor() {
   ];
 
   return (
-    <div className="flex h-[calc(100vh-220px)] gap-4">
+    <div className="flex h-[calc(100vh-140px)] gap-4">
       <nav className="w-56 space-y-1 overflow-y-auto rounded-lg border border-border bg-card p-2">
         {sections.map((section) => {
           const Icon = section.icon;
