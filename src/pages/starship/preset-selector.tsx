@@ -31,7 +31,7 @@ export function PresetSelector() {
   };
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 pb-6">
       <p className="text-sm text-muted-foreground">
         {t('starship.presets.description')}
       </p>
