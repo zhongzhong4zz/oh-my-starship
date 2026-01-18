@@ -17,6 +17,7 @@ pub fn run() {
             commands::get_backup_list,
             commands::restore_from_backup,
             commands::delete_backup,
+            commands::create_starship_backup,
         ])
         .setup(|app| {
             let window = app.get_webview_window("main").unwrap();

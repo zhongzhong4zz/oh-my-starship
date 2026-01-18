@@ -32,3 +32,7 @@ export async function restoreFromBackup(backupPath: string): Promise<void> {
 export async function deleteBackup(backupPath: string): Promise<void> {
   return invoke<void>('delete_backup', { backupPath });
 }
+
+export async function createStarshipBackup(): Promise<string> {
+  return invoke<string>('create_starship_backup');
+}

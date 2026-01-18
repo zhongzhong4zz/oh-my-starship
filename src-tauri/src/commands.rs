@@ -1,6 +1,7 @@
 use serde::{Deserialize, Serialize};
 use std::fs;
 use std::path::PathBuf;
+use chrono::Utc;
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Settings {
@@ -134,4 +135,23 @@ pub async fn delete_backup(backup_path: String) -> Result<(), String> {
         fs::remove_file(&path).map_err(|e| e.to_string())?;
     }
     Ok(())
+}
+
+#[tauri::command]
+pub async fn create_starship_backup() -> Result<String, String> {
+    let starship_path = get_starship_config_path();
+    if !starship_path.exists() {
+        return Err("No starship config to backup".to_string());
+    }
+
+    let backup_dir = get_config_dir().join("backups");
+    fs::create_dir_all(&backup_dir).map_err(|e| e.to_string())?;
+
+    let timestamp = Utc::now().format("%Y%m%d_%H%M%S");
+    let backup_name = format!("starship_{}.toml", timestamp);
+    let backup_path = backup_dir.join(&backup_name);
+
+    fs::copy(&starship_path, &backup_path).map_err(|e| e.to_string())?;
+
+    Ok(backup_path.to_string_lossy().to_string())
 }

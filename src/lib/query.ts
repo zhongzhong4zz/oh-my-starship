@@ -5,6 +5,7 @@ import {
   applyPreset,
   getBackupList,
   restoreFromBackup,
+  createStarshipBackup,
 } from '@/services/cmds';
 
 export const queryKeys = {
@@ -56,6 +57,17 @@ export function useRestoreFromBackup() {
     mutationFn: (backupPath: string) => restoreFromBackup(backupPath),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: queryKeys.starshipToml });
+    },
+  });
+}
+
+export function useCreateStarshipBackup() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: () => createStarshipBackup(),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: queryKeys.backupList });
     },
   });
 }
