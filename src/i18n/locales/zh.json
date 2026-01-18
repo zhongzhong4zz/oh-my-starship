@@ -30,9 +30,16 @@
       "zh-TW": "繁體中文"
     }
   },
-  "configList": {
+  "backups": {
     "title": "备份",
-    "noConfigs": "未找到备份"
+    "more": "更多",
+    "delete": "删除",
+    "apply": "应用",
+    "applySuccess": "备份应用成功",
+    "applyError": "备份应用失败",
+    "deleteSuccess": "备份删除成功",
+    "deleteError": "备份删除失败",
+    "noBackups": "未找到备份"
   },
   "configEditor": {
     "saveSuccess": "配置保存成功",

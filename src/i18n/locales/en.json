@@ -30,9 +30,16 @@
       "zh-TW": "繁體中文"
     }
   },
-  "configList": {
+  "backups": {
     "title": "Backups",
-    "noConfigs": "No backups found"
+    "more": "More",
+    "delete": "Delete",
+    "apply": "Apply",
+    "applySuccess": "Backup applied successfully",
+    "applyError": "Failed to apply backup",
+    "deleteSuccess": "Backup deleted successfully",
+    "deleteError": "Failed to delete backup",
+    "noBackups": "No backups found"
   },
   "configEditor": {
     "saveSuccess": "Configuration saved successfully",

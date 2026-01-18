@@ -239,3 +239,12 @@ pub async fn restore_from_backup(backup_path: String) -> Result<(), String> {
     fs::copy(&backup_path, &starship_path).map_err(|e| e.to_string())?;
     Ok(())
 }
+
+#[tauri::command]
+pub async fn delete_backup(backup_path: String) -> Result<(), String> {
+    let path = PathBuf::from(&backup_path);
+    if path.exists() {
+        fs::remove_file(&path).map_err(|e| e.to_string())?;
+    }
+    Ok(())
+}

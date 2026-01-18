@@ -48,3 +48,7 @@ export async function getBackupList(): Promise<string[]> {
 export async function restoreFromBackup(backupPath: string): Promise<void> {
   return invoke<void>('restore_from_backup', { backupPath });
 }
+
+export async function deleteBackup(backupPath: string): Promise<void> {
+  return invoke<void>('delete_backup', { backupPath });
+}

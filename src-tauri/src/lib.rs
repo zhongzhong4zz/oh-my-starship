@@ -21,6 +21,7 @@ pub fn run() {
             commands::apply_preset,
             commands::get_backup_list,
             commands::restore_from_backup,
+            commands::delete_backup,
         ])
         .setup(|app| {
             let window = app.get_webview_window("main").unwrap();

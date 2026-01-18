@@ -30,9 +30,16 @@
       "zh-TW": "繁體中文"
     }
   },
-  "configList": {
+  "backups": {
     "title": "備份",
-    "noConfigs": "未找到備份"
+    "more": "更多",
+    "delete": "刪除",
+    "apply": "套用",
+    "applySuccess": "備份套用成功",
+    "applyError": "備份套用失敗",
+    "deleteSuccess": "備份刪除成功",
+    "deleteError": "備份刪除失敗",
+    "noBackups": "未找到備份"
   },
   "configEditor": {
     "saveSuccess": "設定儲存成功",
