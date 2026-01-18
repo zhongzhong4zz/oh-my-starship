@@ -47,6 +47,9 @@
   },
   "starship": {
     "title": "Starship 設定",
+    "backup": "備份",
+    "backupSuccess": "備份創建成功",
+    "backupError": "備份創建失敗",
     "tabs": {
       "presets": "預設",
       "modules": "模組",

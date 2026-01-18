@@ -47,6 +47,9 @@
   },
   "starship": {
     "title": "Starship 配置",
+    "backup": "备份",
+    "backupSuccess": "备份创建成功",
+    "backupError": "备份创建失败",
     "tabs": {
       "presets": "预设",
       "modules": "模块",

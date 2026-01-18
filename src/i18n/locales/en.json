@@ -47,6 +47,9 @@
   },
   "starship": {
     "title": "Starship Configuration",
+    "backup": "Backup",
+    "backupSuccess": "Backup created successfully",
+    "backupError": "Failed to create backup",
     "tabs": {
       "presets": "Presets",
       "modules": "Modules",
