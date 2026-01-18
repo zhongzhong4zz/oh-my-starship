@@ -115,6 +115,7 @@ export function TimeModule() {
             {...register('format')}
             placeholder="[$time]($style) "
             disabled={disabled}
+            className="font-nerd"
           />
           <p className="text-xs text-muted-foreground">
             {t('starship.modules.time.displayFormatDesc')}

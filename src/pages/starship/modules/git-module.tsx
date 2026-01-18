@@ -139,6 +139,7 @@ export function GitModule() {
                   {...branchForm.register('symbol')}
                   placeholder=" "
                   disabled={branchForm.watch('disabled')}
+                  className="font-nerd"
                 />
               </div>
 

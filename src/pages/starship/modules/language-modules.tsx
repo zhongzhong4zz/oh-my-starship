@@ -209,6 +209,7 @@ export function LanguageModules() {
               {...register('symbol')}
               placeholder={currentLang.defaults.symbol}
               disabled={disabled}
+              className="font-nerd"
             />
             <p className="text-xs text-muted-foreground">
               {t('starship.modules.languages.symbolDesc')}

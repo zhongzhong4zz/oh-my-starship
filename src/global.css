@@ -130,3 +130,33 @@
 .dark.beauty-scrollbar ::-webkit-scrollbar-thumb:hover {
   background-color: #b9b9b9;
 }
+
+.font-nerd {
+  font-family:
+    'JetBrainsMono Nerd Font',
+    'JetBrainsMono Nerd Font Mono',
+    'FiraCode Nerd Font',
+    'FiraCode Nerd Font Mono',
+    'Hack Nerd Font',
+    'Hack Nerd Font Mono',
+    'CaskaydiaCove Nerd Font',
+    'CaskaydiaCove Nerd Font Mono',
+    'MesloLGS Nerd Font',
+    'MesloLGS NF',
+    'SauceCodePro Nerd Font',
+    'SauceCodePro Nerd Font Mono',
+    'JetBrainsMono NF',
+    'FiraCode NF',
+    'Hack NF',
+    'CaskaydiaCove NF',
+    'Symbols Nerd Font',
+    'Symbols Nerd Font Mono',
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    'Liberation Mono',
+    'Courier New',
+    monospace;
+}

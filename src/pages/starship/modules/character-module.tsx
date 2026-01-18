@@ -90,6 +90,7 @@ export function CharacterModule() {
             {...register('success_symbol')}
             placeholder="[❯](bold green)"
             disabled={disabled}
+            className="font-nerd"
           />
           <p className="text-xs text-muted-foreground">
             {t('starship.modules.character.successSymbolDesc')}
@@ -103,6 +104,7 @@ export function CharacterModule() {
             {...register('error_symbol')}
             placeholder="[❯](bold red)"
             disabled={disabled}
+            className="font-nerd"
           />
           <p className="text-xs text-muted-foreground">
             {t('starship.modules.character.errorSymbolDesc')}
@@ -116,6 +118,7 @@ export function CharacterModule() {
             {...register('vimcmd_symbol')}
             placeholder="[❮](bold green)"
             disabled={disabled}
+            className="font-nerd"
           />
           <p className="text-xs text-muted-foreground">
             {t('starship.modules.character.vimcmdSymbolDesc')}
@@ -129,6 +132,7 @@ export function CharacterModule() {
             {...register('vimcmd_replace_symbol')}
             placeholder="[❮](bold purple)"
             disabled={disabled}
+            className="font-nerd"
           />
           <p className="text-xs text-muted-foreground">
             {t('starship.modules.character.vimcmdReplaceSymbolDesc')}
@@ -142,6 +146,7 @@ export function CharacterModule() {
             {...register('vimcmd_visual_symbol')}
             placeholder="[❮](bold yellow)"
             disabled={disabled}
+            className="font-nerd"
           />
           <p className="text-xs text-muted-foreground">
             {t('starship.modules.character.vimcmdVisualSymbolDesc')}
@@ -155,6 +160,7 @@ export function CharacterModule() {
             {...register('style')}
             placeholder="bold white"
             disabled={disabled}
+            className="font-nerd"
           />
           <p className="text-xs text-muted-foreground">
             {t('starship.modules.character.styleDesc')}

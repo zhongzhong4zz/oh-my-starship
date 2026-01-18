@@ -87,7 +87,7 @@ export function Component() {
       <textarea
         value={content}
         onChange={(e) => handleContentChange(e.target.value)}
-        className="flex-1 resize-none rounded-lg border border-input bg-background p-4 font-mono text-sm focus:outline-none focus:ring-1 focus:ring-ring"
+        className="flex-1 resize-none rounded-lg border border-input bg-background p-4 font-nerd text-sm focus:outline-none focus:ring-1 focus:ring-ring"
         spellCheck={false}
       />
     </div>
