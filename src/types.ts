@@ -11,15 +11,6 @@ export interface Settings {
   language: string;
 }
 
-export interface StarshipConfig {
-  id: string;
-  name: string;
-  path: string;
-  isEnterprise: boolean;
-  createdAt: string;
-  updatedAt: string;
-}
-
 export interface StarshipPreset {
   id: string;
   name: string;

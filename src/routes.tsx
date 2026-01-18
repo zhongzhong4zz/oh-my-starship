@@ -13,10 +13,6 @@ const routes: RouteObject[] = [
         element: <ConfigList />,
       },
       {
-        path: 'editor/:configId',
-        lazy: () => import('@/pages/config-editor'),
-      },
-      {
         path: 'starship',
         lazy: () => import('@/pages/starship'),
       },

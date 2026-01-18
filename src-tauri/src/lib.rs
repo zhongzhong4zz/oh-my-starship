@@ -11,11 +11,6 @@ pub fn run() {
         .invoke_handler(tauri::generate_handler![
             commands::get_settings,
             commands::update_settings,
-            commands::get_config_list,
-            commands::get_config_content,
-            commands::save_config_content,
-            commands::create_backup,
-            commands::restore_backup,
             commands::get_starship_toml,
             commands::save_starship_toml,
             commands::apply_preset,
