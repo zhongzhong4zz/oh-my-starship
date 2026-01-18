@@ -64,7 +64,7 @@ export function TomlEditor() {
   }
 
   return (
-    <div className="flex h-[calc(100vh-220px)] flex-col gap-4">
+    <div className="flex h-[calc(100vh-140px)] flex-col gap-4">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Button variant="outline" size="sm" onClick={() => setShowBackups(!showBackups)}>
