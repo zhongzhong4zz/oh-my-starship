@@ -1,5 +1,5 @@
 import { Outlet, NavLink } from 'react-router-dom';
-import { Settings, FileText, Terminal } from 'lucide-react';
+import { Settings, FileText, Rocket } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { cn } from '@/lib/utils';
 
@@ -22,7 +22,7 @@ export function Home() {
               )
             }
           >
-            <Terminal className="h-4 w-4" />
+            <Rocket className="h-4 w-4" />
             {t('nav.starship')}
           </NavLink>
           <NavLink
