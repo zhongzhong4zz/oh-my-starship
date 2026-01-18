@@ -1,4 +1,4 @@
-import { Archive, ChevronDown, RotateCcw, Trash2 } from 'lucide-react';
+import { Archive, ChevronDown, MousePointerClick, Trash2 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'sonner';
 import { Button } from '@/components/ui/button';
@@ -90,7 +90,7 @@ export function ConfigList() {
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
                 <DropdownMenuItem onClick={() => handleRestore(backupPath)}>
-                  <RotateCcw className="text-primary" />
+                  <MousePointerClick className="text-primary" />
                   <span>{t('backups.apply')}</span>
                 </DropdownMenuItem>
                 <DropdownMenuItem
