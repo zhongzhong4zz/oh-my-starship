@@ -191,16 +191,6 @@ pub async fn save_starship_toml(content: String) -> Result<(), String> {
 #[tauri::command]
 pub async fn apply_preset(toml_content: String) -> Result<(), String> {
     let path = get_starship_config_path();
-    let backup_dir = get_config_dir().join("backups");
-    fs::create_dir_all(&backup_dir).map_err(|e| e.to_string())?;
-
-    if path.exists() {
-        let timestamp = Utc::now().format("%Y%m%d_%H%M%S");
-        let backup_name = format!("starship_before_preset_{}.toml", timestamp);
-        let backup_path = backup_dir.join(&backup_name);
-        fs::copy(&path, &backup_path).map_err(|e| e.to_string())?;
-    }
-
     let dir = path.parent().unwrap();
     fs::create_dir_all(dir).map_err(|e| e.to_string())?;
     fs::write(&path, toml_content).map_err(|e| e.to_string())
