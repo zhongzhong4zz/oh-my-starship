@@ -1,5 +1,17 @@
 export { Button, buttonVariants } from './button';
 export {
+  Dialog,
+  DialogPortal,
+  DialogOverlay,
+  DialogTrigger,
+  DialogClose,
+  DialogContent,
+  DialogHeader,
+  DialogFooter,
+  DialogTitle,
+  DialogDescription,
+} from './dialog';
+export {
   DropdownMenu,
   DropdownMenuTrigger,
   DropdownMenuContent,

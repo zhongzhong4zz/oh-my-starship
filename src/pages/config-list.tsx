@@ -1,17 +1,51 @@
-import { Archive, ChevronDown, MousePointerClick, Trash2 } from 'lucide-react';
+import { useState } from 'react';
+import { Archive, ChevronDown, MousePointerClick, Pencil, Trash2 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'sonner';
 import { Button } from '@/components/ui/button';
+import {
+  Dialog,
+  DialogContent,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 import { useBackupList, useRestoreFromBackup } from '@/lib/query';
 import { deleteBackup } from '@/services/cmds';
 
+const BACKUP_NAMES_KEY = 'starship-backup-names';
+
+function getBackupNames(): Record<string, string> {
+  try {
+    const stored = localStorage.getItem(BACKUP_NAMES_KEY);
+    return stored ? JSON.parse(stored) : {};
+  } catch {
+    return {};
+  }
+}
+
+function setBackupName(backupPath: string, name: string): void {
+  const names = getBackupNames();
+  if (name.trim()) {
+    names[backupPath] = name.trim();
+  } else {
+    delete names[backupPath];
+  }
+  localStorage.setItem(BACKUP_NAMES_KEY, JSON.stringify(names));
+}
+
 function formatBackupName(backupPath: string): string {
+  const customName = getBackupNames()[backupPath];
+  if (customName) return customName;
+
   const fileName = backupPath.split(/[/\\]/).pop() || backupPath;
   const match = fileName.match(/starship_(\d{4})(\d{2})(\d{2})_(\d{2})(\d{2})(\d{2})\.toml/);
   if (match) {
@@ -25,6 +59,11 @@ export function ConfigList() {
   const { t } = useTranslation();
   const { data: backups, isLoading, refetch } = useBackupList();
   const { mutate: restoreBackup, isPending: isRestoring } = useRestoreFromBackup();
+
+  const [renameDialogOpen, setRenameDialogOpen] = useState(false);
+  const [renameTarget, setRenameTarget] = useState<string | null>(null);
+  const [renameName, setRenameName] = useState('');
+  const [, forceUpdate] = useState(0);
 
   const handleRestore = (backupPath: string) => {
     restoreBackup(backupPath, {
@@ -44,6 +83,23 @@ export function ConfigList() {
       refetch();
     } catch (error) {
       toast.error(t('backups.deleteError', { error: (error as Error).message }));
+    }
+  };
+
+  const openRenameDialog = (backupPath: string) => {
+    setRenameTarget(backupPath);
+    setRenameName(getBackupNames()[backupPath] || '');
+    setRenameDialogOpen(true);
+  };
+
+  const handleRename = () => {
+    if (renameTarget) {
+      setBackupName(renameTarget, renameName);
+      toast.success(t('backups.renameSuccess'));
+      setRenameDialogOpen(false);
+      setRenameTarget(null);
+      setRenameName('');
+      forceUpdate((n) => n + 1);
     }
   };
 
@@ -93,6 +149,10 @@ export function ConfigList() {
                   <MousePointerClick className="text-primary" />
                   <span>{t('backups.apply')}</span>
                 </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => openRenameDialog(backupPath)}>
+                  <Pencil className="text-muted-foreground" />
+                  <span>{t('backups.rename')}</span>
+                </DropdownMenuItem>
                 <DropdownMenuItem
                   onClick={() => handleDelete(backupPath)}
                   className="text-destructive focus:text-destructive"
@@ -105,6 +165,36 @@ export function ConfigList() {
           </div>
         ))}
       </div>
+
+      <Dialog open={renameDialogOpen} onOpenChange={setRenameDialogOpen}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>{t('backups.renameTitle')}</DialogTitle>
+          </DialogHeader>
+          <div className="space-y-4 py-4">
+            <div className="space-y-2">
+              <Label htmlFor="backup-name">{t('backups.nameLabel')}</Label>
+              <Input
+                id="backup-name"
+                value={renameName}
+                onChange={(e) => setRenameName(e.target.value)}
+                placeholder={t('backups.namePlaceholder')}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') {
+                    handleRename();
+                  }
+                }}
+              />
+            </div>
+          </div>
+          <DialogFooter>
+            <Button variant="outline" onClick={() => setRenameDialogOpen(false)}>
+              {t('common.cancel')}
+            </Button>
+            <Button onClick={handleRename}>{t('common.save')}</Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
