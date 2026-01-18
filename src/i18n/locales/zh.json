@@ -31,8 +31,8 @@
     }
   },
   "configList": {
-    "title": "配置文件",
-    "noConfigs": "未找到配置文件"
+    "title": "备份",
+    "noConfigs": "未找到备份"
   },
   "configEditor": {
     "saveSuccess": "配置保存成功",

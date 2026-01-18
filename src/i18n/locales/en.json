@@ -31,8 +31,8 @@
     }
   },
   "configList": {
-    "title": "Configuration Files",
-    "noConfigs": "No configuration files found"
+    "title": "Backups",
+    "noConfigs": "No backups found"
   },
   "configEditor": {
     "saveSuccess": "Configuration saved successfully",

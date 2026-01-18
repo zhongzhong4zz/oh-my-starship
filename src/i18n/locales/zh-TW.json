@@ -31,8 +31,8 @@
     }
   },
   "configList": {
-    "title": "設定檔",
-    "noConfigs": "未找到設定檔"
+    "title": "備份",
+    "noConfigs": "未找到備份"
   },
   "configEditor": {
     "saveSuccess": "設定儲存成功",
