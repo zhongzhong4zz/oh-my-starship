@@ -363,7 +363,7 @@ format = '[ $symbol ($version) ]($style)'
 
 [time]
 disabled = false
-time_format = "%R" # Hour:Minute Format
+time_format = "%R"
 style = "bg:#33658A"
 format = '[ ♥ $time ]($style)'`,
   },
@@ -434,7 +434,7 @@ format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
 
 [time]
 disabled = false
-time_format = "%R" # Hour:Minute Format
+time_format = "%R"
 style = "bg:#1d2230"
 format = '[[  $time ](fg:#a0a9cb bg:#1d2230)]($style)'`,
   },
