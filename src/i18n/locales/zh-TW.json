@@ -7,7 +7,8 @@
     "apply": "套用",
     "active": "套用中",
     "saving": "儲存中...",
-    "saveChanges": "儲存變更"
+    "saveChanges": "儲存變更",
+    "cancel": "取消"
   },
   "nav": {
     "title": "Starship 設定",
@@ -39,7 +40,11 @@
     "applyError": "備份套用失敗",
     "deleteSuccess": "備份刪除成功",
     "deleteError": "備份刪除失敗",
-    "noBackups": "未找到備份"
+    "noBackups": "未找到備份",
+    "rename": "重命名",
+    "renameTitle": "重命名備份",
+    "nameLabel": "備份名稱",
+    "renameSuccess": "備份重命名成功"
   },
   "configEditor": {
     "saveSuccess": "設定儲存成功",

@@ -7,7 +7,8 @@
     "apply": "应用",
     "active": "应用中",
     "saving": "保存中...",
-    "saveChanges": "保存更改"
+    "saveChanges": "保存更改",
+    "cancel": "取消"
   },
   "nav": {
     "title": "Starship 配置",
@@ -39,7 +40,11 @@
     "applyError": "备份应用失败",
     "deleteSuccess": "备份删除成功",
     "deleteError": "备份删除失败",
-    "noBackups": "未找到备份"
+    "noBackups": "未找到备份",
+    "rename": "重命名",
+    "renameTitle": "重命名备份",
+    "nameLabel": "备份名称",
+    "renameSuccess": "备份重命名成功"
   },
   "configEditor": {
     "saveSuccess": "配置保存成功",

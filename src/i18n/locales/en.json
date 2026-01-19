@@ -7,7 +7,8 @@
     "apply": "Apply",
     "active": "Active",
     "saving": "Saving...",
-    "saveChanges": "Save Changes"
+    "saveChanges": "Save Changes",
+    "cancel": "Cancel"
   },
   "nav": {
     "title": "Starship Config",
@@ -39,7 +40,11 @@
     "applyError": "Failed to apply backup",
     "deleteSuccess": "Backup deleted successfully",
     "deleteError": "Failed to delete backup",
-    "noBackups": "No backups found"
+    "noBackups": "No backups found",
+    "rename": "Rename",
+    "renameTitle": "Rename Backup",
+    "nameLabel": "Backup Name",
+    "renameSuccess": "Backup renamed successfully"
   },
   "configEditor": {
     "saveSuccess": "Configuration saved successfully",
