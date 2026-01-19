@@ -4,7 +4,7 @@
 
 # Starship 配置管理器
 
-`Starship Config Manager` 是一款桌面應用程式，透過視覺化介面協助您管理 [Starship](https://starship.rs/) 提示符設定。此應用程式採用 [Tauri](https://v2.tauri.app/) 打造，支援 `Windows` 系統。
+`oh-my-starship` 是一款桌面應用程式，透過視覺化介面協助您管理 [Starship](https://starship.rs/) 提示符設定。此應用程式採用 [Tauri](https://v2.tauri.app/) 打造，支援 `Windows` 系統。
 
 它提供簡單易用的圖形介面來設定 Starship 提示符，包含：
 
@@ -40,9 +40,9 @@
 <details>
   <summary><h2 style="display:inline-block;">您需要了解的內容</h2></summary>
 
-與 `Starship Config Manager` 相關的所有檔案都位於系統的設定目錄中：
+與 `oh-my-starship` 相關的所有檔案都位於系統的設定目錄中：
 
-- **設定目錄**：`%APPDATA%\starship-config-manager\` (Windows)
+- **設定目錄**：`%APPDATA%\oh-my-starship\` (Windows)
   - `settings.json` - 儲存應用程式設定（主題、語言）
   - `backups/` - 包含所有 Starship 設定備份
 
@@ -62,14 +62,14 @@
 
 您可以下載原始碼自行建置，或從 GitHub 發佈頁面下載已建置的版本。
 
-- [Starship Config Manager 發佈頁面](https://github.com/YOUR_USERNAME/starship-config-manager/releases)
+- [oh-my-starship 發佈頁面](https://github.com/YOUR_USERNAME/oh-my-starship/releases)
 
 ## 移除
 
 ### Windows 移除
 
-1. 移除 `Starship Config Manager` 應用程式
-2. 刪除設定目錄：`%APPDATA%\starship-config-manager\`
+1. 移除 `oh-my-starship` 應用程式
+2. 刪除設定目錄：`%APPDATA%\oh-my-starship\`
 3. 可選：刪除 Starship 設定：`%USERPROFILE%\.config\starship.toml`
 
 ## 開發與建置

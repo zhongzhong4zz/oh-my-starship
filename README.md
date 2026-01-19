@@ -2,9 +2,9 @@
   <img src="./readme-icon.png" width="96" height="96" />
 </div>
 
-# Starship Config Manager
+# oh-my-starship
 
-`Starship Config Manager` is a desktop application that helps you manage your [Starship](https://starship.rs/) prompt configuration through a visual interface. The application is built using [Tauri](https://v2.tauri.app/) and supports `Windows` systems.
+`oh-my-starship` is a desktop application that helps you manage your [Starship](https://starship.rs/) prompt configuration through a visual interface. The application is built using [Tauri](https://v2.tauri.app/) and supports `Windows` systems.
 
 It provides an easy-to-use graphical interface for configuring your Starship prompt, including:
 
@@ -40,9 +40,9 @@ English | [繁體中文](./README-zh_TW.md) | [简体中文](./README-zh_CN.md)
 <details>
   <summary><h2 style="display:inline-block;">Maybe somethings you need to know</h2></summary>
 
-All files related to `Starship Config Manager` are located in your system's config directory:
+All files related to `oh-my-starship` are located in your system's config directory:
 
-- **Config Directory**: `%APPDATA%\starship-config-manager\` (Windows)
+- **Config Directory**: `%APPDATA%\oh-my-starship\` (Windows)
   - `settings.json` - Stores application settings (theme, language)
   - `backups/` - Contains all Starship configuration backups
 
@@ -62,14 +62,14 @@ Custom backup names are stored in browser localStorage and do not affect the act
 
 You can download the source code and build it yourself, or download the built version from GitHub releases.
 
-- [Starship Config Manager Releases](https://github.com/YOUR_USERNAME/starship-config-manager/releases)
+- [oh-my-starship Releases](https://github.com/YOUR_USERNAME/oh-my-starship/releases)
 
 ## Uninstall
 
 ### Windows Uninstall
 
-1. Uninstall the `Starship Config Manager` application
-2. Remove the config directory: `%APPDATA%\starship-config-manager\`
+1. Uninstall the `oh-my-starship` application
+2. Remove the config directory: `%APPDATA%\oh-my-starship\`
 3. Optionally, remove the Starship config: `%USERPROFILE%\.config\starship.toml`
 
 ## Develop and Build

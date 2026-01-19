@@ -4,7 +4,7 @@
 
 # Starship 配置管理器
 
-`Starship Config Manager` 是一个桌面应用程序，通过可视化界面帮助您管理 [Starship](https://starship.rs/) 提示符配置。该应用程序使用 [Tauri](https://v2.tauri.app/) 构建，支持 `Windows` 系统。
+`oh-my-starship` 是一个桌面应用程序，通过可视化界面帮助您管理 [Starship](https://starship.rs/) 提示符配置。该应用程序使用 [Tauri](https://v2.tauri.app/) 构建，支持 `Windows` 系统。
 
 它提供了一个简单易用的图形界面来配置您的 Starship 提示符，包括：
 
@@ -39,9 +39,9 @@
 <details>
   <summary><h2 style="display:inline-block;">您需要了解的内容</h2></summary>
 
-与 `Starship Config Manager` 相关的所有文件都位于系统的配置目录中：
+与 `oh-my-starship` 相关的所有文件都位于系统的配置目录中：
 
-- **配置目录**：`%APPDATA%\starship-config-manager\` (Windows)
+- **配置目录**：`%APPDATA%\oh-my-starship\` (Windows)
   - `settings.json` - 存储应用程序设置（主题、语言）
   - `backups/` - 包含所有 Starship 配置备份
 
@@ -61,14 +61,14 @@
 
 您可以下载源代码并自行构建，或者从 GitHub 发布页面下载构建好的版本。
 
-- [Starship Config Manager 发布页面](https://github.com/YOUR_USERNAME/starship-config-manager/releases)
+- [oh-my-starship 发布页面](https://github.com/YOUR_USERNAME/oh-my-starship/releases)
 
 ## 卸载
 
 ### Windows 卸载
 
-1. 卸载 `Starship Config Manager` 应用程序
-2. 删除配置目录：`%APPDATA%\starship-config-manager\`
+1. 卸载 `oh-my-starship` 应用程序
+2. 删除配置目录：`%APPDATA%\oh-my-starship\`
 3. 可选：删除 Starship 配置：`%USERPROFILE%\.config\starship.toml`
 
 ## 开发和构建

@@ -1,6 +1,6 @@
 {
   "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
-  "productName": "Starship Config Manager",
+  "productName": "oh-my-starship",
   "version": "0.1.0",
   "identifier": "com.starship.config-manager",
   "build": {
@@ -13,7 +13,7 @@
     "macOSPrivateApi": true,
     "windows": [
       {
-        "title": "Starship Config Manager",
+        "title": "oh-my-starship",
         "width": 900,
         "height": 600,
         "resizable": true,
