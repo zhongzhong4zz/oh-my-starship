@@ -44,7 +44,8 @@
     "rename": "重命名",
     "renameTitle": "重命名備份",
     "nameLabel": "備份名稱",
-    "renameSuccess": "備份重命名成功"
+    "renameSuccess": "備份重命名成功",
+    "namePlaceholder": "輸入備份名稱"
   },
   "configEditor": {
     "saveSuccess": "設定儲存成功",

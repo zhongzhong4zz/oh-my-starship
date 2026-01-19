@@ -44,7 +44,8 @@
     "rename": "Rename",
     "renameTitle": "Rename Backup",
     "nameLabel": "Backup Name",
-    "renameSuccess": "Backup renamed successfully"
+    "renameSuccess": "Backup renamed successfully",
+    "namePlaceholder": "Enter backup name"
   },
   "configEditor": {
     "saveSuccess": "Configuration saved successfully",
