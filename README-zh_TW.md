@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./src-tauri/icon-source.png" width="96" height="96" />
+  <img src="./readme-icon.png" width="96" height="96" />
 </div>
 
 # Starship 配置管理器
