@@ -1,4 +1,3 @@
-
 # Starship Config Manager
 
 `Starship Config Manager` is a desktop application that helps you manage your [Starship](https://starship.rs/) prompt configuration through a visual interface. The application is built using [Tauri](https://v2.tauri.app/) and supports `Windows` systems.
@@ -10,7 +9,7 @@ It provides an easy-to-use graphical interface for configuring your Starship pro
 - **TOML Editor** - Edit the raw `starship.toml` file directly
 - **Backup Management** - Create, restore, rename, and delete configuration backups
 
-English | [简体中文](./README-zh_CN.md)
+English | [繁體中文](./README-zh_TW.md) | [简体中文](./README-zh_CN.md)
 
 ## Table of Contents
 

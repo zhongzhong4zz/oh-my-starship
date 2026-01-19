@@ -9,7 +9,7 @@
 - **TOML 编辑器** - 直接编辑原始 `starship.toml` 文件
 - **备份管理** - 创建、恢复、重命名和删除配置备份
 
-[English](./README.md) | 简体中文
+[English](./README.md) | [繁體中文](./README-zh_TW.md) | 简体中文
 
 ## 目录
 
