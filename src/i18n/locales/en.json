@@ -92,8 +92,6 @@
         "vimcmdReplaceSymbolDesc": "Symbol shown in vim replace mode",
         "vimcmdVisualSymbol": "Vim Visual Symbol",
         "vimcmdVisualSymbolDesc": "Symbol shown in vim visual mode",
-        "style": "Style",
-        "styleDesc": "Style for the character (e.g., bold green, #ff0000)",
         "saveSuccess": "Character module saved"
       },
       "directory": {

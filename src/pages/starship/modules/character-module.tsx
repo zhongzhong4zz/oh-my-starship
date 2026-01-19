@@ -15,7 +15,6 @@ interface CharacterFormData {
   vimcmd_symbol: string;
   vimcmd_replace_symbol: string;
   vimcmd_visual_symbol: string;
-  style: string;
   disabled: boolean;
 }
 
@@ -25,7 +24,6 @@ const defaults: CharacterFormData = {
   vimcmd_symbol: '[❮](bold green)',
   vimcmd_replace_symbol: '[❮](bold purple)',
   vimcmd_visual_symbol: '[❮](bold yellow)',
-  style: 'bold white',
   disabled: false,
 };
 
@@ -65,15 +63,15 @@ export function CharacterModule() {
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
       <div>
         <h3 className="text-lg font-medium">{t('starship.modules.character.title')}</h3>
-        <p className="text-sm text-muted-foreground">
-          {t('starship.modules.character.subtitle')}
-        </p>
+        <p className="text-sm text-muted-foreground">{t('starship.modules.character.subtitle')}</p>
       </div>
 
       <div className="flex items-center justify-between rounded-lg border border-border p-4">
         <div className="space-y-0.5">
           <Label htmlFor="disabled">{t('starship.modules.character.hideCharacter')}</Label>
-          <p className="text-xs text-muted-foreground">{t('starship.modules.character.hideDescription')}</p>
+          <p className="text-xs text-muted-foreground">
+            {t('starship.modules.character.hideDescription')}
+          </p>
         </div>
         <Switch
           id="disabled"
@@ -126,7 +124,9 @@ export function CharacterModule() {
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="vimcmd_replace_symbol">{t('starship.modules.character.vimcmdReplaceSymbol')}</Label>
+          <Label htmlFor="vimcmd_replace_symbol">
+            {t('starship.modules.character.vimcmdReplaceSymbol')}
+          </Label>
           <Input
             id="vimcmd_replace_symbol"
             {...register('vimcmd_replace_symbol')}
@@ -140,7 +140,9 @@ export function CharacterModule() {
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="vimcmd_visual_symbol">{t('starship.modules.character.vimcmdVisualSymbol')}</Label>
+          <Label htmlFor="vimcmd_visual_symbol">
+            {t('starship.modules.character.vimcmdVisualSymbol')}
+          </Label>
           <Input
             id="vimcmd_visual_symbol"
             {...register('vimcmd_visual_symbol')}
@@ -150,20 +152,6 @@ export function CharacterModule() {
           />
           <p className="text-xs text-muted-foreground">
             {t('starship.modules.character.vimcmdVisualSymbolDesc')}
-          </p>
-        </div>
-
-        <div className="space-y-2">
-          <Label htmlFor="style">{t('starship.modules.character.style')}</Label>
-          <Input
-            id="style"
-            {...register('style')}
-            placeholder="bold white"
-            disabled={disabled}
-            className="font-nerd"
-          />
-          <p className="text-xs text-muted-foreground">
-            {t('starship.modules.character.styleDesc')}
           </p>
         </div>
       </div>

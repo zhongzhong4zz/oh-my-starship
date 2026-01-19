@@ -92,8 +92,6 @@
         "vimcmdReplaceSymbolDesc": "Vim 取代模式下顯示的符號",
         "vimcmdVisualSymbol": "Vim 視覺符號",
         "vimcmdVisualSymbolDesc": "Vim 視覺模式下顯示的符號",
-        "style": "樣式",
-        "styleDesc": "字元的樣式（例如：bold green, #ff0000）",
         "saveSuccess": "字元模組已儲存"
       },
       "directory": {
