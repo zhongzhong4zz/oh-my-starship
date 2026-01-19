@@ -21,7 +21,7 @@ impl Default for Settings {
 fn get_config_dir() -> PathBuf {
     dirs::config_dir()
         .unwrap_or_else(|| PathBuf::from("."))
-        .join("starship-config-manager")
+        .join("oh-my-starship")
 }
 
 fn get_settings_path() -> PathBuf {
