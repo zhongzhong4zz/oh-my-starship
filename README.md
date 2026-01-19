@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="./src-tauri/icon-source.png" width="96" height="96" />
+</div>
+
 # Starship Config Manager
 
 `Starship Config Manager` is a desktop application that helps you manage your [Starship](https://starship.rs/) prompt configuration through a visual interface. The application is built using [Tauri](https://v2.tauri.app/) and supports `Windows` systems.

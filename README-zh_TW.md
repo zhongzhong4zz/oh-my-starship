@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="./src-tauri/icon-source.png" width="96" height="96" />
+</div>
+
 # Starship 配置管理器
 
 `Starship Config Manager` 是一款桌面應用程式，透過視覺化介面協助您管理 [Starship](https://starship.rs/) 提示符設定。此應用程式採用 [Tauri](https://v2.tauri.app/) 打造，支援 `Windows` 系統。
