@@ -64,7 +64,45 @@
     "presets": {
       "description": "Choose a preset to quickly configure your Starship prompt. Your current configuration will be backed up automatically.",
       "applySuccess": "Applied \"{{name}}\" preset",
-      "applyFailed": "Failed to apply preset"
+      "applyFailed": "Failed to apply preset",
+      "items": {
+        "nerd-font-symbols": {
+          "name": "Nerd Font Symbols",
+          "description": "Changes symbols for each module to use Nerd Font symbols"
+        },
+        "pastel-powerline": {
+          "name": "Pastel Powerline",
+          "description": "A colorful powerline-style prompt with pastel colors"
+        },
+        "tokyo-night": {
+          "name": "Tokyo Night",
+          "description": "Inspired by tokyo-night-vscode-theme with deep blues"
+        },
+        "gruvbox-rainbow": {
+          "name": "Gruvbox Rainbow",
+          "description": "Warm earthy colors inspired by Gruvbox theme"
+        },
+        "bracketed-segments": {
+          "name": "Bracketed Segments",
+          "description": "Shows all segments in brackets instead of default wording"
+        },
+        "plain-text": {
+          "name": "Plain Text Symbols",
+          "description": "Uses plain text instead of special characters or icons"
+        },
+        "pure-preset": {
+          "name": "Pure",
+          "description": "Emulates the look and behavior of Pure prompt"
+        },
+        "no-versions": {
+          "name": "No Runtime Versions",
+          "description": "Hides version numbers for all language runtimes"
+        },
+        "no-runtime-icons": {
+          "name": "No Empty Icons",
+          "description": "Does not show icons if the toolset is not found"
+        }
+      }
     },
     "toml": {
       "backups": "Backups",

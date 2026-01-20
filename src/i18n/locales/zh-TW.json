@@ -64,7 +64,45 @@
     "presets": {
       "description": "選擇一個預設來快速設定你的 Starship 提示符。目前的設定將會自動備份。",
       "applySuccess": "已套用 \"{{name}}\" 預設",
-      "applyFailed": "套用預設失敗"
+      "applyFailed": "套用預設失敗",
+      "items": {
+        "nerd-font-symbols": {
+          "name": "Nerd Font 符號",
+          "description": "將每個模組的符號替換為 Nerd Font 符號"
+        },
+        "pastel-powerline": {
+          "name": "粉彩 Powerline",
+          "description": "使用粉彩色的多彩 Powerline 風格提示符"
+        },
+        "tokyo-night": {
+          "name": "東京之夜",
+          "description": "靈感來自 tokyo-night-vscode-theme 的深藍色調"
+        },
+        "gruvbox-rainbow": {
+          "name": "Gruvbox 彩虹",
+          "description": "靈感來自 Gruvbox 主題的溫暖大地色"
+        },
+        "bracketed-segments": {
+          "name": "括號分段",
+          "description": "將所有段落顯示為括號包裹，而非預設文字"
+        },
+        "plain-text": {
+          "name": "純文字符號",
+          "description": "使用純文字而非特殊字元或圖示"
+        },
+        "pure-preset": {
+          "name": "Pure",
+          "description": "模擬 Pure 提示符的外觀與行為"
+        },
+        "no-versions": {
+          "name": "無執行階段版本",
+          "description": "隱藏所有語言執行階段的版本號"
+        },
+        "no-runtime-icons": {
+          "name": "無空圖示",
+          "description": "在工具集未找到時不顯示圖示"
+        }
+      }
     },
     "toml": {
       "backups": "備份",

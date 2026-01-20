@@ -10,14 +10,23 @@ export function PresetSelector() {
   const { t } = useTranslation();
   const { data: currentToml } = useStarshipToml();
   const applyPreset = useApplyPreset();
+  const getPresetName = (preset: (typeof presets)[number]) =>
+    t(`starship.presets.items.${preset.id}.name`, {
+      defaultValue: preset.name,
+    });
+  const getPresetDescription = (preset: (typeof presets)[number]) =>
+    t(`starship.presets.items.${preset.id}.description`, {
+      defaultValue: preset.description,
+    });
 
   const handleApplyPreset = async (presetId: string) => {
     const preset = presets.find((p) => p.id === presetId);
     if (!preset) return;
+    const presetName = getPresetName(preset);
 
     try {
       await applyPreset.mutateAsync(preset.toml);
-      toast.success(t('starship.presets.applySuccess', { name: preset.name }));
+      toast.success(t('starship.presets.applySuccess', { name: presetName }));
     } catch {
       toast.error(t('starship.presets.applyFailed'));
     }
@@ -37,6 +46,8 @@ export function PresetSelector() {
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {presets.map((preset) => {
           const isActive = isPresetActive(preset.toml);
+          const presetName = getPresetName(preset);
+          const presetDescription = getPresetDescription(preset);
 
           return (
             <div
@@ -48,11 +59,11 @@ export function PresetSelector() {
             >
               <div className="mb-3 flex items-center gap-2">
                 <Palette className="h-5 w-5 text-muted-foreground" />
-                <h3 className="font-medium">{preset.name}</h3>
+                <h3 className="font-medium">{presetName}</h3>
                 {isActive && <Check className="ml-auto h-4 w-4 text-primary" />}
               </div>
 
-              <p className="mb-4 flex-1 text-sm text-muted-foreground">{preset.description}</p>
+              <p className="mb-4 flex-1 text-sm text-muted-foreground">{presetDescription}</p>
 
               <Button
                 variant={isActive ? 'secondary' : 'default'}
