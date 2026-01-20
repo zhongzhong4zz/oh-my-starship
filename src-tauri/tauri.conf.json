@@ -1,7 +1,7 @@
 {
   "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
   "productName": "oh-my-starship",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "identifier": "com.starship.config-manager",
   "build": {
     "beforeDevCommand": "pnpm ui:dev",
