@@ -3,7 +3,12 @@ import { Save, RotateCcw, History } from 'lucide-react';
 import { toast } from 'sonner';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
-import { useStarshipToml, useSaveStarshipToml, useBackupList, useRestoreFromBackup } from '@/lib/query';
+import {
+  useStarshipToml,
+  useSaveStarshipToml,
+  useBackupList,
+  useRestoreFromBackup,
+} from '@/lib/query';
 
 export function TomlEditor() {
   const { t } = useTranslation();

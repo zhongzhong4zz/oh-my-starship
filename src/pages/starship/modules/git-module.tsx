@@ -106,9 +106,7 @@ export function GitModule() {
     <div className="space-y-6">
       <div>
         <h3 className="text-lg font-medium">{t('starship.modules.git.title')}</h3>
-        <p className="text-sm text-muted-foreground">
-          {t('starship.modules.git.subtitle')}
-        </p>
+        <p className="text-sm text-muted-foreground">{t('starship.modules.git.subtitle')}</p>
       </div>
 
       <Tabs value={activeTab} onValueChange={setActiveTab}>
@@ -122,7 +120,9 @@ export function GitModule() {
             <div className="flex items-center justify-between rounded-lg border border-border p-4">
               <div className="space-y-0.5">
                 <Label htmlFor="branch-disabled">{t('starship.modules.git.branch.hide')}</Label>
-                <p className="text-xs text-muted-foreground">{t('starship.modules.git.branch.hideDesc')}</p>
+                <p className="text-xs text-muted-foreground">
+                  {t('starship.modules.git.branch.hideDesc')}
+                </p>
               </div>
               <Switch
                 id="branch-disabled"
@@ -164,7 +164,9 @@ export function GitModule() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="branch-truncation_length">{t('starship.modules.git.branch.truncationLength')}</Label>
+                <Label htmlFor="branch-truncation_length">
+                  {t('starship.modules.git.branch.truncationLength')}
+                </Label>
                 <Input
                   id="branch-truncation_length"
                   type="number"
@@ -175,7 +177,9 @@ export function GitModule() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="branch-truncation_symbol">{t('starship.modules.git.branch.truncationSymbol')}</Label>
+                <Label htmlFor="branch-truncation_symbol">
+                  {t('starship.modules.git.branch.truncationSymbol')}
+                </Label>
                 <Input
                   id="branch-truncation_symbol"
                   {...branchForm.register('truncation_symbol')}
@@ -196,7 +200,9 @@ export function GitModule() {
             <div className="flex items-center justify-between rounded-lg border border-border p-4">
               <div className="space-y-0.5">
                 <Label htmlFor="status-disabled">{t('starship.modules.git.status.hide')}</Label>
-                <p className="text-xs text-muted-foreground">{t('starship.modules.git.status.hideDesc')}</p>
+                <p className="text-xs text-muted-foreground">
+                  {t('starship.modules.git.status.hideDesc')}
+                </p>
               </div>
               <Switch
                 id="status-disabled"
@@ -257,7 +263,9 @@ export function GitModule() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="status-conflicted">{t('starship.modules.git.status.conflicted')}</Label>
+                <Label htmlFor="status-conflicted">
+                  {t('starship.modules.git.status.conflicted')}
+                </Label>
                 <Input
                   id="status-conflicted"
                   {...statusForm.register('conflicted')}
@@ -267,7 +275,9 @@ export function GitModule() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="status-untracked">{t('starship.modules.git.status.untracked')}</Label>
+                <Label htmlFor="status-untracked">
+                  {t('starship.modules.git.status.untracked')}
+                </Label>
                 <Input
                   id="status-untracked"
                   {...statusForm.register('untracked')}

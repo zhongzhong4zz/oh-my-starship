@@ -16,9 +16,7 @@ export function Home() {
             className={({ isActive }) =>
               cn(
                 'flex items-center gap-2 rounded-md px-3 py-2 text-sm transition-colors',
-                isActive
-                  ? 'bg-accent text-accent-foreground'
-                  : 'hover:bg-accent/50'
+                isActive ? 'bg-accent text-accent-foreground' : 'hover:bg-accent/50'
               )
             }
           >
@@ -31,9 +29,7 @@ export function Home() {
             className={({ isActive }) =>
               cn(
                 'flex items-center gap-2 rounded-md px-3 py-2 text-sm transition-colors',
-                isActive
-                  ? 'bg-accent text-accent-foreground'
-                  : 'hover:bg-accent/50'
+                isActive ? 'bg-accent text-accent-foreground' : 'hover:bg-accent/50'
               )
             }
           >
@@ -45,9 +41,7 @@ export function Home() {
             className={({ isActive }) =>
               cn(
                 'flex items-center gap-2 rounded-md px-3 py-2 text-sm transition-colors',
-                isActive
-                  ? 'bg-accent text-accent-foreground'
-                  : 'hover:bg-accent/50'
+                isActive ? 'bg-accent text-accent-foreground' : 'hover:bg-accent/50'
               )
             }
           >

@@ -27,14 +27,10 @@ export function AppProvider({
       setSettings(newSettings);
       await updateSettings(newSettings);
     },
-    [settings],
+    [settings]
   );
 
-  return (
-    <AppContext value={{ settings, updateSetting }}>
-      {children}
-    </AppContext>
-  );
+  return <AppContext value={{ settings, updateSetting }}>{children}</AppContext>;
 }
 
 export function useAppContext() {

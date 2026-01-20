@@ -69,15 +69,15 @@ export function DirectoryModule() {
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
       <div>
         <h3 className="text-lg font-medium">{t('starship.modules.directory.title')}</h3>
-        <p className="text-sm text-muted-foreground">
-          {t('starship.modules.directory.subtitle')}
-        </p>
+        <p className="text-sm text-muted-foreground">{t('starship.modules.directory.subtitle')}</p>
       </div>
 
       <div className="flex items-center justify-between rounded-lg border border-border p-4">
         <div className="space-y-0.5">
           <Label htmlFor="disabled">{t('starship.modules.directory.hideDirectory')}</Label>
-          <p className="text-xs text-muted-foreground">{t('starship.modules.directory.hideDescription')}</p>
+          <p className="text-xs text-muted-foreground">
+            {t('starship.modules.directory.hideDescription')}
+          </p>
         </div>
         <Switch
           id="disabled"
@@ -88,7 +88,9 @@ export function DirectoryModule() {
 
       <div className="grid gap-4">
         <div className="space-y-2">
-          <Label htmlFor="truncation_length">{t('starship.modules.directory.truncationLength')}</Label>
+          <Label htmlFor="truncation_length">
+            {t('starship.modules.directory.truncationLength')}
+          </Label>
           <Input
             id="truncation_length"
             type="number"
@@ -102,7 +104,9 @@ export function DirectoryModule() {
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="truncation_symbol">{t('starship.modules.directory.truncationSymbol')}</Label>
+          <Label htmlFor="truncation_symbol">
+            {t('starship.modules.directory.truncationSymbol')}
+          </Label>
           <Input
             id="truncation_symbol"
             {...register('truncation_symbol')}
@@ -116,7 +120,9 @@ export function DirectoryModule() {
 
         <div className="flex items-center justify-between rounded-lg border border-border p-4">
           <div className="space-y-0.5">
-            <Label htmlFor="truncate_to_repo">{t('starship.modules.directory.truncateToRepo')}</Label>
+            <Label htmlFor="truncate_to_repo">
+              {t('starship.modules.directory.truncateToRepo')}
+            </Label>
             <p className="text-xs text-muted-foreground">
               {t('starship.modules.directory.truncateToRepoDesc')}
             </p>
@@ -131,12 +137,7 @@ export function DirectoryModule() {
 
         <div className="space-y-2">
           <Label htmlFor="style">{t('starship.modules.directory.style')}</Label>
-          <Input
-            id="style"
-            {...register('style')}
-            placeholder="bold cyan"
-            disabled={disabled}
-          />
+          <Input id="style" {...register('style')} placeholder="bold cyan" disabled={disabled} />
           <p className="text-xs text-muted-foreground">
             {t('starship.modules.directory.styleDesc')}
           </p>

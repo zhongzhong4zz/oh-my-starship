@@ -14,6 +14,6 @@ import { Themes } from './types';
   createRoot(document.getElementById('root') as HTMLElement).render(
     <StrictMode>
       <App settings={settings} />
-    </StrictMode>,
+    </StrictMode>
   );
 })();

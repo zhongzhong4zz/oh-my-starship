@@ -150,7 +150,8 @@ export function LanguageModules() {
 
     const updatedToml = updateTomlSection(toml, currentLang.sectionName, data);
     saveToml(updatedToml, {
-      onSuccess: () => toast.success(t('starship.modules.languages.saveSuccess', { name: currentLang.name })),
+      onSuccess: () =>
+        toast.success(t('starship.modules.languages.saveSuccess', { name: currentLang.name })),
       onError: (error) => toast.error(t('starship.modules.saveFailed', { message: error.message })),
     });
   };
@@ -163,9 +164,7 @@ export function LanguageModules() {
     <div className="space-y-6">
       <div>
         <h3 className="text-lg font-medium">{t('starship.modules.languages.title')}</h3>
-        <p className="text-sm text-muted-foreground">
-          {t('starship.modules.languages.subtitle')}
-        </p>
+        <p className="text-sm text-muted-foreground">{t('starship.modules.languages.subtitle')}</p>
       </div>
 
       <div className="flex flex-wrap gap-2">
@@ -189,7 +188,9 @@ export function LanguageModules() {
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <div className="flex items-center justify-between rounded-lg border border-border p-4">
           <div className="space-y-0.5">
-            <Label htmlFor="disabled">{t('starship.modules.languages.disable', { name: currentLang.name })}</Label>
+            <Label htmlFor="disabled">
+              {t('starship.modules.languages.disable', { name: currentLang.name })}
+            </Label>
             <p className="text-xs text-muted-foreground">
               {t('starship.modules.languages.disableDesc', { name: currentLang.name })}
             </p>
@@ -257,7 +258,9 @@ export function LanguageModules() {
         </div>
 
         <Button type="submit" disabled={isPending}>
-          {isPending ? t('common.saving') : t('starship.modules.languages.saveButton', { name: currentLang.name })}
+          {isPending
+            ? t('common.saving')
+            : t('starship.modules.languages.saveButton', { name: currentLang.name })}
         </Button>
       </form>
     </div>

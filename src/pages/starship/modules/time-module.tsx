@@ -68,9 +68,7 @@ export function TimeModule() {
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
       <div>
         <h3 className="text-lg font-medium">{t('starship.modules.time.title')}</h3>
-        <p className="text-sm text-muted-foreground">
-          {t('starship.modules.time.subtitle')}
-        </p>
+        <p className="text-sm text-muted-foreground">{t('starship.modules.time.subtitle')}</p>
       </div>
 
       <div className="flex items-center justify-between rounded-lg border border-border p-4">
@@ -124,15 +122,8 @@ export function TimeModule() {
 
         <div className="space-y-2">
           <Label htmlFor="style">{t('starship.modules.time.style')}</Label>
-          <Input
-            id="style"
-            {...register('style')}
-            placeholder="bold yellow"
-            disabled={disabled}
-          />
-          <p className="text-xs text-muted-foreground">
-            {t('starship.modules.time.styleDesc')}
-          </p>
+          <Input id="style" {...register('style')} placeholder="bold yellow" disabled={disabled} />
+          <p className="text-xs text-muted-foreground">{t('starship.modules.time.styleDesc')}</p>
         </div>
 
         <div className="flex items-center justify-between rounded-lg border border-border p-4">

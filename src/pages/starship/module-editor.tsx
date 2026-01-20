@@ -15,11 +15,36 @@ export function ModuleEditor() {
   const [activeSection, setActiveSection] = useState<ModuleSection>('character');
 
   const sections = [
-    { id: 'character' as const, name: t('starship.modules.character.name'), icon: Terminal, description: t('starship.modules.character.description') },
-    { id: 'directory' as const, name: t('starship.modules.directory.name'), icon: FolderOpen, description: t('starship.modules.directory.description') },
-    { id: 'git' as const, name: t('starship.modules.git.name'), icon: GitBranch, description: t('starship.modules.git.description') },
-    { id: 'time' as const, name: t('starship.modules.time.name'), icon: Clock, description: t('starship.modules.time.description') },
-    { id: 'languages' as const, name: t('starship.modules.languages.name'), icon: Code, description: t('starship.modules.languages.description') },
+    {
+      id: 'character' as const,
+      name: t('starship.modules.character.name'),
+      icon: Terminal,
+      description: t('starship.modules.character.description'),
+    },
+    {
+      id: 'directory' as const,
+      name: t('starship.modules.directory.name'),
+      icon: FolderOpen,
+      description: t('starship.modules.directory.description'),
+    },
+    {
+      id: 'git' as const,
+      name: t('starship.modules.git.name'),
+      icon: GitBranch,
+      description: t('starship.modules.git.description'),
+    },
+    {
+      id: 'time' as const,
+      name: t('starship.modules.time.name'),
+      icon: Clock,
+      description: t('starship.modules.time.description'),
+    },
+    {
+      id: 'languages' as const,
+      name: t('starship.modules.languages.name'),
+      icon: Code,
+      description: t('starship.modules.languages.description'),
+    },
   ];
 
   return (
