@@ -1,7 +1,7 @@
 use serde::{Deserialize, Serialize};
 use std::fs;
 use std::path::PathBuf;
-use chrono::Utc;
+use chrono::Local;
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Settings {
@@ -147,7 +147,7 @@ pub async fn create_starship_backup() -> Result<String, String> {
     let backup_dir = get_config_dir().join("backups");
     fs::create_dir_all(&backup_dir).map_err(|e| e.to_string())?;
 
-    let timestamp = Utc::now().format("%Y%m%d_%H%M%S");
+    let timestamp = Local::now().format("%Y%m%d_%H%M%S");
     let backup_name = format!("starship_{}.toml", timestamp);
     let backup_path = backup_dir.join(&backup_name);
 
