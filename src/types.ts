@@ -6,8 +6,23 @@ export const Themes = {
 
 export type Theme = (typeof Themes)[keyof typeof Themes];
 
+export const ThemeColors = {
+  Zinc: 'zinc',
+  Slate: 'slate',
+  Red: 'red',
+  Rose: 'rose',
+  Orange: 'orange',
+  Green: 'green',
+  Blue: 'blue',
+  Yellow: 'yellow',
+  Violet: 'violet',
+} as const;
+
+export type ThemeColor = (typeof ThemeColors)[keyof typeof ThemeColors];
+
 export interface Settings {
   theme: Theme;
+  themeColor: ThemeColor;
   language: string;
 }
 

@@ -1,9 +1,13 @@
 import { useEffect } from 'react';
-import { applyTheme } from '@/lib/utils';
-import type { Theme } from '@/types';
+import { applyTheme, applyThemeColor } from '@/lib/utils';
+import type { Theme, ThemeColor } from '@/types';
 
-export function useTheme(theme: Theme) {
+export function useTheme(theme: Theme, themeColor: ThemeColor) {
   useEffect(() => {
     applyTheme(theme);
   }, [theme]);
+
+  useEffect(() => {
+    applyThemeColor(themeColor);
+  }, [themeColor]);
 }

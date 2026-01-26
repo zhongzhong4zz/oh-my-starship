@@ -4,15 +4,23 @@ use std::path::PathBuf;
 use chrono::Local;
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct Settings {
     pub theme: String,
+    #[serde(default = "default_theme_color")]
+    pub theme_color: String,
     pub language: String,
+}
+
+fn default_theme_color() -> String {
+    "zinc".to_string()
 }
 
 impl Default for Settings {
     fn default() -> Self {
         Self {
             theme: "light".to_string(),
+            theme_color: default_theme_color(),
             language: "en".to_string(),
         }
     }

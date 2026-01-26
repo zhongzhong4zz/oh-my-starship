@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useCallback } from 'react';
 import { useTheme } from '@/hooks/use-theme';
-import type { Settings, Theme } from '@/types';
+import type { Settings } from '@/types';
 import { updateSettings } from '@/services/cmds';
 
 interface AppContextType {
@@ -19,7 +19,7 @@ export function AppProvider({
 }) {
   const [settings, setSettings] = useState<Settings>(defaultSettings);
 
-  useTheme(settings.theme);
+  useTheme(settings.theme, settings.themeColor);
 
   const updateSetting = useCallback(
     async <K extends keyof Settings>(key: K, value: Settings[K]) => {

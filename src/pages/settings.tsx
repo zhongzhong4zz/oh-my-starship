@@ -1,8 +1,21 @@
-import { Moon, Sun, Monitor, Languages } from 'lucide-react';
+import { Moon, Sun, Monitor, Languages, Check } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useAppContext } from '@/app-context';
-import { Themes, type Theme } from '@/types';
+import { Themes, ThemeColors, type Theme, type ThemeColor } from '@/types';
 import { cn } from '@/lib/utils';
+
+// 定义每种主题色的显示颜色
+const themeColorDisplayColors: Record<ThemeColor, string> = {
+  zinc: '#27272a',
+  slate: '#64748b',
+  red: '#dc2626',
+  rose: '#e11d48',
+  orange: '#f97316',
+  green: '#16a34a',
+  blue: '#2563eb',
+  yellow: '#eab308',
+  violet: '#7c3aed',
+};
 
 export function Component() {
   const { t, i18n } = useTranslation();
@@ -16,6 +29,18 @@ export function Component() {
       label: t('settings.themes.system'),
       icon: <Monitor className="h-4 w-4" />,
     },
+  ];
+
+  const themeColorOptions: { value: ThemeColor; label: string }[] = [
+    { value: ThemeColors.Zinc, label: t('settings.themeColors.zinc') },
+    { value: ThemeColors.Slate, label: t('settings.themeColors.slate') },
+    { value: ThemeColors.Red, label: t('settings.themeColors.red') },
+    { value: ThemeColors.Rose, label: t('settings.themeColors.rose') },
+    { value: ThemeColors.Orange, label: t('settings.themeColors.orange') },
+    { value: ThemeColors.Green, label: t('settings.themeColors.green') },
+    { value: ThemeColors.Blue, label: t('settings.themeColors.blue') },
+    { value: ThemeColors.Yellow, label: t('settings.themeColors.yellow') },
+    { value: ThemeColors.Violet, label: t('settings.themeColors.violet') },
   ];
 
   const languageOptions = [
@@ -50,6 +75,35 @@ export function Component() {
               >
                 {option.icon}
                 {option.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <label className="text-sm font-medium">{t('settings.themeColor')}</label>
+          <div className="mt-2 grid grid-cols-4 gap-2 sm:grid-cols-6 md:grid-cols-12">
+            {themeColorOptions.map((option) => (
+              <button
+                key={option.value}
+                onClick={() => updateSetting('themeColor', option.value)}
+                className={cn(
+                  'group flex flex-col items-center gap-1.5 rounded-lg border p-2 transition-all',
+                  settings.themeColor === option.value
+                    ? 'border-primary ring-2 ring-primary/30'
+                    : 'border-border hover:border-muted-foreground/50'
+                )}
+                title={option.label}
+              >
+                <div
+                  className="relative flex h-6 w-6 items-center justify-center rounded-full"
+                  style={{ backgroundColor: themeColorDisplayColors[option.value] }}
+                >
+                  {settings.themeColor === option.value && (
+                    <Check className="h-3.5 w-3.5 text-white" />
+                  )}
+                </div>
+                <span className="text-xs text-muted-foreground">{option.label}</span>
               </button>
             ))}
           </div>

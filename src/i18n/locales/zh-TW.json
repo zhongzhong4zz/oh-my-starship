@@ -19,11 +19,23 @@
   "settings": {
     "title": "設定",
     "theme": "主題",
+    "themeColor": "主題顏色",
     "language": "語言",
     "themes": {
       "light": "淺色",
       "dark": "深色",
       "system": "跟隨系統"
+    },
+    "themeColors": {
+      "zinc": "鋅灰",
+      "slate": "岩灰",
+      "red": "紅色",
+      "rose": "玫紅",
+      "orange": "橙色",
+      "green": "綠色",
+      "blue": "藍色",
+      "yellow": "黃色",
+      "violet": "紫色"
     },
     "languages": {
       "en": "English",

@@ -19,11 +19,23 @@
   "settings": {
     "title": "Settings",
     "theme": "Theme",
+    "themeColor": "Theme Color",
     "language": "Language",
     "themes": {
       "light": "Light",
       "dark": "Dark",
       "system": "System"
+    },
+    "themeColors": {
+      "zinc": "Zinc",
+      "slate": "Slate",
+      "red": "Red",
+      "rose": "Rose",
+      "orange": "Orange",
+      "green": "Green",
+      "blue": "Blue",
+      "yellow": "Yellow",
+      "violet": "Violet"
     },
     "languages": {
       "en": "English",
