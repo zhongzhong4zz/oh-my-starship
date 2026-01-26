@@ -150,7 +150,7 @@ export function ConfigList() {
                   <span>{t('backups.apply')}</span>
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => openRenameDialog(backupPath)}>
-                  <Pencil className="text-muted-foreground" />
+                  <Pencil className="text-primary" />
                   <span>{t('backups.rename')}</span>
                 </DropdownMenuItem>
                 <DropdownMenuItem

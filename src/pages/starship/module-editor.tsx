@@ -60,13 +60,15 @@ export function ModuleEditor() {
               onClick={() => setActiveSection(section.id)}
               className={cn(
                 'flex w-full items-center gap-3 rounded-md px-3 py-2 text-left text-sm transition-colors',
-                isActive ? 'bg-accent text-accent-foreground' : 'hover:bg-accent/50'
+                isActive ? 'bg-accent text-theme' : 'hover:bg-accent/50'
               )}
             >
-              <Icon className="h-4 w-4 shrink-0 text-muted-foreground" />
+              <Icon className={cn('h-4 w-4 shrink-0', isActive ? 'text-theme' : 'text-muted-foreground')} />
               <div className="flex-1 truncate">
                 <div className="font-medium">{section.name}</div>
-                <div className="text-xs text-muted-foreground">{section.description}</div>
+                <div className={cn('text-xs', isActive ? 'text-theme/70' : 'text-muted-foreground')}>
+                  {section.description}
+                </div>
               </div>
               <ChevronRight
                 className={cn(
