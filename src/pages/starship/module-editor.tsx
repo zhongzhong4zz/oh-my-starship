@@ -63,10 +63,17 @@ export function ModuleEditor() {
                 isActive ? 'bg-accent text-theme' : 'hover:bg-accent/50'
               )}
             >
-              <Icon className={cn('h-4 w-4 shrink-0', isActive ? 'text-theme' : 'text-muted-foreground')} />
+              <Icon
+                className={cn(
+                  'h-4 w-4 shrink-0',
+                  isActive ? 'text-theme' : 'text-muted-foreground'
+                )}
+              />
               <div className="flex-1 truncate">
                 <div className="font-medium">{section.name}</div>
-                <div className={cn('text-xs', isActive ? 'text-theme/70' : 'text-muted-foreground')}>
+                <div
+                  className={cn('text-xs', isActive ? 'text-theme/70' : 'text-muted-foreground')}
+                >
                   {section.description}
                 </div>
               </div>
