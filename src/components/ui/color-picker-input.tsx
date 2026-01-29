@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Palette } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Input } from './input';
@@ -36,6 +37,7 @@ function applyHexColor(value: string, newColor: string): string {
 
 const ColorPickerInput = React.forwardRef<HTMLInputElement, ColorPickerInputProps>(
     ({ className, value, onChange, disabled, ...props }, ref) => {
+        const { t } = useTranslation();
         const [open, setOpen] = React.useState(false);
         const [customColor, setCustomColor] = React.useState('#000000');
 
@@ -80,7 +82,7 @@ const ColorPickerInput = React.forwardRef<HTMLInputElement, ColorPickerInputProp
                     <DropdownMenuContent align="end" className="w-64 p-3" sideOffset={8}>
                         <div className="space-y-3">
                             <div className="mb-2 text-xs font-medium text-muted-foreground">
-                                自定义颜色 (Hex)
+                                {t('colorPicker.customColor')}
                             </div>
                             <div className="relative">
                                 <input
@@ -91,7 +93,7 @@ const ColorPickerInput = React.forwardRef<HTMLInputElement, ColorPickerInputProp
                                 />
                                 <div className="flex h-9 items-center gap-2 rounded-md border border-input bg-transparent px-3 text-sm">
                                     <Palette className="h-4 w-4 text-muted-foreground" />
-                                    <span className="flex-1 text-muted-foreground">选择颜色...</span>
+                                    <span className="flex-1 text-muted-foreground">{t('colorPicker.selectColor')}</span>
                                     <div
                                         className="h-5 w-5 rounded border border-border"
                                         style={{ backgroundColor: customColor }}
@@ -122,9 +124,9 @@ const ColorPickerInput = React.forwardRef<HTMLInputElement, ColorPickerInputProp
                                             setOpen(false);
                                         }
                                     }}
-                                    className="h-8 rounded-md bg-primary px-3 text-xs font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+                                    className="h-8 whitespace-nowrap rounded-md bg-primary px-3 text-xs font-medium text-primary-foreground transition-colors hover:bg-primary/90"
                                 >
-                                    应用
+                                    {t('colorPicker.apply')}
                                 </button>
                             </div>
                         </div>

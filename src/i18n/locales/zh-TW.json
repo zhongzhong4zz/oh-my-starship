@@ -10,6 +10,11 @@
     "saveChanges": "儲存變更",
     "cancel": "取消"
   },
+  "colorPicker": {
+    "customColor": "自訂顏色 (Hex)",
+    "selectColor": "選擇顏色...",
+    "apply": "套用"
+  },
   "nav": {
     "title": "Starship 設定",
     "backups": "備份",

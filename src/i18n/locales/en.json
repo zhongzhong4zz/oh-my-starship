@@ -10,6 +10,11 @@
     "saveChanges": "Save Changes",
     "cancel": "Cancel"
   },
+  "colorPicker": {
+    "customColor": "Custom Color (Hex)",
+    "selectColor": "Select color...",
+    "apply": "Apply"
+  },
   "nav": {
     "title": "Starship Config",
     "backups": "Backups",
