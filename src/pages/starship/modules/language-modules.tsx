@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Switch } from '@/components/ui/switch';
 import { Button } from '@/components/ui/button';
+import { ColorPickerInput } from '@/components/ui/color-picker-input';
 import { useStarshipToml, useSaveStarshipToml } from '@/lib/query';
 import { parseTomlSection, updateTomlSection } from '../toml-utils';
 import { cn } from '@/lib/utils';
@@ -32,7 +33,7 @@ const languages: LanguageDefinition[] = [
     sectionName: 'nodejs',
     defaults: {
       symbol: ' ',
-      style: 'bold green',
+      style: '#22c55e',
       format: '[$symbol($version )]($style)',
       version_format: 'v${raw}',
       disabled: false,
@@ -44,7 +45,7 @@ const languages: LanguageDefinition[] = [
     sectionName: 'python',
     defaults: {
       symbol: '🐍 ',
-      style: 'bold yellow',
+      style: '#eab308',
       format: '[$symbol$pyenv_prefix($version )(\\($virtualenv\\) )]($style)',
       version_format: 'v${raw}',
       disabled: false,
@@ -56,7 +57,7 @@ const languages: LanguageDefinition[] = [
     sectionName: 'rust',
     defaults: {
       symbol: '🦀 ',
-      style: 'bold red',
+      style: '#ef4444',
       format: '[$symbol($version )]($style)',
       version_format: 'v${raw}',
       disabled: false,
@@ -68,7 +69,7 @@ const languages: LanguageDefinition[] = [
     sectionName: 'golang',
     defaults: {
       symbol: '🐹 ',
-      style: 'bold cyan',
+      style: '#06b6d4',
       format: '[$symbol($version )]($style)',
       version_format: 'v${raw}',
       disabled: false,
@@ -80,7 +81,7 @@ const languages: LanguageDefinition[] = [
     sectionName: 'java',
     defaults: {
       symbol: '☕ ',
-      style: 'bold red',
+      style: '#ef4444',
       format: '[$symbol($version )]($style)',
       version_format: 'v${raw}',
       disabled: false,
@@ -92,7 +93,7 @@ const languages: LanguageDefinition[] = [
     sectionName: 'php',
     defaults: {
       symbol: '🐘 ',
-      style: 'bold purple',
+      style: '#a855f7',
       format: '[$symbol($version )]($style)',
       version_format: 'v${raw}',
       disabled: false,
@@ -104,7 +105,7 @@ const languages: LanguageDefinition[] = [
     sectionName: 'ruby',
     defaults: {
       symbol: '💎 ',
-      style: 'bold red',
+      style: '#ef4444',
       format: '[$symbol($version )]($style)',
       version_format: 'v${raw}',
       disabled: false,
@@ -116,7 +117,7 @@ const languages: LanguageDefinition[] = [
     sectionName: 'docker_context',
     defaults: {
       symbol: '🐳 ',
-      style: 'bold blue',
+      style: '#3b82f6',
       format: '[$symbol$context]($style) ',
       version_format: 'v${raw}',
       disabled: false,
@@ -219,9 +220,10 @@ export function LanguageModules() {
 
           <div className="space-y-2">
             <Label htmlFor="style">{t('starship.modules.languages.style')}</Label>
-            <Input
+            <ColorPickerInput
               id="style"
-              {...register('style')}
+              value={watch('style')}
+              onChange={(value) => setValue('style', value)}
               placeholder={currentLang.defaults.style}
               disabled={disabled}
             />

@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Switch } from '@/components/ui/switch';
 import { Button } from '@/components/ui/button';
+import { ColorPickerInput } from '@/components/ui/color-picker-input';
 import { useStarshipToml, useSaveStarshipToml } from '@/lib/query';
 import { parseTomlSection, updateTomlSection } from '../toml-utils';
 
@@ -21,7 +22,7 @@ const defaults: TimeFormData = {
   disabled: true,
   time_format: '%T',
   format: '[$time]($style) ',
-  style: 'bold yellow',
+  style: '#eab308',
   use_12hr: false,
 };
 
@@ -122,7 +123,13 @@ export function TimeModule() {
 
         <div className="space-y-2">
           <Label htmlFor="style">{t('starship.modules.time.style')}</Label>
-          <Input id="style" {...register('style')} placeholder="bold yellow" disabled={disabled} />
+          <ColorPickerInput
+            id="style"
+            value={watch('style')}
+            onChange={(value) => setValue('style', value)}
+            placeholder="#eab308"
+            disabled={disabled}
+          />
           <p className="text-xs text-muted-foreground">{t('starship.modules.time.styleDesc')}</p>
         </div>
 

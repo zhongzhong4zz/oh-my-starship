@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Switch } from '@/components/ui/switch';
 import { Button } from '@/components/ui/button';
+import { ColorPickerInput } from '@/components/ui/color-picker-input';
 import { useStarshipToml, useSaveStarshipToml } from '@/lib/query';
 import { parseTomlSection, updateTomlSection } from '../toml-utils';
 
@@ -25,10 +26,10 @@ const defaults: DirectoryFormData = {
   truncation_length: 3,
   truncation_symbol: '…',
   truncate_to_repo: true,
-  style: 'bold cyan',
+  style: '#06b6d4',
   format: '[$path]($style)[$read_only]($read_only_style) ',
   read_only: '🔒',
-  read_only_style: 'red',
+  read_only_style: '#ef4444',
   home_symbol: '~',
   disabled: false,
 };
@@ -137,7 +138,13 @@ export function DirectoryModule() {
 
         <div className="space-y-2">
           <Label htmlFor="style">{t('starship.modules.directory.style')}</Label>
-          <Input id="style" {...register('style')} placeholder="bold cyan" disabled={disabled} />
+          <ColorPickerInput
+            id="style"
+            value={watch('style')}
+            onChange={(value) => setValue('style', value)}
+            placeholder="#06b6d4"
+            disabled={disabled}
+          />
           <p className="text-xs text-muted-foreground">
             {t('starship.modules.directory.styleDesc')}
           </p>
@@ -185,10 +192,11 @@ export function DirectoryModule() {
 
         <div className="space-y-2">
           <Label htmlFor="read_only_style">{t('starship.modules.directory.readOnlyStyle')}</Label>
-          <Input
+          <ColorPickerInput
             id="read_only_style"
-            {...register('read_only_style')}
-            placeholder="red"
+            value={watch('read_only_style')}
+            onChange={(value) => setValue('read_only_style', value)}
+            placeholder="#ef4444"
             disabled={disabled}
           />
           <p className="text-xs text-muted-foreground">

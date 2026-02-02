@@ -19,11 +19,11 @@ interface CharacterFormData {
 }
 
 const defaults: CharacterFormData = {
-  success_symbol: '[❯](bold green)',
-  error_symbol: '[❯](bold red)',
-  vimcmd_symbol: '[❮](bold green)',
-  vimcmd_replace_symbol: '[❮](bold purple)',
-  vimcmd_visual_symbol: '[❮](bold yellow)',
+  success_symbol: '[❯]( #22c55e)',
+  error_symbol: '[❯]( #ef4444)',
+  vimcmd_symbol: '[❮]( #22c55e)',
+  vimcmd_replace_symbol: '[❮]( #a855f7)',
+  vimcmd_visual_symbol: '[❮]( #eab308)',
   disabled: false,
 };
 
@@ -87,7 +87,7 @@ export function CharacterModule() {
             id="success_symbol"
             value={watch('success_symbol')}
             onChange={(value) => setValue('success_symbol', value)}
-            placeholder="[❯](bold green)"
+            placeholder="[❯](bold #22c55e)"
             disabled={disabled}
           />
           <p className="text-xs text-muted-foreground">
@@ -101,7 +101,7 @@ export function CharacterModule() {
             id="error_symbol"
             value={watch('error_symbol')}
             onChange={(value) => setValue('error_symbol', value)}
-            placeholder="[❯](bold red)"
+            placeholder="[❯](bold #ef4444)"
             disabled={disabled}
           />
           <p className="text-xs text-muted-foreground">
@@ -115,7 +115,7 @@ export function CharacterModule() {
             id="vimcmd_symbol"
             value={watch('vimcmd_symbol')}
             onChange={(value) => setValue('vimcmd_symbol', value)}
-            placeholder="[❮](bold green)"
+            placeholder="[❮](bold #22c55e)"
             disabled={disabled}
           />
           <p className="text-xs text-muted-foreground">
@@ -131,7 +131,7 @@ export function CharacterModule() {
             id="vimcmd_replace_symbol"
             value={watch('vimcmd_replace_symbol')}
             onChange={(value) => setValue('vimcmd_replace_symbol', value)}
-            placeholder="[❮](bold purple)"
+            placeholder="[❮](bold #a855f7)"
             disabled={disabled}
           />
           <p className="text-xs text-muted-foreground">
@@ -147,7 +147,7 @@ export function CharacterModule() {
             id="vimcmd_visual_symbol"
             value={watch('vimcmd_visual_symbol')}
             onChange={(value) => setValue('vimcmd_visual_symbol', value)}
-            placeholder="[❮](bold yellow)"
+            placeholder="[❮](bold #eab308)"
             disabled={disabled}
           />
           <p className="text-xs text-muted-foreground">
