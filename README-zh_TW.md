@@ -62,7 +62,7 @@
 
 您可以下載原始碼自行建置，或從 GitHub 發佈頁面下載已建置的版本。
 
-- [oh-my-starship 發佈頁面](https://github.com/YOUR_USERNAME/oh-my-starship/releases)
+- [oh-my-starship 發佈頁面](https://github.com/zhongzhong4zz/oh-my-starship/releases)
 
 ## 移除
 
@@ -89,7 +89,7 @@
 pnpm install
 
 # 啟動開發伺服器
-pnpm dev
+pnpm tauri dev
 ```
 
 或者，若您已安裝 Tauri 擴充套件，可在 VSCode 中按 `F5` 以除錯模式啟動。
@@ -98,7 +98,7 @@ pnpm dev
 
 ```bash
 # 建置正式版
-pnpm build
+pnpm tauri build
 ```
 
 若一切順利，封裝檔案會位於 `./src-tauri/target/release/bundle/` 目錄中。
