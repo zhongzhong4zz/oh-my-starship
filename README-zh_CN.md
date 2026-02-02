@@ -30,10 +30,10 @@
 ## 截图
 
 <div align="center">
-  <img src="./readme_img/img-2.png" width="800" />
+  <img src="./readme_img/img-1.png" width="800" />
 </div>
 <div align="center">
-  <img src="./readme_img/img-1.png" width="800" />
+  <img src="./readme_img/img-2.png" width="800" />
 </div>
 
 <details>

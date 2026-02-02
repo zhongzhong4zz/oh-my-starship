@@ -2,10 +2,10 @@ import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import { useTranslation } from 'react-i18next';
-import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Switch } from '@/components/ui/switch';
 import { Button } from '@/components/ui/button';
+import { ColorPickerInput } from '@/components/ui/color-picker-input';
 import { useStarshipToml, useSaveStarshipToml } from '@/lib/query';
 import { parseTomlSection, updateTomlSection } from '../toml-utils';
 
@@ -19,11 +19,11 @@ interface CharacterFormData {
 }
 
 const defaults: CharacterFormData = {
-  success_symbol: '[❯](bold green)',
-  error_symbol: '[❯](bold red)',
-  vimcmd_symbol: '[❮](bold green)',
-  vimcmd_replace_symbol: '[❮](bold purple)',
-  vimcmd_visual_symbol: '[❮](bold yellow)',
+  success_symbol: '[❯]( #22c55e)',
+  error_symbol: '[❯]( #ef4444)',
+  vimcmd_symbol: '[❮]( #22c55e)',
+  vimcmd_replace_symbol: '[❮]( #a855f7)',
+  vimcmd_visual_symbol: '[❮]( #eab308)',
   disabled: false,
 };
 
@@ -32,7 +32,7 @@ export function CharacterModule() {
   const { data: toml, isLoading } = useStarshipToml();
   const { mutate: saveToml, isPending } = useSaveStarshipToml();
 
-  const { register, handleSubmit, reset, watch, setValue } = useForm<CharacterFormData>({
+  const { handleSubmit, reset, watch, setValue } = useForm<CharacterFormData>({
     defaultValues: defaults,
   });
 
@@ -83,12 +83,12 @@ export function CharacterModule() {
       <div className="grid gap-4">
         <div className="space-y-2">
           <Label htmlFor="success_symbol">{t('starship.modules.character.successSymbol')}</Label>
-          <Input
+          <ColorPickerInput
             id="success_symbol"
-            {...register('success_symbol')}
-            placeholder="[❯](bold green)"
+            value={watch('success_symbol')}
+            onChange={(value) => setValue('success_symbol', value)}
+            placeholder="[❯](bold #22c55e)"
             disabled={disabled}
-            className="font-nerd"
           />
           <p className="text-xs text-muted-foreground">
             {t('starship.modules.character.successSymbolDesc')}
@@ -97,12 +97,12 @@ export function CharacterModule() {
 
         <div className="space-y-2">
           <Label htmlFor="error_symbol">{t('starship.modules.character.errorSymbol')}</Label>
-          <Input
+          <ColorPickerInput
             id="error_symbol"
-            {...register('error_symbol')}
-            placeholder="[❯](bold red)"
+            value={watch('error_symbol')}
+            onChange={(value) => setValue('error_symbol', value)}
+            placeholder="[❯](bold #ef4444)"
             disabled={disabled}
-            className="font-nerd"
           />
           <p className="text-xs text-muted-foreground">
             {t('starship.modules.character.errorSymbolDesc')}
@@ -111,12 +111,12 @@ export function CharacterModule() {
 
         <div className="space-y-2">
           <Label htmlFor="vimcmd_symbol">{t('starship.modules.character.vimcmdSymbol')}</Label>
-          <Input
+          <ColorPickerInput
             id="vimcmd_symbol"
-            {...register('vimcmd_symbol')}
-            placeholder="[❮](bold green)"
+            value={watch('vimcmd_symbol')}
+            onChange={(value) => setValue('vimcmd_symbol', value)}
+            placeholder="[❮](bold #22c55e)"
             disabled={disabled}
-            className="font-nerd"
           />
           <p className="text-xs text-muted-foreground">
             {t('starship.modules.character.vimcmdSymbolDesc')}
@@ -127,12 +127,12 @@ export function CharacterModule() {
           <Label htmlFor="vimcmd_replace_symbol">
             {t('starship.modules.character.vimcmdReplaceSymbol')}
           </Label>
-          <Input
+          <ColorPickerInput
             id="vimcmd_replace_symbol"
-            {...register('vimcmd_replace_symbol')}
-            placeholder="[❮](bold purple)"
+            value={watch('vimcmd_replace_symbol')}
+            onChange={(value) => setValue('vimcmd_replace_symbol', value)}
+            placeholder="[❮](bold #a855f7)"
             disabled={disabled}
-            className="font-nerd"
           />
           <p className="text-xs text-muted-foreground">
             {t('starship.modules.character.vimcmdReplaceSymbolDesc')}
@@ -143,12 +143,12 @@ export function CharacterModule() {
           <Label htmlFor="vimcmd_visual_symbol">
             {t('starship.modules.character.vimcmdVisualSymbol')}
           </Label>
-          <Input
+          <ColorPickerInput
             id="vimcmd_visual_symbol"
-            {...register('vimcmd_visual_symbol')}
-            placeholder="[❮](bold yellow)"
+            value={watch('vimcmd_visual_symbol')}
+            onChange={(value) => setValue('vimcmd_visual_symbol', value)}
+            placeholder="[❮](bold #eab308)"
             disabled={disabled}
-            className="font-nerd"
           />
           <p className="text-xs text-muted-foreground">
             {t('starship.modules.character.vimcmdVisualSymbolDesc')}

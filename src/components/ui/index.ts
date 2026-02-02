@@ -1,4 +1,5 @@
 export { Button, buttonVariants } from './button';
+export { ColorPickerInput } from './color-picker-input';
 export {
   Dialog,
   DialogPortal,

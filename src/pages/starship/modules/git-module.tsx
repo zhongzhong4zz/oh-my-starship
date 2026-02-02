@@ -7,6 +7,7 @@ import { Label } from '@/components/ui/label';
 import { Switch } from '@/components/ui/switch';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { ColorPickerInput } from '@/components/ui/color-picker-input';
 import { useStarshipToml, useSaveStarshipToml } from '@/lib/query';
 import { parseTomlSection, updateTomlSection } from '../toml-utils';
 
@@ -37,7 +38,7 @@ interface GitStatusFormData {
 
 const branchDefaults: GitBranchFormData = {
   symbol: ' ',
-  style: 'bold purple',
+  style: '#a855f7',
   format: '[$symbol$branch(:$remote_branch)]($style) ',
   truncation_length: 9999,
   truncation_symbol: '…',
@@ -45,7 +46,7 @@ const branchDefaults: GitBranchFormData = {
 };
 
 const statusDefaults: GitStatusFormData = {
-  style: 'bold red',
+  style: '#ef4444',
   format: '([$all_status$ahead_behind]($style)) ',
   ahead: '⇡${count}',
   behind: '⇣${count}',
@@ -145,10 +146,11 @@ export function GitModule() {
 
               <div className="space-y-2">
                 <Label htmlFor="branch-style">{t('starship.modules.git.branch.style')}</Label>
-                <Input
+                <ColorPickerInput
                   id="branch-style"
-                  {...branchForm.register('style')}
-                  placeholder="bold purple"
+                  value={branchForm.watch('style')}
+                  onChange={(value) => branchForm.setValue('style', value)}
+                  placeholder="#a855f7"
                   disabled={branchForm.watch('disabled')}
                 />
               </div>
@@ -214,10 +216,11 @@ export function GitModule() {
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="space-y-2">
                 <Label htmlFor="status-style">{t('starship.modules.git.status.style')}</Label>
-                <Input
+                <ColorPickerInput
                   id="status-style"
-                  {...statusForm.register('style')}
-                  placeholder="bold red"
+                  value={statusForm.watch('style')}
+                  onChange={(value) => statusForm.setValue('style', value)}
+                  placeholder="#ef4444"
                   disabled={statusForm.watch('disabled')}
                 />
               </div>
