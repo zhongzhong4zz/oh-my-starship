@@ -63,7 +63,7 @@ Custom backup names are stored in browser localStorage and do not affect the act
 
 You can download the source code and build it yourself, or download the built version from GitHub releases.
 
-- [oh-my-starship Releases](https://github.com/YOUR_USERNAME/oh-my-starship/releases)
+- [oh-my-starship Releases](https://github.com/zhongzhong4zz/oh-my-starship/releases)
 
 ## Uninstall
 
