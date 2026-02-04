@@ -18,42 +18,9 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { getBackupName, setBackupName } from '@/lib/backup-names';
 import { useBackupList, useRestoreFromBackup } from '@/lib/query';
 import { deleteBackup } from '@/services/cmds';
-
-const BACKUP_NAMES_KEY = 'starship-backup-names';
-
-function getBackupNames(): Record<string, string> {
-  try {
-    const stored = localStorage.getItem(BACKUP_NAMES_KEY);
-    return stored ? JSON.parse(stored) : {};
-  } catch {
-    return {};
-  }
-}
-
-function setBackupName(backupPath: string, name: string): void {
-  const names = getBackupNames();
-  if (name.trim()) {
-    names[backupPath] = name.trim();
-  } else {
-    delete names[backupPath];
-  }
-  localStorage.setItem(BACKUP_NAMES_KEY, JSON.stringify(names));
-}
-
-function formatBackupName(backupPath: string): string {
-  const customName = getBackupNames()[backupPath];
-  if (customName) return customName;
-
-  const fileName = backupPath.split(/[/\\]/).pop() || backupPath;
-  const match = fileName.match(/starship_(\d{4})(\d{2})(\d{2})_(\d{2})(\d{2})(\d{2})\.toml/);
-  if (match) {
-    const [, year, month, day, hour, minute, second] = match;
-    return `${year}-${month}-${day} ${hour}:${minute}:${second}`;
-  }
-  return fileName;
-}
 
 export function ConfigList() {
   const { t } = useTranslation();
@@ -64,6 +31,7 @@ export function ConfigList() {
   const [renameTarget, setRenameTarget] = useState<string | null>(null);
   const [renameName, setRenameName] = useState('');
   const [, forceUpdate] = useState(0);
+  const canSaveRename = renameName.trim().length > 0;
 
   const handleRestore = (backupPath: string) => {
     restoreBackup(backupPath, {
@@ -88,11 +56,12 @@ export function ConfigList() {
 
   const openRenameDialog = (backupPath: string) => {
     setRenameTarget(backupPath);
-    setRenameName(getBackupNames()[backupPath] || '');
+    setRenameName(getBackupName(backupPath));
     setRenameDialogOpen(true);
   };
 
   const handleRename = () => {
+    if (!canSaveRename) return;
     if (renameTarget) {
       setBackupName(renameTarget, renameName);
       toast.success(t('backups.renameSuccess'));
@@ -132,7 +101,7 @@ export function ConfigList() {
             <div className="flex items-center gap-3">
               <Archive className="h-5 w-5 text-muted-foreground" />
               <div>
-                <p className="font-medium">{formatBackupName(backupPath)}</p>
+                <p className="font-medium">{getBackupName(backupPath) || backupPath}</p>
                 <p className="text-sm text-muted-foreground">{backupPath}</p>
               </div>
             </div>
@@ -180,7 +149,7 @@ export function ConfigList() {
                 onChange={(e) => setRenameName(e.target.value)}
                 placeholder={t('backups.namePlaceholder')}
                 onKeyDown={(e) => {
-                  if (e.key === 'Enter') {
+                  if (e.key === 'Enter' && canSaveRename) {
                     handleRename();
                   }
                 }}
@@ -191,7 +160,9 @@ export function ConfigList() {
             <Button variant="outline" onClick={() => setRenameDialogOpen(false)}>
               {t('common.cancel')}
             </Button>
-            <Button onClick={handleRename}>{t('common.save')}</Button>
+            <Button onClick={handleRename} disabled={!canSaveRename}>
+              {t('common.save')}
+            </Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>

@@ -60,6 +60,7 @@
     "noBackups": "No backups found",
     "rename": "Rename",
     "renameTitle": "Rename Backup",
+    "nameTitle": "Name Backup",
     "nameLabel": "Backup Name",
     "renameSuccess": "Backup renamed successfully",
     "namePlaceholder": "Enter backup name"
