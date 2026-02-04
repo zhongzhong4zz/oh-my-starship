@@ -1,4 +1,8 @@
-import { Outlet, NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation, useOutlet } from 'react-router-dom';
+// useOutlet is used to solve the exit animation issue when using <Outlet> with <AnimatePresence>
+// solution is simply replacing <Outlet> with useOutlet()
+// see https://medium.com/@antonio.falcescu/animating-react-pages-with-react-router-dom-outlet-and-framer-motion-animatepresence-bd5438b3433b
+
 import { Settings, FileText, Rocket } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { AnimatePresence, motion } from 'motion/react';
@@ -62,7 +66,7 @@ export function Home() {
             transition={{ duration: 0.2, ease: 'easeInOut' }}
             className="h-full"
           >
-            <Outlet />
+            {useOutlet()}
           </motion.div>
         </AnimatePresence>
       </main>
