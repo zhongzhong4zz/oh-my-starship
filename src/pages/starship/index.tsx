@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArchiveRestore } from 'lucide-react';
 import { toast } from 'sonner';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { AnimatePresence, motion } from 'motion/react';
+import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
@@ -64,17 +65,21 @@ export function Component() {
           <TabsTrigger value="toml">{t('starship.tabs.toml')}</TabsTrigger>
         </TabsList>
 
-        <TabsContent value="presets" className="mt-4 flex-1">
-          <PresetSelector />
-        </TabsContent>
-
-        <TabsContent value="modules" className="mt-4 flex-1">
-          <ModuleEditor />
-        </TabsContent>
-
-        <TabsContent value="toml" className="mt-4 flex-1">
-          <TomlEditor />
-        </TabsContent>
+        <div className="mt-4 flex-1">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTab}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.2, ease: 'easeInOut' }}
+            >
+              {activeTab === 'presets' && <PresetSelector />}
+              {activeTab === 'modules' && <ModuleEditor />}
+              {activeTab === 'toml' && <TomlEditor />}
+            </motion.div>
+          </AnimatePresence>
+        </div>
       </Tabs>
 
       <Dialog open={nameDialogOpen} onOpenChange={setNameDialogOpen}>
