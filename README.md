@@ -30,13 +30,9 @@ English | [繁體中文](./README-zh_TW.md) | [简体中文](./README-zh_CN.md)
 
 ## Screenshot
 
-<div align="center">
-  <img src="./readme_img/img-1.png" width="800" />
-</div>
-
-<div align="center">
-  <img src="./readme_img/img-2.png" width="800" />
-</div>
+|                  Presets                   |                  Custom Modules                  |
+| :---------------------------------------: | :------------------------------------------: |
+| ![Presets](readme_img/Presets.png) | ![Custom Modules](readme_img/Custom-Modules.png) |
 
 <details>
   <summary><h2 style="display:inline-block;">Maybe somethings you need to know</h2></summary>
