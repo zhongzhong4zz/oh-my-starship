@@ -1,7 +1,7 @@
 {
   "name": "oh-my-starship",
   "private": true,
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "module",
   "license": "MIT",
   "scripts": {
@@ -34,6 +34,7 @@
     "clsx": "^2.1.1",
     "i18next": "^25.7.4",
     "lucide-react": "^0.511.0",
+    "motion": "^12.31.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-hook-form": "^7.56.4",

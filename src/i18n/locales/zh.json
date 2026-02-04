@@ -60,6 +60,7 @@
     "noBackups": "未找到备份",
     "rename": "重命名",
     "renameTitle": "重命名备份",
+    "nameTitle": "命名备份",
     "nameLabel": "备份名称",
     "renameSuccess": "备份重命名成功",
     "namePlaceholder": "输入备份名称"

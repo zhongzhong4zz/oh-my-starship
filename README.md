@@ -63,7 +63,7 @@ Custom backup names are stored in browser localStorage and do not affect the act
 
 You can download the source code and build it yourself, or download the built version from GitHub releases.
 
-- [oh-my-starship Releases](https://github.com/YOUR_USERNAME/oh-my-starship/releases)
+- [oh-my-starship Releases](https://github.com/zhongzhong4zz/oh-my-starship/releases)
 
 ## Uninstall
 
@@ -90,7 +90,7 @@ Clone the project code to your local machine, navigate to the project's root dir
 pnpm install
 
 # Start development server
-pnpm dev
+pnpm tauri dev
 ```
 
 Alternatively, you can press `F5` in VSCode to start in debug mode (if you have the Tauri extension installed).
@@ -99,7 +99,7 @@ Alternatively, you can press `F5` in VSCode to start in debug mode (if you have 
 
 ```bash
 # Build for production
-pnpm build
+pnpm tauri build
 ```
 
 If everything goes well, the packaged files will be in the `./src-tauri/target/release/bundle/` directory.

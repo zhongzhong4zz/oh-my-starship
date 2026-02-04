@@ -61,7 +61,7 @@
 
 您可以下载源代码并自行构建，或者从 GitHub 发布页面下载构建好的版本。
 
-- [oh-my-starship 发布页面](https://github.com/YOUR_USERNAME/oh-my-starship/releases)
+- [oh-my-starship 发布页面](https://github.com/zhongzhong4zz/oh-my-starship/releases)
 
 ## 卸载
 
@@ -88,7 +88,7 @@
 pnpm install
 
 # 启动开发服务器
-pnpm dev
+pnpm tauri dev
 ```
 
 或者，如果您安装了 Tauri 扩展，可以在 VSCode 中按 `F5` 以调试模式启动。
@@ -97,7 +97,7 @@ pnpm dev
 
 ```bash
 # 生产构建
-pnpm build
+pnpm tauri build
 ```
 
 如果一切正常，打包文件将位于 `./src-tauri/target/release/bundle/` 目录中。

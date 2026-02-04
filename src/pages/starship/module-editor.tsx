@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { ChevronRight, Terminal, FolderOpen, GitBranch, Clock, Code } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { AnimatePresence, motion } from 'motion/react';
 import { CharacterModule } from './modules/character-module';
 import { DirectoryModule } from './modules/directory-module';
 import { GitModule } from './modules/git-module';
@@ -89,11 +90,21 @@ export function ModuleEditor() {
       </nav>
 
       <div className="flex-1 overflow-y-auto rounded-lg border border-border bg-card p-4">
-        {activeSection === 'character' && <CharacterModule />}
-        {activeSection === 'directory' && <DirectoryModule />}
-        {activeSection === 'git' && <GitModule />}
-        {activeSection === 'time' && <TimeModule />}
-        {activeSection === 'languages' && <LanguageModules />}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeSection}
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -15 }}
+            transition={{ duration: 0.2, ease: 'easeInOut' }}
+          >
+            {activeSection === 'character' && <CharacterModule />}
+            {activeSection === 'directory' && <DirectoryModule />}
+            {activeSection === 'git' && <GitModule />}
+            {activeSection === 'time' && <TimeModule />}
+            {activeSection === 'languages' && <LanguageModules />}
+          </motion.div>
+        </AnimatePresence>
       </div>
     </div>
   );
