@@ -10,6 +10,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { ColorPickerInput } from '@/components/ui/color-picker-input';
 import { useStarshipToml, useSaveStarshipToml } from '@/lib/query';
 import { parseTomlSection, updateTomlSection } from '../toml-utils';
+import { AnimatePresence, motion } from 'motion/react';
 
 interface GitBranchFormData {
   symbol: string;
@@ -116,6 +117,15 @@ export function GitModule() {
           <TabsTrigger value="status">{t('starship.modules.git.status.tab')}</TabsTrigger>
         </TabsList>
 
+        <AnimatePresence mode="wait">
+          {activeTab === 'branch' && (
+            <motion.div
+              key="branch"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.2, ease: 'easeInOut' }}
+            >
         <TabsContent value="branch" className="mt-4">
           <form onSubmit={branchForm.handleSubmit(onBranchSubmit)} className="space-y-4">
             <div className="flex items-center justify-between rounded-xl border border-border bg-muted/30 p-4 transition-colors hover:bg-muted/50">
@@ -196,7 +206,16 @@ export function GitModule() {
             </Button>
           </form>
         </TabsContent>
-
+            </motion.div>
+          )}
+          {activeTab === 'status' && (
+            <motion.div
+              key="status"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.2, ease: 'easeInOut' }}
+            >
         <TabsContent value="status" className="mt-4">
           <form onSubmit={statusForm.handleSubmit(onStatusSubmit)} className="space-y-4">
             <div className="flex items-center justify-between rounded-xl border border-border bg-muted/30 p-4 transition-colors hover:bg-muted/50">
@@ -345,6 +364,9 @@ export function GitModule() {
             </Button>
           </form>
         </TabsContent>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </Tabs>
     </div>
   );
