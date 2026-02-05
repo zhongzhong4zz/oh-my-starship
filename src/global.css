@@ -305,6 +305,19 @@
   background-color: #b9b9b9;
 }
 
+/* Hide scrollbars but keep scrolling (Home routes) */
+.home-no-scrollbar,
+.home-no-scrollbar * {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.home-no-scrollbar::-webkit-scrollbar,
+.home-no-scrollbar *::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
 .font-nerd {
   font-family:
     'JetBrainsMono Nerd Font', 'JetBrainsMono Nerd Font Mono', 'FiraCode Nerd Font',

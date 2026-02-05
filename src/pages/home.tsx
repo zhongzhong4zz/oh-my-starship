@@ -23,7 +23,7 @@ export function Home() {
   const location = useLocation();
 
   return (
-    <div className="flex h-full">
+    <div className="flex h-full home-no-scrollbar">
       <aside className="w-48 border-r border-border bg-card p-4">
         <h1 className="mb-6 text-lg font-semibold tracking-tight">{t('nav.title')}</h1>
         <nav className="space-y-1">
@@ -172,7 +172,7 @@ export function Home() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2, ease: 'easeInOut' }}
-            className="h-full"
+            className="min-h-full"
           >
             {useOutlet()}
           </motion.div>
