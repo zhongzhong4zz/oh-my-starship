@@ -90,14 +90,14 @@ export function TomlEditor() {
       </div>
 
       {showBackups && backups && backups.length > 0 && (
-        <div className="rounded-lg border border-border bg-card p-3">
+        <div className="rounded-xl border border-border bg-card p-3 shadow-sm">
           <h4 className="mb-2 text-sm font-medium">{t('starship.toml.availableBackups')}</h4>
           <div className="max-h-32 space-y-1 overflow-y-auto">
             {backups.map((backup) => (
               <button
                 key={backup}
                 onClick={() => handleRestoreBackup(backup)}
-                className="w-full rounded px-2 py-1 text-left text-xs hover:bg-accent"
+                className="w-full cursor-pointer rounded-lg px-2.5 py-1.5 text-left text-xs transition-colors hover:bg-accent active:bg-accent/80"
               >
                 {backup.split(/[/\\]/).pop()}
               </button>
@@ -109,7 +109,7 @@ export function TomlEditor() {
       <textarea
         value={content}
         onChange={(e) => handleContentChange(e.target.value)}
-        className="flex-1 resize-none rounded-lg border border-input bg-background p-4 font-nerd text-sm focus:outline-none focus:ring-1 focus:ring-ring"
+        className="flex-1 resize-none rounded-xl border border-input bg-background p-4 font-nerd text-sm shadow-sm transition-all duration-200 focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/20"
         spellCheck={false}
         placeholder={t('starship.toml.placeholder')}
       />

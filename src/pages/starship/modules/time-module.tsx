@@ -72,7 +72,7 @@ export function TimeModule() {
         <p className="text-sm text-muted-foreground">{t('starship.modules.time.subtitle')}</p>
       </div>
 
-      <div className="flex items-center justify-between rounded-lg border border-border p-4">
+      <div className="flex items-center justify-between rounded-xl border border-border bg-muted/30 p-4 transition-colors hover:bg-muted/50">
         <div className="space-y-0.5">
           <Label htmlFor="disabled">{t('starship.modules.time.hideTime')}</Label>
           <p className="text-xs text-muted-foreground">
@@ -133,7 +133,7 @@ export function TimeModule() {
           <p className="text-xs text-muted-foreground">{t('starship.modules.time.styleDesc')}</p>
         </div>
 
-        <div className="flex items-center justify-between rounded-lg border border-border p-4">
+        <div className="flex items-center justify-between rounded-xl border border-border bg-muted/30 p-4 transition-colors hover:bg-muted/50">
           <div className="space-y-0.5">
             <Label htmlFor="use_12hr">{t('starship.modules.time.use12hr')}</Label>
             <p className="text-xs text-muted-foreground">

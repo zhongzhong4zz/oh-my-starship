@@ -118,7 +118,7 @@ export function GitModule() {
 
         <TabsContent value="branch" className="mt-4">
           <form onSubmit={branchForm.handleSubmit(onBranchSubmit)} className="space-y-4">
-            <div className="flex items-center justify-between rounded-lg border border-border p-4">
+            <div className="flex items-center justify-between rounded-xl border border-border bg-muted/30 p-4 transition-colors hover:bg-muted/50">
               <div className="space-y-0.5">
                 <Label htmlFor="branch-disabled">{t('starship.modules.git.branch.hide')}</Label>
                 <p className="text-xs text-muted-foreground">
@@ -199,7 +199,7 @@ export function GitModule() {
 
         <TabsContent value="status" className="mt-4">
           <form onSubmit={statusForm.handleSubmit(onStatusSubmit)} className="space-y-4">
-            <div className="flex items-center justify-between rounded-lg border border-border p-4">
+            <div className="flex items-center justify-between rounded-xl border border-border bg-muted/30 p-4 transition-colors hover:bg-muted/50">
               <div className="space-y-0.5">
                 <Label htmlFor="status-disabled">{t('starship.modules.git.status.hide')}</Label>
                 <p className="text-xs text-muted-foreground">

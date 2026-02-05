@@ -73,7 +73,7 @@ export function DirectoryModule() {
         <p className="text-sm text-muted-foreground">{t('starship.modules.directory.subtitle')}</p>
       </div>
 
-      <div className="flex items-center justify-between rounded-lg border border-border p-4">
+      <div className="flex items-center justify-between rounded-xl border border-border bg-muted/30 p-4 transition-colors hover:bg-muted/50">
         <div className="space-y-0.5">
           <Label htmlFor="disabled">{t('starship.modules.directory.hideDirectory')}</Label>
           <p className="text-xs text-muted-foreground">

@@ -15,14 +15,16 @@ export function Home() {
   return (
     <div className="flex h-full">
       <aside className="w-48 border-r border-border bg-card p-4">
-        <h1 className="mb-6 text-lg font-semibold">{t('nav.title')}</h1>
+        <h1 className="mb-6 text-lg font-semibold tracking-tight">{t('nav.title')}</h1>
         <nav className="space-y-1">
           <NavLink
             to="/starship"
             className={({ isActive }) =>
               cn(
-                'flex items-center gap-2 rounded-md px-3 py-2 text-sm transition-colors',
-                isActive ? 'bg-accent text-theme' : 'hover:bg-accent/50'
+                'flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-200',
+                isActive
+                  ? 'bg-primary/10 text-primary shadow-sm'
+                  : 'text-muted-foreground hover:bg-accent hover:text-foreground'
               )
             }
           >
@@ -34,8 +36,10 @@ export function Home() {
             end
             className={({ isActive }) =>
               cn(
-                'flex items-center gap-2 rounded-md px-3 py-2 text-sm transition-colors',
-                isActive ? 'bg-accent text-theme' : 'hover:bg-accent/50'
+                'flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-200',
+                isActive
+                  ? 'bg-primary/10 text-primary shadow-sm'
+                  : 'text-muted-foreground hover:bg-accent hover:text-foreground'
               )
             }
           >
@@ -46,8 +50,10 @@ export function Home() {
             to="/settings"
             className={({ isActive }) =>
               cn(
-                'flex items-center gap-2 rounded-md px-3 py-2 text-sm transition-colors',
-                isActive ? 'bg-accent text-theme' : 'hover:bg-accent/50'
+                'flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-200',
+                isActive
+                  ? 'bg-primary/10 text-primary shadow-sm'
+                  : 'text-muted-foreground hover:bg-accent hover:text-foreground'
               )
             }
           >
