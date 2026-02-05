@@ -51,7 +51,7 @@ export function TomlEditor() {
   }
 
   return (
-    <div className="flex h-[calc(100vh-140px)] flex-col gap-4">
+    <div className="flex h-full min-h-0 flex-col gap-4">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2" />
         <div className="flex gap-2">
@@ -69,7 +69,7 @@ export function TomlEditor() {
       <textarea
         value={content}
         onChange={(e) => handleContentChange(e.target.value)}
-        className="flex-1 resize-none rounded-xl border border-input bg-background p-4 font-nerd text-sm shadow-sm transition-all duration-200 focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/20"
+        className="flex-1 min-h-0 resize-none rounded-xl border border-input bg-background p-4 font-nerd text-sm shadow-sm transition-all duration-200 focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/20"
         spellCheck={false}
         placeholder={t('starship.toml.placeholder')}
       />
