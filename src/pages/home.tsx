@@ -2,8 +2,18 @@ import { NavLink, useLocation, useOutlet } from 'react-router-dom';
 // useOutlet is used to solve the exit animation issue when using <Outlet> with <AnimatePresence>
 // solution is simply replacing <Outlet> with useOutlet()
 // see https://medium.com/@antonio.falcescu/animating-react-pages-with-react-router-dom-outlet-and-framer-motion-animatepresence-bd5438b3433b
-
-import { Settings, FileText, Rocket } from 'lucide-react';
+// 9 Navlinks overall. Each Navlink contains a lucide-react icon and a text
+import {
+  Clock,
+  Code,
+  FileText,
+  FolderOpen,
+  GitBranch,
+  Palette,
+  Archive,
+  Settings,
+  Terminal,
+} from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { AnimatePresence, motion } from 'motion/react';
 import { cn } from '@/lib/utils';
@@ -18,7 +28,8 @@ export function Home() {
         <h1 className="mb-6 text-lg font-semibold tracking-tight">{t('nav.title')}</h1>
         <nav className="space-y-1">
           <NavLink
-            to="/starship"
+            to="/starship/presets"
+            end
             className={({ isActive }) =>
               cn(
                 'flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-200',
@@ -28,11 +39,11 @@ export function Home() {
               )
             }
           >
-            <Rocket className="h-4 w-4" />
-            {t('nav.starship')}
+            <Palette className="h-4 w-4" />
+            {t('starship.tabs.presets')}
           </NavLink>
           <NavLink
-            to="/"
+            to="/starship/toml"
             end
             className={({ isActive }) =>
               cn(
@@ -44,10 +55,101 @@ export function Home() {
             }
           >
             <FileText className="h-4 w-4" />
+            {t('starship.tabs.toml')}
+          </NavLink>
+          <NavLink
+            to="/starship/modules/character"
+            end
+            className={({ isActive }) =>
+              cn(
+                'flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-200',
+                isActive
+                  ? 'bg-primary/10 text-primary shadow-sm'
+                  : 'text-muted-foreground hover:bg-accent hover:text-foreground'
+              )
+            }
+          >
+            <Terminal className="h-4 w-4" />
+            {t('starship.modules.character.name')}
+          </NavLink>
+          <NavLink
+            to="/starship/modules/directory"
+            end
+            className={({ isActive }) =>
+              cn(
+                'flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-200',
+                isActive
+                  ? 'bg-primary/10 text-primary shadow-sm'
+                  : 'text-muted-foreground hover:bg-accent hover:text-foreground'
+              )
+            }
+          >
+            <FolderOpen className="h-4 w-4" />
+            {t('starship.modules.directory.name')}
+          </NavLink>
+          <NavLink
+            to="/starship/modules/git"
+            end
+            className={({ isActive }) =>
+              cn(
+                'flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-200',
+                isActive
+                  ? 'bg-primary/10 text-primary shadow-sm'
+                  : 'text-muted-foreground hover:bg-accent hover:text-foreground'
+              )
+            }
+          >
+            <GitBranch className="h-4 w-4" />
+            {t('starship.modules.git.name')}
+          </NavLink>
+          <NavLink
+            to="/starship/modules/time"
+            end
+            className={({ isActive }) =>
+              cn(
+                'flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-200',
+                isActive
+                  ? 'bg-primary/10 text-primary shadow-sm'
+                  : 'text-muted-foreground hover:bg-accent hover:text-foreground'
+              )
+            }
+          >
+            <Clock className="h-4 w-4" />
+            {t('starship.modules.time.name')}
+          </NavLink>
+          <NavLink
+            to="/starship/modules/languages"
+            end
+            className={({ isActive }) =>
+              cn(
+                'flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-200',
+                isActive
+                  ? 'bg-primary/10 text-primary shadow-sm'
+                  : 'text-muted-foreground hover:bg-accent hover:text-foreground'
+              )
+            }
+          >
+            <Code className="h-4 w-4" />
+            {t('starship.modules.languages.name')}
+          </NavLink>
+          <NavLink
+            to="/config-list"
+            end
+            className={({ isActive }) =>
+              cn(
+                'flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-200',
+                isActive
+                  ? 'bg-primary/10 text-primary shadow-sm'
+                  : 'text-muted-foreground hover:bg-accent hover:text-foreground'
+              )
+            }
+          >
+            <Archive className="h-4 w-4" />
             {t('nav.backups')}
           </NavLink>
           <NavLink
             to="/settings"
+            end
             className={({ isActive }) =>
               cn(
                 'flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-200',
