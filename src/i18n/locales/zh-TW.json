@@ -19,6 +19,11 @@
     "title": "Starship 設定",
     "backups": "備份",
     "starship": "Starship",
+    "character": "字元",
+    "directory": "目錄",
+    "git": "Git",
+    "time": "時間",
+    "languages": "語言",
     "settings": "設定"
   },
   "settings": {

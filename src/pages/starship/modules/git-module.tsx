@@ -11,6 +11,7 @@ import { ColorPickerInput } from '@/components/ui/color-picker-input';
 import { useStarshipToml, useSaveStarshipToml } from '@/lib/query';
 import { parseTomlSection, updateTomlSection } from '../toml-utils';
 import { AnimatePresence, motion } from 'motion/react';
+import { ModulePageShell } from './module-page-shell';
 
 interface GitBranchFormData {
   symbol: string;
@@ -393,5 +394,13 @@ export function GitModule() {
         </AnimatePresence>
       </Tabs>
     </div>
+  );
+}
+
+export function Component() {
+  return (
+    <ModulePageShell>
+      <GitModule />
+    </ModulePageShell>
   );
 }

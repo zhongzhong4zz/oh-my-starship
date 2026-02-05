@@ -19,6 +19,11 @@
     "title": "Starship 配置",
     "backups": "备份",
     "starship": "Starship",
+    "character": "字符",
+    "directory": "目录",
+    "git": "Git",
+    "time": "时间",
+    "languages": "语言",
     "settings": "设置"
   },
   "settings": {

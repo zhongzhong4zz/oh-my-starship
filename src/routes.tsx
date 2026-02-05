@@ -17,6 +17,26 @@ const routes: RouteObject[] = [
         lazy: () => import('@/pages/starship'),
       },
       {
+        path: 'starship/modules/character',
+        lazy: () => import('@/pages/starship/modules/character-module'),
+      },
+      {
+        path: 'starship/modules/directory',
+        lazy: () => import('@/pages/starship/modules/directory-module'),
+      },
+      {
+        path: 'starship/modules/git',
+        lazy: () => import('@/pages/starship/modules/git-module'),
+      },
+      {
+        path: 'starship/modules/time',
+        lazy: () => import('@/pages/starship/modules/time-module'),
+      },
+      {
+        path: 'starship/modules/languages',
+        lazy: () => import('@/pages/starship/modules/language-modules'),
+      },
+      {
         path: 'settings',
         lazy: () => import('@/pages/settings'),
       },

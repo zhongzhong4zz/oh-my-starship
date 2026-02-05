@@ -19,6 +19,11 @@
     "title": "Starship Config",
     "backups": "Backups",
     "starship": "Starship",
+    "character": "Character",
+    "directory": "Directory",
+    "git": "Git",
+    "time": "Time",
+    "languages": "Languages",
     "settings": "Settings"
   },
   "settings": {

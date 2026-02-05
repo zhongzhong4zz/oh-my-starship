@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/button';
 import { ColorPickerInput } from '@/components/ui/color-picker-input';
 import { useStarshipToml, useSaveStarshipToml } from '@/lib/query';
 import { parseTomlSection, updateTomlSection } from '../toml-utils';
+import { ModulePageShell } from './module-page-shell';
 
 interface TimeFormData {
   disabled: boolean;
@@ -153,5 +154,13 @@ export function TimeModule() {
         {isPending ? t('common.saving') : t('common.saveChanges')}
       </Button>
     </form>
+  );
+}
+
+export function Component() {
+  return (
+    <ModulePageShell>
+      <TimeModule />
+    </ModulePageShell>
   );
 }

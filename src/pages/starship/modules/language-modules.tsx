@@ -10,6 +10,7 @@ import { ColorPickerInput } from '@/components/ui/color-picker-input';
 import { useStarshipToml, useSaveStarshipToml } from '@/lib/query';
 import { parseTomlSection, updateTomlSection } from '../toml-utils';
 import { cn } from '@/lib/utils';
+import { ModulePageShell } from './module-page-shell';
 
 interface LanguageConfig {
   symbol: string;
@@ -266,5 +267,13 @@ export function LanguageModules() {
         </Button>
       </form>
     </div>
+  );
+}
+
+export function Component() {
+  return (
+    <ModulePageShell>
+      <LanguageModules />
+    </ModulePageShell>
   );
 }

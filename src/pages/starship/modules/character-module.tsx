@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button';
 import { ColorPickerInput } from '@/components/ui/color-picker-input';
 import { useStarshipToml, useSaveStarshipToml } from '@/lib/query';
 import { parseTomlSection, updateTomlSection } from '../toml-utils';
+import { ModulePageShell } from './module-page-shell';
 
 interface CharacterFormData {
   success_symbol: string;
@@ -160,5 +161,13 @@ export function CharacterModule() {
         {isPending ? t('common.saving') : t('common.saveChanges')}
       </Button>
     </form>
+  );
+}
+
+export function Component() {
+  return (
+    <ModulePageShell>
+      <CharacterModule />
+    </ModulePageShell>
   );
 }
