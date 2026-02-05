@@ -85,13 +85,9 @@
       "applyFailed": "应用预设失败"
     },
     "toml": {
-      "backups": "备份",
-      "availableBackups": "可用备份",
       "placeholder": "# Starship 配置",
       "saveSuccess": "配置已保存",
-      "saveFailed": "保存配置失败",
-      "restoreSuccess": "备份已恢复",
-      "restoreFailed": "恢复备份失败"
+      "saveFailed": "保存配置失败"
     },
     "modules": {
       "character": {

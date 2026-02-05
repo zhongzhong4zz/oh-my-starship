@@ -85,13 +85,9 @@
       "applyFailed": "套用預設失敗"
     },
     "toml": {
-      "backups": "備份",
-      "availableBackups": "可用備份",
       "placeholder": "# Starship 設定",
       "saveSuccess": "設定已儲存",
-      "saveFailed": "儲存設定失敗",
-      "restoreSuccess": "備份已還原",
-      "restoreFailed": "還原備份失敗"
+      "saveFailed": "儲存設定失敗"
     },
     "modules": {
       "character": {
