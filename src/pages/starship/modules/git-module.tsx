@@ -126,86 +126,92 @@ export function GitModule() {
               exit={{ opacity: 0, x: -20 }}
               transition={{ duration: 0.2, ease: 'easeInOut' }}
             >
-        <TabsContent value="branch" className="mt-4">
-          <form onSubmit={branchForm.handleSubmit(onBranchSubmit)} className="space-y-4">
-            <div className="flex items-center justify-between rounded-xl border border-border bg-muted/30 p-4 transition-colors hover:bg-muted/50">
-              <div className="space-y-0.5">
-                <Label htmlFor="branch-disabled">{t('starship.modules.git.branch.hide')}</Label>
-                <p className="text-xs text-muted-foreground">
-                  {t('starship.modules.git.branch.hideDesc')}
-                </p>
-              </div>
-              <Switch
-                id="branch-disabled"
-                checked={branchForm.watch('disabled')}
-                onCheckedChange={(checked) => branchForm.setValue('disabled', checked)}
-              />
-            </div>
+              <TabsContent value="branch" className="mt-4">
+                <form onSubmit={branchForm.handleSubmit(onBranchSubmit)} className="space-y-4">
+                  <div className="flex items-center justify-between rounded-xl border border-border bg-muted/30 p-4 transition-colors hover:bg-muted/50">
+                    <div className="space-y-0.5">
+                      <Label htmlFor="branch-disabled">
+                        {t('starship.modules.git.branch.hide')}
+                      </Label>
+                      <p className="text-xs text-muted-foreground">
+                        {t('starship.modules.git.branch.hideDesc')}
+                      </p>
+                    </div>
+                    <Switch
+                      id="branch-disabled"
+                      checked={branchForm.watch('disabled')}
+                      onCheckedChange={(checked) => branchForm.setValue('disabled', checked)}
+                    />
+                  </div>
 
-            <div className="grid gap-4">
-              <div className="space-y-2">
-                <Label htmlFor="branch-symbol">{t('starship.modules.git.branch.symbol')}</Label>
-                <Input
-                  id="branch-symbol"
-                  {...branchForm.register('symbol')}
-                  placeholder=" "
-                  disabled={branchForm.watch('disabled')}
-                  className="font-nerd"
-                />
-              </div>
+                  <div className="grid gap-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="branch-symbol">
+                        {t('starship.modules.git.branch.symbol')}
+                      </Label>
+                      <Input
+                        id="branch-symbol"
+                        {...branchForm.register('symbol')}
+                        placeholder=" "
+                        disabled={branchForm.watch('disabled')}
+                        className="font-nerd"
+                      />
+                    </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="branch-style">{t('starship.modules.git.branch.style')}</Label>
-                <ColorPickerInput
-                  id="branch-style"
-                  value={branchForm.watch('style')}
-                  onChange={(value) => branchForm.setValue('style', value)}
-                  placeholder="#a855f7"
-                  disabled={branchForm.watch('disabled')}
-                />
-              </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="branch-style">{t('starship.modules.git.branch.style')}</Label>
+                      <ColorPickerInput
+                        id="branch-style"
+                        value={branchForm.watch('style')}
+                        onChange={(value) => branchForm.setValue('style', value)}
+                        placeholder="#a855f7"
+                        disabled={branchForm.watch('disabled')}
+                      />
+                    </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="branch-format">{t('starship.modules.git.branch.format')}</Label>
-                <Input
-                  id="branch-format"
-                  {...branchForm.register('format')}
-                  placeholder="[$symbol$branch(:$remote_branch)]($style) "
-                  disabled={branchForm.watch('disabled')}
-                />
-              </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="branch-format">
+                        {t('starship.modules.git.branch.format')}
+                      </Label>
+                      <Input
+                        id="branch-format"
+                        {...branchForm.register('format')}
+                        placeholder="[$symbol$branch(:$remote_branch)]($style) "
+                        disabled={branchForm.watch('disabled')}
+                      />
+                    </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="branch-truncation_length">
-                  {t('starship.modules.git.branch.truncationLength')}
-                </Label>
-                <Input
-                  id="branch-truncation_length"
-                  type="number"
-                  {...branchForm.register('truncation_length', { valueAsNumber: true })}
-                  placeholder="9999"
-                  disabled={branchForm.watch('disabled')}
-                />
-              </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="branch-truncation_length">
+                        {t('starship.modules.git.branch.truncationLength')}
+                      </Label>
+                      <Input
+                        id="branch-truncation_length"
+                        type="number"
+                        {...branchForm.register('truncation_length', { valueAsNumber: true })}
+                        placeholder="9999"
+                        disabled={branchForm.watch('disabled')}
+                      />
+                    </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="branch-truncation_symbol">
-                  {t('starship.modules.git.branch.truncationSymbol')}
-                </Label>
-                <Input
-                  id="branch-truncation_symbol"
-                  {...branchForm.register('truncation_symbol')}
-                  placeholder="…"
-                  disabled={branchForm.watch('disabled')}
-                />
-              </div>
-            </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="branch-truncation_symbol">
+                        {t('starship.modules.git.branch.truncationSymbol')}
+                      </Label>
+                      <Input
+                        id="branch-truncation_symbol"
+                        {...branchForm.register('truncation_symbol')}
+                        placeholder="…"
+                        disabled={branchForm.watch('disabled')}
+                      />
+                    </div>
+                  </div>
 
-            <Button type="submit" disabled={isPending}>
-              {isPending ? t('common.saving') : t('common.saveChanges')}
-            </Button>
-          </form>
-        </TabsContent>
+                  <Button type="submit" disabled={isPending}>
+                    {isPending ? t('common.saving') : t('common.saveChanges')}
+                  </Button>
+                </form>
+              </TabsContent>
             </motion.div>
           )}
           {activeTab === 'status' && (
@@ -216,154 +222,172 @@ export function GitModule() {
               exit={{ opacity: 0, x: -20 }}
               transition={{ duration: 0.2, ease: 'easeInOut' }}
             >
-        <TabsContent value="status" className="mt-4">
-          <form onSubmit={statusForm.handleSubmit(onStatusSubmit)} className="space-y-4">
-            <div className="flex items-center justify-between rounded-xl border border-border bg-muted/30 p-4 transition-colors hover:bg-muted/50">
-              <div className="space-y-0.5">
-                <Label htmlFor="status-disabled">{t('starship.modules.git.status.hide')}</Label>
-                <p className="text-xs text-muted-foreground">
-                  {t('starship.modules.git.status.hideDesc')}
-                </p>
-              </div>
-              <Switch
-                id="status-disabled"
-                checked={statusForm.watch('disabled')}
-                onCheckedChange={(checked) => statusForm.setValue('disabled', checked)}
-              />
-            </div>
+              <TabsContent value="status" className="mt-4">
+                <form onSubmit={statusForm.handleSubmit(onStatusSubmit)} className="space-y-4">
+                  <div className="flex items-center justify-between rounded-xl border border-border bg-muted/30 p-4 transition-colors hover:bg-muted/50">
+                    <div className="space-y-0.5">
+                      <Label htmlFor="status-disabled">
+                        {t('starship.modules.git.status.hide')}
+                      </Label>
+                      <p className="text-xs text-muted-foreground">
+                        {t('starship.modules.git.status.hideDesc')}
+                      </p>
+                    </div>
+                    <Switch
+                      id="status-disabled"
+                      checked={statusForm.watch('disabled')}
+                      onCheckedChange={(checked) => statusForm.setValue('disabled', checked)}
+                    />
+                  </div>
 
-            <div className="grid gap-4 sm:grid-cols-2">
-              <div className="space-y-2">
-                <Label htmlFor="status-style">{t('starship.modules.git.status.style')}</Label>
-                <ColorPickerInput
-                  id="status-style"
-                  value={statusForm.watch('style')}
-                  onChange={(value) => statusForm.setValue('style', value)}
-                  placeholder="#ef4444"
-                  disabled={statusForm.watch('disabled')}
-                />
-              </div>
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    <div className="space-y-2">
+                      <Label htmlFor="status-style">{t('starship.modules.git.status.style')}</Label>
+                      <ColorPickerInput
+                        id="status-style"
+                        value={statusForm.watch('style')}
+                        onChange={(value) => statusForm.setValue('style', value)}
+                        placeholder="#ef4444"
+                        disabled={statusForm.watch('disabled')}
+                      />
+                    </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="status-format">{t('starship.modules.git.status.format')}</Label>
-                <Input
-                  id="status-format"
-                  {...statusForm.register('format')}
-                  placeholder="([$all_status$ahead_behind]($style)) "
-                  disabled={statusForm.watch('disabled')}
-                />
-              </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="status-format">
+                        {t('starship.modules.git.status.format')}
+                      </Label>
+                      <Input
+                        id="status-format"
+                        {...statusForm.register('format')}
+                        placeholder="([$all_status$ahead_behind]($style)) "
+                        disabled={statusForm.watch('disabled')}
+                      />
+                    </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="status-ahead">{t('starship.modules.git.status.ahead')}</Label>
-                <Input
-                  id="status-ahead"
-                  {...statusForm.register('ahead')}
-                  placeholder="⇡${count}"
-                  disabled={statusForm.watch('disabled')}
-                />
-              </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="status-ahead">{t('starship.modules.git.status.ahead')}</Label>
+                      <Input
+                        id="status-ahead"
+                        {...statusForm.register('ahead')}
+                        placeholder="⇡${count}"
+                        disabled={statusForm.watch('disabled')}
+                      />
+                    </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="status-behind">{t('starship.modules.git.status.behind')}</Label>
-                <Input
-                  id="status-behind"
-                  {...statusForm.register('behind')}
-                  placeholder="⇣${count}"
-                  disabled={statusForm.watch('disabled')}
-                />
-              </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="status-behind">
+                        {t('starship.modules.git.status.behind')}
+                      </Label>
+                      <Input
+                        id="status-behind"
+                        {...statusForm.register('behind')}
+                        placeholder="⇣${count}"
+                        disabled={statusForm.watch('disabled')}
+                      />
+                    </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="status-diverged">{t('starship.modules.git.status.diverged')}</Label>
-                <Input
-                  id="status-diverged"
-                  {...statusForm.register('diverged')}
-                  placeholder="⇕⇡${ahead_count}⇣${behind_count}"
-                  disabled={statusForm.watch('disabled')}
-                />
-              </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="status-diverged">
+                        {t('starship.modules.git.status.diverged')}
+                      </Label>
+                      <Input
+                        id="status-diverged"
+                        {...statusForm.register('diverged')}
+                        placeholder="⇕⇡${ahead_count}⇣${behind_count}"
+                        disabled={statusForm.watch('disabled')}
+                      />
+                    </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="status-conflicted">
-                  {t('starship.modules.git.status.conflicted')}
-                </Label>
-                <Input
-                  id="status-conflicted"
-                  {...statusForm.register('conflicted')}
-                  placeholder="=${count}"
-                  disabled={statusForm.watch('disabled')}
-                />
-              </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="status-conflicted">
+                        {t('starship.modules.git.status.conflicted')}
+                      </Label>
+                      <Input
+                        id="status-conflicted"
+                        {...statusForm.register('conflicted')}
+                        placeholder="=${count}"
+                        disabled={statusForm.watch('disabled')}
+                      />
+                    </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="status-untracked">
-                  {t('starship.modules.git.status.untracked')}
-                </Label>
-                <Input
-                  id="status-untracked"
-                  {...statusForm.register('untracked')}
-                  placeholder="?${count}"
-                  disabled={statusForm.watch('disabled')}
-                />
-              </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="status-untracked">
+                        {t('starship.modules.git.status.untracked')}
+                      </Label>
+                      <Input
+                        id="status-untracked"
+                        {...statusForm.register('untracked')}
+                        placeholder="?${count}"
+                        disabled={statusForm.watch('disabled')}
+                      />
+                    </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="status-stashed">{t('starship.modules.git.status.stashed')}</Label>
-                <Input
-                  id="status-stashed"
-                  {...statusForm.register('stashed')}
-                  placeholder="$${count}"
-                  disabled={statusForm.watch('disabled')}
-                />
-              </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="status-stashed">
+                        {t('starship.modules.git.status.stashed')}
+                      </Label>
+                      <Input
+                        id="status-stashed"
+                        {...statusForm.register('stashed')}
+                        placeholder="$${count}"
+                        disabled={statusForm.watch('disabled')}
+                      />
+                    </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="status-modified">{t('starship.modules.git.status.modified')}</Label>
-                <Input
-                  id="status-modified"
-                  {...statusForm.register('modified')}
-                  placeholder="!${count}"
-                  disabled={statusForm.watch('disabled')}
-                />
-              </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="status-modified">
+                        {t('starship.modules.git.status.modified')}
+                      </Label>
+                      <Input
+                        id="status-modified"
+                        {...statusForm.register('modified')}
+                        placeholder="!${count}"
+                        disabled={statusForm.watch('disabled')}
+                      />
+                    </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="status-staged">{t('starship.modules.git.status.staged')}</Label>
-                <Input
-                  id="status-staged"
-                  {...statusForm.register('staged')}
-                  placeholder="+${count}"
-                  disabled={statusForm.watch('disabled')}
-                />
-              </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="status-staged">
+                        {t('starship.modules.git.status.staged')}
+                      </Label>
+                      <Input
+                        id="status-staged"
+                        {...statusForm.register('staged')}
+                        placeholder="+${count}"
+                        disabled={statusForm.watch('disabled')}
+                      />
+                    </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="status-renamed">{t('starship.modules.git.status.renamed')}</Label>
-                <Input
-                  id="status-renamed"
-                  {...statusForm.register('renamed')}
-                  placeholder="»${count}"
-                  disabled={statusForm.watch('disabled')}
-                />
-              </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="status-renamed">
+                        {t('starship.modules.git.status.renamed')}
+                      </Label>
+                      <Input
+                        id="status-renamed"
+                        {...statusForm.register('renamed')}
+                        placeholder="»${count}"
+                        disabled={statusForm.watch('disabled')}
+                      />
+                    </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="status-deleted">{t('starship.modules.git.status.deleted')}</Label>
-                <Input
-                  id="status-deleted"
-                  {...statusForm.register('deleted')}
-                  placeholder="✘${count}"
-                  disabled={statusForm.watch('disabled')}
-                />
-              </div>
-            </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="status-deleted">
+                        {t('starship.modules.git.status.deleted')}
+                      </Label>
+                      <Input
+                        id="status-deleted"
+                        {...statusForm.register('deleted')}
+                        placeholder="✘${count}"
+                        disabled={statusForm.watch('disabled')}
+                      />
+                    </div>
+                  </div>
 
-            <Button type="submit" disabled={isPending}>
-              {isPending ? t('common.saving') : t('common.saveChanges')}
-            </Button>
-          </form>
-        </TabsContent>
+                  <Button type="submit" disabled={isPending}>
+                    {isPending ? t('common.saving') : t('common.saveChanges')}
+                  </Button>
+                </form>
+              </TabsContent>
             </motion.div>
           )}
         </AnimatePresence>

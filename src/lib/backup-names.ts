@@ -1,4 +1,4 @@
-// Export two components: 
+// Export two components:
 //  getBackupName(for config-list.tsx to show backup names)
 //  and
 //  setBackupName(for index.tsx and config-list.tsx to name and rename).
