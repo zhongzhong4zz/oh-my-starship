@@ -1,3 +1,5 @@
+// To fit shadcn/ui color-picker-input component, convert all colors to hex colors
+// 为适配shadcn/ui的color-picker-input组件，将所有颜色都转换为hex颜色
 import type { StarshipPreset } from '@/types';
 
 export const presets: StarshipPreset[] = [
@@ -445,15 +447,15 @@ format = '[[  $time ](fg:#a0a9cb bg:#1d2230)]($style)'`,
     toml: `"$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
-[](color_orange)\
+[](#d65d0e)\
 $os\
 $username\
-[](bg:color_yellow fg:color_orange)\
+[](bg:#d79921 fg:#d65d0e)\
 $directory\
-[](fg:color_yellow bg:color_aqua)\
+[](fg:#d79921 bg:#689d6a)\
 $git_branch\
 $git_status\
-[](fg:color_aqua bg:color_blue)\
+[](fg:#689d6a bg:#458588)\
 $c\
 $cpp\
 $rust\
@@ -464,13 +466,13 @@ $java\
 $kotlin\
 $haskell\
 $python\
-[](fg:color_blue bg:color_bg3)\
+[](fg:#458588 bg:#665c54)\
 $docker_context\
 $conda\
 $pixi\
-[](fg:color_bg3 bg:color_bg1)\
+[](fg:#665c54 bg:#3c3836)\
 $time\
-[ ](fg:color_bg1)\
+[ ](fg:#3c3836)\
 $line_break$character"""
 
 palette = 'gruvbox_dark'
@@ -489,7 +491,7 @@ color_yellow = '#d79921'
 
 [os]
 disabled = false
-style = "bg:color_orange fg:color_fg0"
+style = "bg:#d65d0e fg:#fbf1c7"
 
 [os.symbols]
 Windows = "󰍲"
@@ -517,12 +519,12 @@ Pop = ""
 
 [username]
 show_always = true
-style_user = "bg:color_orange fg:color_fg0"
-style_root = "bg:color_orange fg:color_fg0"
+style_user = "bg:#d65d0e fg:#fbf1c7"
+style_root = "bg:#d65d0e fg:#fbf1c7"
 format = '[ $user ]($style)'
 
 [directory]
-style = "fg:color_fg0 bg:color_yellow"
+style = "fg:#fbf1c7 bg:#d79921"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
@@ -536,93 +538,93 @@ truncation_symbol = "…/"
 
 [git_branch]
 symbol = ""
-style = "bg:color_aqua"
-format = '[[ $symbol $branch ](fg:color_fg0 bg:color_aqua)]($style)'
+style = "bg:#689d6a"
+format = '[[ $symbol $branch ](fg:#fbf1c7 bg:#689d6a)]($style)'
 
 [git_status]
-style = "bg:color_aqua"
-format = '[[($all_status$ahead_behind )](fg:color_fg0 bg:color_aqua)]($style)'
+style = "bg:#689d6a"
+format = '[[($all_status$ahead_behind )](fg:#fbf1c7 bg:#689d6a)]($style)'
 
 [nodejs]
 symbol = ""
-style = "bg:color_blue"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
+style = "bg:#458588"
+format = '[[ $symbol( $version) ](fg:#fbf1c7 bg:#458588)]($style)'
 
 [c]
 symbol = " "
-style = "bg:color_blue"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
+style = "bg:#458588"
+format = '[[ $symbol( $version) ](fg:#fbf1c7 bg:#458588)]($style)'
 
 [cpp]
 symbol = " "
-style = "bg:color_blue"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
+style = "bg:#458588"
+format = '[[ $symbol( $version) ](fg:#fbf1c7 bg:#458588)]($style)'
 
 [rust]
 symbol = ""
-style = "bg:color_blue"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
+style = "bg:#458588"
+format = '[[ $symbol( $version) ](fg:#fbf1c7 bg:#458588)]($style)'
 
 [golang]
 symbol = ""
-style = "bg:color_blue"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
+style = "bg:#458588"
+format = '[[ $symbol( $version) ](fg:#fbf1c7 bg:#458588)]($style)'
 
 [php]
 symbol = ""
-style = "bg:color_blue"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
+style = "bg:#458588"
+format = '[[ $symbol( $version) ](fg:#fbf1c7 bg:#458588)]($style)'
 
 [java]
 symbol = ""
-style = "bg:color_blue"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
+style = "bg:#458588"
+format = '[[ $symbol( $version) ](fg:#fbf1c7 bg:#458588)]($style)'
 
 [kotlin]
 symbol = ""
-style = "bg:color_blue"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
+style = "bg:#458588"
+format = '[[ $symbol( $version) ](fg:#fbf1c7 bg:#458588)]($style)'
 
 [haskell]
 symbol = ""
-style = "bg:color_blue"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
+style = "bg:#458588"
+format = '[[ $symbol( $version) ](fg:#fbf1c7 bg:#458588)]($style)'
 
 [python]
 symbol = ""
-style = "bg:color_blue"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
+style = "bg:#458588"
+format = '[[ $symbol( $version) ](fg:#fbf1c7 bg:#458588)]($style)'
 
 [docker_context]
 symbol = ""
-style = "bg:color_bg3"
-format = '[[ $symbol( $context) ](fg:#83a598 bg:color_bg3)]($style)'
+style = "bg:#665c54"
+format = '[[ $symbol( $context) ](fg:#83a598 bg:#665c54)]($style)'
 
 [conda]
-style = "bg:color_bg3"
-format = '[[ $symbol( $environment) ](fg:#83a598 bg:color_bg3)]($style)'
+style = "bg:#665c54"
+format = '[[ $symbol( $environment) ](fg:#83a598 bg:#665c54)]($style)'
 
 [pixi]
-style = "bg:color_bg3"
-format = '[[ $symbol( $version)( $environment) ](fg:color_fg0 bg:color_bg3)]($style)'
+style = "bg:#665c54"
+format = '[[ $symbol( $version)( $environment) ](fg:#fbf1c7 bg:#665c54)]($style)'
 
 [time]
 disabled = false
 time_format = "%R"
-style = "bg:color_bg1"
-format = '[[  $time ](fg:color_fg0 bg:color_bg1)]($style)'
+style = "bg:#3c3836"
+format = '[[  $time ](fg:#fbf1c7 bg:#3c3836)]($style)'
 
 [line_break]
 disabled = false
 
 [character]
 disabled = false
-success_symbol = '[](bold fg:color_green)'
-error_symbol = '[](bold fg:color_red)'
-vimcmd_symbol = '[](bold fg:color_green)'
-vimcmd_replace_one_symbol = '[](bold fg:color_purple)'
-vimcmd_replace_symbol = '[](bold fg:color_purple)'
-vimcmd_visual_symbol = '[](bold fg:color_yellow)'`,
+success_symbol = '[](bold fg:#98971a)'
+error_symbol = '[](bold fg:#cc241d)'
+vimcmd_symbol = '[](bold fg:#98971a)'
+vimcmd_replace_one_symbol = '[](bold fg:#b16286)'
+vimcmd_replace_symbol = '[](bold fg:#b16286)'
+vimcmd_visual_symbol = '[](bold fg:#d79921)'`,
   },
   {
     id: 'bracketed-segments',
@@ -690,12 +692,12 @@ format = '\\[[$user]($style)\\]'`,
     description: 'Uses plain text instead of special characters or icons',
     toml: `"$schema" = 'https://starship.rs/config-schema.json'
 
-continuation_prompt = "[.](bright-black) "
+continuation_prompt = "[.](#5C6370) "
 
 [character]
-success_symbol = "[>](bold green)"
-error_symbol = "[x](bold red)"
-vimcmd_symbol = "[<](bold green)"
+success_symbol = "[>](bold #98C379)"
+error_symbol = "[x](bold #E06C75)"
+vimcmd_symbol = "[<](bold #98C379)"
 
 [git_commit]
 tag_symbol = " tag "
@@ -787,20 +789,20 @@ $python\\
 $character"""
 
 [directory]
-style = "blue"
+style = "#61AFEF"
 
 [character]
-success_symbol = "[❯](purple)"
-error_symbol = "[❯](red)"
-vimcmd_symbol = "[❮](green)"
+success_symbol = "[❯](#C678DD)"
+error_symbol = "[❯](#E06C75)"
+vimcmd_symbol = "[❮](#98C379)"
 
 [git_branch]
 format = "[$branch]($style)"
-style = "bright-black"
+style = "#5C6370"
 
 [git_status]
-format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
-style = "cyan"
+format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](#FFAFD7) ($ahead_behind$stashed)]($style)"
+style = "#56B6C2"
 conflicted = "​"
 untracked = "​"
 modified = "​"
@@ -811,15 +813,15 @@ stashed = "≡"
 
 [git_state]
 format = '\\([$state( $progress_current/$progress_total)]($style)\\) '
-style = "bright-black"
+style = "#5C6370"
 
 [cmd_duration]
 format = "[$duration]($style) "
-style = "yellow"
+style = "#E5C07B"
 
 [python]
 format = "[$virtualenv]($style) "
-style = "bright-black"
+style = "#5C6370"
 detect_extensions = []
 detect_files = []`,
   },
@@ -1048,3 +1050,4 @@ format = 'via [$symbol]($style)'`,
 export function getPresetById(id: string): StarshipPreset | undefined {
   return presets.find((p) => p.id === id);
 }
+

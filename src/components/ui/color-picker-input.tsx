@@ -13,23 +13,33 @@ interface ColorPickerInputProps extends Omit<
   onChange: (value: string) => void;
 }
 
-// 从字符串中提取 hex 颜色
+const DEFAULT_PICKER_COLOR = '#98C379';
+
+function normalizeHexColor(value: string): string | null {
+  const match = value.match(/^#([0-9A-Fa-f]{6})$/);
+  return match ? `#${match[1].toUpperCase()}` : null;
+}
+
 function extractHexColor(value: string): string | null {
   const match = value.match(/#([0-9A-Fa-f]{6})/);
   return match ? `#${match[1].toUpperCase()}` : null;
 }
 
-// 将 hex 颜色应用到字符串（替换或追加）
 function applyHexColor(value: string, newColor: string): string {
-  const hasHex = /#[0-9A-Fa-f]{6}/i.test(value);
-  if (hasHex) {
-    return value.replace(/#[0-9A-Fa-f]{6}/i, newColor);
+  const normalizedColor = normalizeHexColor(newColor);
+  if (!normalizedColor) {
+    return value;
   }
-  // 如果没有颜色，在括号内追加
+
+  if (/#[0-9A-Fa-f]{6}/i.test(value)) {
+    return value.replace(/#[0-9A-Fa-f]{6}/i, normalizedColor);
+  }
+
   const styleMatch = value.match(/\(([^)]*)\)/);
   if (styleMatch) {
-    return value.replace(/\([^)]*\)/, `(${newColor})`);
+    return value.replace(/\([^)]*\)/, `(${normalizedColor})`);
   }
+
   return value;
 }
 
@@ -37,16 +47,21 @@ const ColorPickerInput = React.forwardRef<HTMLInputElement, ColorPickerInputProp
   ({ className, value, onChange, disabled, ...props }, ref) => {
     const { t } = useTranslation();
     const [open, setOpen] = React.useState(false);
-    const [customColor, setCustomColor] = React.useState('#000000');
 
-    const currentColor = extractHexColor(value) || '#98C379';
+    const currentColor = extractHexColor(value) || DEFAULT_PICKER_COLOR;
+    const [customColor, setCustomColor] = React.useState(currentColor);
+
+    React.useEffect(() => {
+      setCustomColor(currentColor);
+    }, [currentColor]);
 
     const handleColorSelect = (color: string) => {
       onChange(applyHexColor(value, color));
     };
 
     const handleColorPickerChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      const color = e.target.value;
+      const color = normalizeHexColor(e.target.value);
+      if (!color) return;
       setCustomColor(color);
       handleColorSelect(color);
     };
@@ -109,7 +124,7 @@ const ColorPickerInput = React.forwardRef<HTMLInputElement, ColorPickerInputProp
                     if (/^#[0-9A-Fa-f]{0,6}$/.test(val)) {
                       setCustomColor(val);
                       if (/^#[0-9A-Fa-f]{6}$/.test(val)) {
-                        handleColorSelect(val);
+                        handleColorSelect(val.toUpperCase());
                       }
                     }
                   }}
@@ -120,7 +135,7 @@ const ColorPickerInput = React.forwardRef<HTMLInputElement, ColorPickerInputProp
                   type="button"
                   onClick={() => {
                     if (/^#[0-9A-Fa-f]{6}$/.test(customColor)) {
-                      handleColorSelect(customColor);
+                      handleColorSelect(customColor.toUpperCase());
                       setOpen(false);
                     }
                   }}

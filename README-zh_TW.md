@@ -31,7 +31,7 @@
 
 | 預設 | 字元模組 |
 | :-----: | :-----: |
-| ![Presets](readme_img/Presets.png) | ![Character Modules](readme_img/Custom-Modules.png) |
+| ![Presets](readme_img/Presets.png) | ![Character Modules](readme_img/Character-Modules.png) |
 
 | Git模組 | 備份管理 |
 | :-----: | :-----: |

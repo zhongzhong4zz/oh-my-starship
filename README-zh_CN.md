@@ -31,7 +31,7 @@
 
 | 预设 | 字符模块 |
 | :-----: | :-----: |
-| ![Presets](readme_img/Presets.png) | ![Character Modules](readme_img/Custom-Modules.png) |
+| ![Presets](readme_img/Presets.png) | ![Character Modules](readme_img/Character-Modules.png) |
 
 | Git模块 | 备份管理 |
 | :-----: | :-----: |
