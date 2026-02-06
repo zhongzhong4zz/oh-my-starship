@@ -32,7 +32,7 @@ English | [繁體中文](./README-zh_TW.md) | [简体中文](./README-zh_CN.md)
 
 | Presets | Character Modules |
 | :-----: | :-----: |
-| ![Presets](readme_img/Presets.png) | ![Character Modules](readme_img/Custom-Modules.png) |
+| ![Presets](readme_img/Presets.png) | ![Character Modules](readme_img/Character-Modules.png) |
 
 | Git Modules | Backup Management |
 | :-----: | :-----: |

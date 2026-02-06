@@ -1,3 +1,5 @@
+// To fit shadcn/ui color-picker-input component, convert all colors to hex colors
+// 为适配shadcn/ui的color-picker-input组件，将所有颜色都转换为hex颜色
 import type { StarshipPreset } from '@/types';
 
 export const presets: StarshipPreset[] = [
