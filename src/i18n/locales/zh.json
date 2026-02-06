@@ -201,7 +201,7 @@
         "formatDesc": "模块显示的格式字符串",
         "versionFormat": "版本格式",
         "versionFormatDesc": "版本号的格式字符串",
-        "saveButton": "保存 {{name}}",
+        "saveButton": "保存更改",
         "saveSuccess": "{{name}} 模块已保存"
       },
       "saveFailed": "保存失败：{{message}}"

@@ -201,7 +201,7 @@
         "formatDesc": "Format string for the module display",
         "versionFormat": "Version Format",
         "versionFormatDesc": "Format string for the version number",
-        "saveButton": "Save {{name}}",
+        "saveButton": "Save Changes",
         "saveSuccess": "{{name}} module saved"
       },
       "saveFailed": "Failed to save: {{message}}"

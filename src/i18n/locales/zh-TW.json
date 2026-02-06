@@ -201,7 +201,7 @@
         "formatDesc": "模組顯示的格式字串",
         "versionFormat": "版本格式",
         "versionFormatDesc": "版本號的格式字串",
-        "saveButton": "儲存 {{name}}",
+        "saveButton": "儲存變更",
         "saveSuccess": "{{name}} 模組已儲存"
       },
       "saveFailed": "儲存失敗：{{message}}"

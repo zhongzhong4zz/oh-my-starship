@@ -67,6 +67,7 @@ export function GitModule() {
   const [activeTab, setActiveTab] = useState('branch');
   const { data: toml, isLoading } = useStarshipToml();
   const { mutate: saveToml, isPending } = useSaveStarshipToml();
+  const activeFormId = activeTab === 'branch' ? 'git-branch-form' : 'git-status-form';
 
   const branchForm = useForm<GitBranchFormData>({ defaultValues: branchDefaults });
   const statusForm = useForm<GitStatusFormData>({ defaultValues: statusDefaults });
@@ -106,9 +107,14 @@ export function GitModule() {
 
   return (
     <div className="space-y-6">
-      <div>
-        <h3 className="text-lg font-medium">{t('starship.modules.git.title')}</h3>
-        <p className="text-sm text-muted-foreground">{t('starship.modules.git.subtitle')}</p>
+      <div className="flex gap-3 sm:flex-row sm:items-start sm:justify-between">
+        <div>
+          <h3 className="text-lg font-medium">{t('starship.modules.git.title')}</h3>
+          <p className="text-sm text-muted-foreground">{t('starship.modules.git.subtitle')}</p>
+        </div>
+        <Button type="submit" form={activeFormId} disabled={isPending} className="sm:self-start">
+          {isPending ? t('common.saving') : t('common.saveChanges')}
+        </Button>
       </div>
 
       <Tabs value={activeTab} onValueChange={setActiveTab}>
@@ -127,7 +133,11 @@ export function GitModule() {
               transition={{ duration: 0.2, ease: 'easeInOut' }}
             >
               <TabsContent value="branch" className="mt-4">
-                <form onSubmit={branchForm.handleSubmit(onBranchSubmit)} className="space-y-4">
+                <form
+                  id="git-branch-form"
+                  onSubmit={branchForm.handleSubmit(onBranchSubmit)}
+                  className="space-y-4"
+                >
                   <div className="flex items-center justify-between rounded-xl border border-border bg-muted/30 p-4 transition-colors hover:bg-muted/50">
                     <div className="space-y-0.5">
                       <Label htmlFor="branch-disabled">
@@ -207,9 +217,6 @@ export function GitModule() {
                     </div>
                   </div>
 
-                  <Button type="submit" disabled={isPending}>
-                    {isPending ? t('common.saving') : t('common.saveChanges')}
-                  </Button>
                 </form>
               </TabsContent>
             </motion.div>
@@ -223,7 +230,11 @@ export function GitModule() {
               transition={{ duration: 0.2, ease: 'easeInOut' }}
             >
               <TabsContent value="status" className="mt-4">
-                <form onSubmit={statusForm.handleSubmit(onStatusSubmit)} className="space-y-4">
+                <form
+                  id="git-status-form"
+                  onSubmit={statusForm.handleSubmit(onStatusSubmit)}
+                  className="space-y-4"
+                >
                   <div className="flex items-center justify-between rounded-xl border border-border bg-muted/30 p-4 transition-colors hover:bg-muted/50">
                     <div className="space-y-0.5">
                       <Label htmlFor="status-disabled">
@@ -383,9 +394,6 @@ export function GitModule() {
                     </div>
                   </div>
 
-                  <Button type="submit" disabled={isPending}>
-                    {isPending ? t('common.saving') : t('common.saveChanges')}
-                  </Button>
                 </form>
               </TabsContent>
             </motion.div>
