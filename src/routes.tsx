@@ -17,7 +17,6 @@ const routes: RouteObject[] = [
     element: <Home />,
     children: [
       {
-        index: true,
         path: 'starship/presets',
         element: (
           <StarshipLayout>
@@ -80,7 +79,6 @@ const routes: RouteObject[] = [
           </StarshipLayout>
         ),
       },
-      // ai said the settings page isn't a core page, so it's lazy loaded
       {
         path: 'settings',
         lazy: () => import('@/pages/settings'),
@@ -90,5 +88,5 @@ const routes: RouteObject[] = [
 ];
 
 export const router = createMemoryRouter(routes, {
-  initialEntries: ['/'],
+  initialEntries: ['/starship/presets'],
 });
