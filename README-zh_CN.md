@@ -29,12 +29,13 @@
 
 ## 截图
 
-<div align="center">
-  <img src="./readme_img/img-1.png" width="800" />
-</div>
-<div align="center">
-  <img src="./readme_img/img-2.png" width="800" />
-</div>
+| 预设 | 字符模块 |
+| :-----: | :-----: |
+| ![Presets](readme_img/Presets.png) | ![Character Modules](readme_img/Custom-Modules.png) |
+
+| Git模块 | 备份管理 |
+| :-----: | :-----: |
+| ![Git Modules](readme_img/Git-Modules.png) | ![Backup Management](readme_img/Backup-Management.png) |
 
 <details>
   <summary><h2 style="display:inline-block;">您需要了解的内容</h2></summary>
