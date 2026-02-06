@@ -82,8 +82,10 @@ export function ConfigList() {
 
   if (!backups?.length) {
     return (
-      <div className="flex h-full flex-col items-center justify-center gap-2">
-        <Archive className="h-12 w-12 text-muted-foreground" />
+      <div className="flex h-full flex-col items-center justify-center gap-3">
+        <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-muted">
+          <Archive className="h-8 w-8 text-muted-foreground" />
+        </div>
         <p className="text-muted-foreground">{t('backups.noBackups')}</p>
       </div>
     );
@@ -96,10 +98,12 @@ export function ConfigList() {
         {backups.map((backupPath) => (
           <div
             key={backupPath}
-            className="flex items-center justify-between rounded-lg border border-border bg-card p-4"
+            className="group flex items-center justify-between rounded-xl border border-border bg-card p-4 shadow-sm transition-all duration-200 hover:border-primary/20 hover:shadow-md"
           >
             <div className="flex items-center gap-3">
-              <Archive className="h-5 w-5 text-muted-foreground" />
+              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-muted transition-colors group-hover:bg-primary/10">
+                <Archive className="h-5 w-5 text-muted-foreground transition-colors group-hover:text-primary" />
+              </div>
               <div>
                 <p className="font-medium">{getBackupName(backupPath) || backupPath}</p>
                 <p className="text-sm text-muted-foreground">{backupPath}</p>

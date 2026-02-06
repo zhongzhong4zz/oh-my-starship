@@ -61,16 +61,16 @@ export function Component() {
       <div className="space-y-4">
         <div>
           <label className="text-sm font-medium">{t('settings.theme')}</label>
-          <div className="mt-2 flex gap-2">
+          <div className="mt-3 flex gap-2">
             {themeOptions.map((option) => (
               <button
                 key={option.value}
                 onClick={() => updateSetting('theme', option.value)}
                 className={cn(
-                  'flex items-center gap-2 rounded-md border px-4 py-2 text-sm transition-colors',
+                  'flex cursor-pointer items-center gap-2.5 rounded-lg border px-4 py-2.5 text-sm font-medium transition-all duration-200',
                   settings.theme === option.value
-                    ? 'border-primary bg-primary text-primary-foreground'
-                    : 'border-border hover:bg-accent'
+                    ? 'border-primary bg-primary text-primary-foreground shadow-sm'
+                    : 'border-border bg-card hover:border-primary/30 hover:bg-accent active:scale-[0.98]'
                 )}
               >
                 {option.icon}
@@ -82,28 +82,40 @@ export function Component() {
 
         <div>
           <label className="text-sm font-medium">{t('settings.themeColor')}</label>
-          <div className="mt-2 grid grid-cols-4 gap-2 sm:grid-cols-6 md:grid-cols-12">
+          <div className="mt-3 grid grid-cols-4 gap-2.5 sm:grid-cols-6 md:grid-cols-9">
             {themeColorOptions.map((option) => (
               <button
                 key={option.value}
                 onClick={() => updateSetting('themeColor', option.value)}
                 className={cn(
-                  'group flex flex-col items-center gap-1.5 rounded-lg border p-2 transition-all',
+                  'group flex cursor-pointer flex-col items-center gap-2 rounded-xl border bg-card p-2.5 transition-all duration-200',
                   settings.themeColor === option.value
-                    ? 'border-primary ring-2 ring-primary/30'
-                    : 'border-border hover:border-muted-foreground/50'
+                    ? 'border-primary/50 ring-2 ring-primary/20 shadow-sm'
+                    : 'border-border hover:border-primary/30 hover:shadow-sm active:scale-[0.98]'
                 )}
                 title={option.label}
               >
                 <div
-                  className="relative flex h-6 w-6 items-center justify-center rounded-full"
+                  className={cn(
+                    'relative flex h-8 w-8 items-center justify-center rounded-full shadow-sm transition-transform duration-200',
+                    settings.themeColor !== option.value && 'group-hover:scale-110'
+                  )}
                   style={{ backgroundColor: themeColorDisplayColors[option.value] }}
                 >
                   {settings.themeColor === option.value && (
-                    <Check className="h-3.5 w-3.5 text-white" />
+                    <Check className="h-4 w-4 text-white drop-shadow-sm" />
                   )}
                 </div>
-                <span className="text-xs text-muted-foreground">{option.label}</span>
+                <span
+                  className={cn(
+                    'text-xs transition-colors',
+                    settings.themeColor === option.value
+                      ? 'font-medium text-foreground'
+                      : 'text-muted-foreground'
+                  )}
+                >
+                  {option.label}
+                </span>
               </button>
             ))}
           </div>
@@ -111,16 +123,16 @@ export function Component() {
 
         <div>
           <label className="text-sm font-medium">{t('settings.language')}</label>
-          <div className="mt-2 flex gap-2">
+          <div className="mt-3 flex gap-2">
             {languageOptions.map((option) => (
               <button
                 key={option.value}
                 onClick={() => handleLanguageChange(option.value)}
                 className={cn(
-                  'flex items-center gap-2 rounded-md border px-4 py-2 text-sm transition-colors',
+                  'flex cursor-pointer items-center gap-2.5 rounded-lg border px-4 py-2.5 text-sm font-medium transition-all duration-200',
                   i18n.language === option.value
-                    ? 'border-primary bg-primary text-primary-foreground'
-                    : 'border-border hover:bg-accent'
+                    ? 'border-primary bg-primary text-primary-foreground shadow-sm'
+                    : 'border-border bg-card hover:border-primary/30 hover:bg-accent active:scale-[0.98]'
                 )}
               >
                 <Languages className="h-4 w-4" />

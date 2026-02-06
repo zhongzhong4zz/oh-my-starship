@@ -29,13 +29,13 @@
 
 ## 截圖
 
-<div align="center">
-  <img src="./readme_img/img-1.png" width="800" />
-</div>
+| 預設 | 字元模組 |
+| :-----: | :-----: |
+| ![Presets](readme_img/Presets.png) | ![Character Modules](readme_img/Custom-Modules.png) |
 
-<div align="center">
-  <img src="./readme_img/img-2.png" width="800" />
-</div>
+| Git模組 | 備份管理 |
+| :-----: | :-----: |
+| ![Git Modules](readme_img/Git-Modules.png) | ![Backup Management](readme_img/Backup-Management.png) |
 
 <details>
   <summary><h2 style="display:inline-block;">您需要了解的內容</h2></summary>

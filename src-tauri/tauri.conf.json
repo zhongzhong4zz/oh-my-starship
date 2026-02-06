@@ -1,7 +1,7 @@
 {
   "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
   "productName": "oh-my-starship",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "identifier": "com.starship.config-manager",
   "build": {
     "beforeDevCommand": "pnpm ui:dev",
@@ -14,11 +14,13 @@
     "windows": [
       {
         "title": "oh-my-starship",
-        "width": 900,
-        "height": 600,
+        "width": 1200,
+        "height": 700,
         "resizable": true,
         "fullscreen": false,
-        "center": true
+        "center": true,
+        "minWidth": 1200,
+        "minHeight": 700
       }
     ],
     "security": {

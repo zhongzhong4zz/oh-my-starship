@@ -68,12 +68,17 @@ export function DirectoryModule() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-      <div>
-        <h3 className="text-lg font-medium">{t('starship.modules.directory.title')}</h3>
-        <p className="text-sm text-muted-foreground">{t('starship.modules.directory.subtitle')}</p>
+      <div className="flex gap-3 sm:flex-row sm:items-start sm:justify-between">
+        <div>
+          <h3 className="text-lg font-medium">{t('starship.modules.directory.title')}</h3>
+          <p className="text-sm text-muted-foreground">{t('starship.modules.directory.subtitle')}</p>
+        </div>
+        <Button type="submit" disabled={isPending} className="sm:self-start">
+          {isPending ? t('common.saving') : t('common.saveChanges')}
+        </Button>
       </div>
 
-      <div className="flex items-center justify-between rounded-lg border border-border p-4">
+      <div className="flex items-center justify-between rounded-xl border border-border bg-muted/30 p-4 transition-colors hover:bg-muted/50">
         <div className="space-y-0.5">
           <Label htmlFor="disabled">{t('starship.modules.directory.hideDirectory')}</Label>
           <p className="text-xs text-muted-foreground">
@@ -205,9 +210,6 @@ export function DirectoryModule() {
         </div>
       </div>
 
-      <Button type="submit" disabled={isPending}>
-        {isPending ? t('common.saving') : t('common.saveChanges')}
-      </Button>
     </form>
   );
 }

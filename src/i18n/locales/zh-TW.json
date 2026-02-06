@@ -85,13 +85,9 @@
       "applyFailed": "套用預設失敗"
     },
     "toml": {
-      "backups": "備份",
-      "availableBackups": "可用備份",
       "placeholder": "# Starship 設定",
       "saveSuccess": "設定已儲存",
-      "saveFailed": "儲存設定失敗",
-      "restoreSuccess": "備份已還原",
-      "restoreFailed": "還原備份失敗"
+      "saveFailed": "儲存設定失敗"
     },
     "modules": {
       "character": {
@@ -190,10 +186,10 @@
         "use12hrDesc": "使用帶 AM/PM 的 12 小時時間格式",
         "saveSuccess": "時間模組已儲存"
       },
-      "languages": {
-        "name": "語言",
+      "techStack": {
+        "name": "技術棧",
         "description": "執行時版本",
-        "title": "語言模組",
+        "title": "技術棧模組",
         "subtitle": "設定程式語言版本在提示符中的顯示方式。",
         "disable": "停用 {{name}} 模組",
         "disableDesc": "從提示符中隱藏 {{name}} 版本",
@@ -205,7 +201,7 @@
         "formatDesc": "模組顯示的格式字串",
         "versionFormat": "版本格式",
         "versionFormatDesc": "版本號的格式字串",
-        "saveButton": "儲存 {{name}}",
+        "saveButton": "儲存變更",
         "saveSuccess": "{{name}} 模組已儲存"
       },
       "saveFailed": "儲存失敗：{{message}}"

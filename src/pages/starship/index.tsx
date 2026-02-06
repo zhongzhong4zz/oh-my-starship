@@ -1,9 +1,7 @@
-import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useState, type ReactNode } from 'react';
 import { ArchiveRestore } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { toast } from 'sonner';
-import { AnimatePresence, motion } from 'motion/react';
-import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
@@ -17,12 +15,13 @@ import { Label } from '@/components/ui/label';
 import { setBackupName } from '@/lib/backup-names';
 import { useCreateStarshipBackup } from '@/lib/query';
 import { PresetSelector } from './preset-selector';
-import { ModuleEditor } from './module-editor';
-import { TomlEditor } from './toml-editor';
 
-export function Component() {
+type StarshipLayoutProps = {
+  children: ReactNode;
+};
+
+export function StarshipLayout({ children }: StarshipLayoutProps) {
   const { t } = useTranslation();
-  const [activeTab, setActiveTab] = useState('presets');
   const { mutate: createBackup, isPending } = useCreateStarshipBackup();
   const [nameDialogOpen, setNameDialogOpen] = useState(false);
   const [backupName, setBackupNameInput] = useState('');
@@ -58,29 +57,7 @@ export function Component() {
         </Button>
       </div>
 
-      <Tabs value={activeTab} onValueChange={setActiveTab} className="flex-1">
-        <TabsList>
-          <TabsTrigger value="presets">{t('starship.tabs.presets')}</TabsTrigger>
-          <TabsTrigger value="modules">{t('starship.tabs.modules')}</TabsTrigger>
-          <TabsTrigger value="toml">{t('starship.tabs.toml')}</TabsTrigger>
-        </TabsList>
-
-        <div className="mt-4 flex-1">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeTab}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -20 }}
-              transition={{ duration: 0.2, ease: 'easeInOut' }}
-            >
-              {activeTab === 'presets' && <PresetSelector />}
-              {activeTab === 'modules' && <ModuleEditor />}
-              {activeTab === 'toml' && <TomlEditor />}
-            </motion.div>
-          </AnimatePresence>
-        </div>
-      </Tabs>
+      <div className="flex-1">{children}</div>
 
       <Dialog open={nameDialogOpen} onOpenChange={setNameDialogOpen}>
         <DialogContent>
@@ -117,3 +94,10 @@ export function Component() {
   );
 }
 
+export function Component() {
+  return (
+    <StarshipLayout>
+      <PresetSelector />
+    </StarshipLayout>
+  );
+}

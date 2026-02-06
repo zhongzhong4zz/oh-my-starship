@@ -30,13 +30,13 @@ English | [繁體中文](./README-zh_TW.md) | [简体中文](./README-zh_CN.md)
 
 ## Screenshot
 
-<div align="center">
-  <img src="./readme_img/img-1.png" width="800" />
-</div>
+| Presets | Character Modules |
+| :-----: | :-----: |
+| ![Presets](readme_img/Presets.png) | ![Character Modules](readme_img/Custom-Modules.png) |
 
-<div align="center">
-  <img src="./readme_img/img-2.png" width="800" />
-</div>
+| Git Modules | Backup Management |
+| :-----: | :-----: |
+| ![Git Modules](readme_img/Git-Modules.png) | ![Backup Management](readme_img/Backup-Management.png) |
 
 <details>
   <summary><h2 style="display:inline-block;">Maybe somethings you need to know</h2></summary>

@@ -85,13 +85,9 @@
       "applyFailed": "应用预设失败"
     },
     "toml": {
-      "backups": "备份",
-      "availableBackups": "可用备份",
       "placeholder": "# Starship 配置",
       "saveSuccess": "配置已保存",
-      "saveFailed": "保存配置失败",
-      "restoreSuccess": "备份已恢复",
-      "restoreFailed": "恢复备份失败"
+      "saveFailed": "保存配置失败"
     },
     "modules": {
       "character": {
@@ -190,10 +186,10 @@
         "use12hrDesc": "使用带 AM/PM 的 12 小时时间格式",
         "saveSuccess": "时间模块已保存"
       },
-      "languages": {
-        "name": "语言",
+      "techStack": {
+        "name": "技术栈",
         "description": "运行时版本",
-        "title": "语言模块",
+        "title": "技术栈模块",
         "subtitle": "配置编程语言版本在提示符中的显示方式。",
         "disable": "禁用 {{name}} 模块",
         "disableDesc": "从提示符中隐藏 {{name}} 版本",
@@ -205,7 +201,7 @@
         "formatDesc": "模块显示的格式字符串",
         "versionFormat": "版本格式",
         "versionFormatDesc": "版本号的格式字符串",
-        "saveButton": "保存 {{name}}",
+        "saveButton": "保存更改",
         "saveSuccess": "{{name}} 模块已保存"
       },
       "saveFailed": "保存失败：{{message}}"

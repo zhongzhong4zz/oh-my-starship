@@ -1,6 +1,6 @@
 [package]
 name = "oh-my-starship"
-version = "1.0.2"
+version = "1.0.3"
 description = "A Tauri application for managing Windows Starship theme configuration files"
 authors = [""]
 license = "MIT"

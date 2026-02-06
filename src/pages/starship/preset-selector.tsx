@@ -42,17 +42,34 @@ export function PresetSelector() {
             <div
               key={preset.id}
               className={cn(
-                'group relative flex flex-col rounded-lg border bg-card p-4 transition-colors',
-                isActive ? 'border-primary' : 'border-border hover:border-primary/50'
+                'group relative flex cursor-pointer flex-col rounded-xl border bg-card p-4 shadow-sm transition-all duration-200',
+                isActive
+                  ? 'border-primary/50 bg-primary/5 ring-1 ring-primary/20'
+                  : 'border-border hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-md'
               )}
             >
-              <div className="mb-3 flex items-center gap-2">
-                <Palette className="h-5 w-5 text-muted-foreground" />
+              <div className="mb-3 flex items-center gap-2.5">
+                <div
+                  className={cn(
+                    'flex h-8 w-8 items-center justify-center rounded-lg transition-colors',
+                    isActive ? 'bg-primary/10' : 'bg-muted'
+                  )}
+                >
+                  <Palette
+                    className={cn('h-4 w-4', isActive ? 'text-primary' : 'text-muted-foreground')}
+                  />
+                </div>
                 <h3 className="font-medium">{preset.name}</h3>
-                {isActive && <Check className="ml-auto h-4 w-4 text-primary" />}
+                {isActive && (
+                  <div className="ml-auto flex h-5 w-5 items-center justify-center rounded-full bg-primary">
+                    <Check className="h-3 w-3 text-primary-foreground" />
+                  </div>
+                )}
               </div>
 
-              <p className="mb-4 flex-1 text-sm text-muted-foreground">{preset.description}</p>
+              <p className="mb-4 flex-1 text-sm leading-relaxed text-muted-foreground">
+                {preset.description}
+              </p>
 
               <Button
                 variant={isActive ? 'secondary' : 'default'}
