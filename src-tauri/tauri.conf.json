@@ -14,11 +14,13 @@
     "windows": [
       {
         "title": "oh-my-starship",
-        "width": 900,
-        "height": 600,
+        "width": 1200,
+        "height": 700,
         "resizable": true,
         "fullscreen": false,
-        "center": true
+        "center": true,
+        "minWidth": 1200,
+        "minHeight": 700
       }
     ],
     "security": {
