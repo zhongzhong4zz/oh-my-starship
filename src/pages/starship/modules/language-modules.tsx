@@ -152,7 +152,7 @@ export function LanguageModules() {
     const updatedToml = updateTomlSection(toml, currentLang.sectionName, data);
     saveToml(updatedToml, {
       onSuccess: () =>
-        toast.success(t('starship.modules.languages.saveSuccess', { name: currentLang.name })),
+        toast.success(t('starship.modules.techStack.saveSuccess', { name: currentLang.name })),
       onError: (error) => toast.error(t('starship.modules.saveFailed', { message: error.message })),
     });
   };
@@ -165,9 +165,9 @@ export function LanguageModules() {
     <div className="space-y-6">
       <div className="flex gap-3 sm:flex-row sm:items-start sm:justify-between">
         <div>
-          <h3 className="text-lg font-medium">{t('starship.modules.languages.title')}</h3>
+          <h3 className="text-lg font-medium">{t('starship.modules.techStack.title')}</h3>
           <p className="text-sm text-muted-foreground">
-            {t('starship.modules.languages.subtitle')}
+            {t('starship.modules.techStack.subtitle')}
           </p>
         </div>
         <Button
@@ -178,7 +178,7 @@ export function LanguageModules() {
         >
           {isPending
             ? t('common.saving')
-            : t('starship.modules.languages.saveButton', { name: currentLang.name })}
+            : t('starship.modules.techStack.saveButton', { name: currentLang.name })}
         </Button>
       </div>
 
@@ -204,10 +204,10 @@ export function LanguageModules() {
         <div className="flex items-center justify-between rounded-xl border border-border bg-muted/30 p-4 transition-colors hover:bg-muted/50">
           <div className="space-y-0.5">
             <Label htmlFor="disabled">
-              {t('starship.modules.languages.disable', { name: currentLang.name })}
+              {t('starship.modules.techStack.disable', { name: currentLang.name })}
             </Label>
             <p className="text-xs text-muted-foreground">
-              {t('starship.modules.languages.disableDesc', { name: currentLang.name })}
+              {t('starship.modules.techStack.disableDesc', { name: currentLang.name })}
             </p>
           </div>
           <Switch
@@ -219,7 +219,7 @@ export function LanguageModules() {
 
         <div className="grid gap-4">
           <div className="space-y-2">
-            <Label htmlFor="symbol">{t('starship.modules.languages.symbol')}</Label>
+            <Label htmlFor="symbol">{t('starship.modules.techStack.symbol')}</Label>
             <Input
               id="symbol"
               {...register('symbol')}
@@ -228,12 +228,12 @@ export function LanguageModules() {
               className="font-nerd"
             />
             <p className="text-xs text-muted-foreground">
-              {t('starship.modules.languages.symbolDesc')}
+              {t('starship.modules.techStack.symbolDesc')}
             </p>
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="style">{t('starship.modules.languages.style')}</Label>
+            <Label htmlFor="style">{t('starship.modules.techStack.style')}</Label>
             <ColorPickerInput
               id="style"
               value={watch('style')}
@@ -242,12 +242,12 @@ export function LanguageModules() {
               disabled={disabled}
             />
             <p className="text-xs text-muted-foreground">
-              {t('starship.modules.languages.styleDesc')}
+              {t('starship.modules.techStack.styleDesc')}
             </p>
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="format">{t('starship.modules.languages.format')}</Label>
+            <Label htmlFor="format">{t('starship.modules.techStack.format')}</Label>
             <Input
               id="format"
               {...register('format')}
@@ -255,12 +255,12 @@ export function LanguageModules() {
               disabled={disabled}
             />
             <p className="text-xs text-muted-foreground">
-              {t('starship.modules.languages.formatDesc')}
+              {t('starship.modules.techStack.formatDesc')}
             </p>
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="version_format">{t('starship.modules.languages.versionFormat')}</Label>
+            <Label htmlFor="version_format">{t('starship.modules.techStack.versionFormat')}</Label>
             <Input
               id="version_format"
               {...register('version_format')}
@@ -268,7 +268,7 @@ export function LanguageModules() {
               disabled={disabled}
             />
             <p className="text-xs text-muted-foreground">
-              {t('starship.modules.languages.versionFormatDesc')}
+              {t('starship.modules.techStack.versionFormatDesc')}
             </p>
           </div>
         </div>

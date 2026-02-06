@@ -1,3 +1,7 @@
+// Legacy issue: Originally, character\directory\git\time\languages were all written in one navlink in home.tsx, named module-editor
+// Now the navlinks are separated, but the module-editor component is still retained as a unified abstraction for these five navlinks
+// 历史遗留问题：原本character\directory\git\time\languages全部写在home.tsx上的一个navlink里，就名为module-editor
+// 现在将这些navlink分开，但仍然保留module-editor这个组件，作为这五个navlink的统一抽象
 import { useState } from 'react';
 import { ChevronRight, Terminal, FolderOpen, GitBranch, Clock, Code } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
@@ -42,9 +46,9 @@ export function ModuleEditor() {
     },
     {
       id: 'languages' as const,
-      name: t('starship.modules.languages.name'),
+      name: t('starship.modules.techStack.name'),
       icon: Code,
-      description: t('starship.modules.languages.description'),
+      description: t('starship.modules.techStack.description'),
     },
   ];
 

@@ -186,10 +186,10 @@
         "use12hrDesc": "使用带 AM/PM 的 12 小时时间格式",
         "saveSuccess": "时间模块已保存"
       },
-      "languages": {
-        "name": "语言",
+      "techStack": {
+        "name": "技术栈",
         "description": "运行时版本",
-        "title": "语言模块",
+        "title": "技术栈模块",
         "subtitle": "配置编程语言版本在提示符中的显示方式。",
         "disable": "禁用 {{name}} 模块",
         "disableDesc": "从提示符中隐藏 {{name}} 版本",

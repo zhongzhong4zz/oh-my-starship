@@ -186,10 +186,10 @@
         "use12hrDesc": "使用帶 AM/PM 的 12 小時時間格式",
         "saveSuccess": "時間模組已儲存"
       },
-      "languages": {
-        "name": "語言",
+      "techStack": {
+        "name": "技術棧",
         "description": "執行時版本",
-        "title": "語言模組",
+        "title": "技術棧模組",
         "subtitle": "設定程式語言版本在提示符中的顯示方式。",
         "disable": "停用 {{name}} 模組",
         "disableDesc": "從提示符中隱藏 {{name}} 版本",

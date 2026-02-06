@@ -130,7 +130,7 @@ export function Home() {
             }
           >
             <Code className="h-4 w-4" />
-            {t('starship.modules.languages.name')}
+            {t('starship.modules.techStack.name')}
           </NavLink>
           <NavLink
             to="/config-list"

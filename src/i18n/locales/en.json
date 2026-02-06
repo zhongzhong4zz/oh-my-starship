@@ -186,10 +186,10 @@
         "use12hrDesc": "Use 12-hour time format with AM/PM",
         "saveSuccess": "Time module saved"
       },
-      "languages": {
-        "name": "Languages",
+      "techStack": {
+        "name": "Tech Stack",
         "description": "Runtime versions",
-        "title": "Language Modules",
+        "title": "Tech Stack Modules",
         "subtitle": "Configure how programming language versions are displayed in your prompt.",
         "disable": "Disable {{name}} Module",
         "disableDesc": "Hide {{name}} version from your prompt",
