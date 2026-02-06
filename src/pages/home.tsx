@@ -43,21 +43,6 @@ export function Home() {
             {t('starship.tabs.presets')}
           </NavLink>
           <NavLink
-            to="/starship/toml"
-            end
-            className={({ isActive }) =>
-              cn(
-                'flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-200',
-                isActive
-                  ? 'bg-primary/10 text-primary shadow-sm'
-                  : 'text-muted-foreground hover:bg-accent hover:text-foreground'
-              )
-            }
-          >
-            <FileText className="h-4 w-4" />
-            {t('starship.tabs.toml')}
-          </NavLink>
-          <NavLink
             to="/starship/modules/character"
             end
             className={({ isActive }) =>
@@ -131,6 +116,21 @@ export function Home() {
           >
             <Code className="h-4 w-4" />
             {t('starship.modules.techStack.name')}
+          </NavLink>
+          <NavLink
+            to="/starship/toml"
+            end
+            className={({ isActive }) =>
+              cn(
+                'flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-200',
+                isActive
+                  ? 'bg-primary/10 text-primary shadow-sm'
+                  : 'text-muted-foreground hover:bg-accent hover:text-foreground'
+              )
+            }
+          >
+            <FileText className="h-4 w-4" />
+            {t('starship.tabs.toml')}
           </NavLink>
           <NavLink
             to="/config-list"
